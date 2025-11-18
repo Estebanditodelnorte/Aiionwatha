@@ -1,0 +1,490 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const navLinks = [
+	{ label: 'Accueil', href: '#accueil' },
+	{ label: 'À propos', href: '#apropos' },
+	{ label: 'Services', href: '#services' },
+	{ label: 'Valeurs', href: '#valeurs' },
+	{ label: 'Contact', href: '#contact' }
+];
+
+const reasons = [
+	{
+		title: 'Modèle sans risque',
+		text: 'Aucuns frais initiaux : la rémunération se fait uniquement lorsque votre financement est accordé.'
+	},
+	{
+		title: 'Expertise autochtone',
+		text: 'Ancrés à Wendake, nous intégrons les réalités culturelles des Premières Nations à chaque projet.'
+	},
+	{
+		title: 'Optimisation des processus',
+		text: 'Méthodologie IA + expérience terrain pour accélérer les demandes, réduire les délais et sécuriser les livrables.'
+	}
+];
+
+const services = [
+	{
+		title: 'Optimisation des subventions',
+		text: 'Veille stratégique, rédaction des dossiers, preuves d’impact et suivi complet auprès des bailleurs.'
+	},
+	{
+		title: 'Consultation en gestion',
+		text: 'Clarification de la vision, structuration budgétaire et accompagnement opérationnel durant le cycle du projet.'
+	},
+	{
+		title: 'Formations sur les subventions',
+		text: 'Ateliers pratiques pour rendre vos équipes autonomes dans la recherche de programmes et la préparation des demandes.'
+	}
+];
+
+const values = [
+	{
+		title: 'Respect',
+		text: 'Chaque mandat est mené avec écoute et transparence afin d’honorer les identités, les traditions et les alliés impliqués.'
+	},
+	{ title: 'Autodétermination', text: 'Nous renforçons l’autonomie décisionnelle des communautés accompagnées pour que la gouvernance leur appartienne.' },
+	{
+		title: 'Développement durable',
+		text: 'Les stratégies proposées concilient impact économique, transmission culturelle et responsabilité environnementale.'
+	}
+];
+---
+
+<Layout>
+	<header class="site-header" id="accueil">
+		<div class="container header-nav">
+			<div class="branding">
+				<span>Aiionwatha</span>
+				<small>Conseils en gestion</small>
+			</div>
+			<nav class="nav-links">
+				{navLinks.map((link) => (
+					<a href={link.href}>{link.label}</a>
+				))}
+			</nav>
+			<a class="button primary small" href="https://calendly.com/steven-germain-gl" target="_blank" rel="noreferrer">
+				Prendre rendez-vous
+			</a>
+		</div>
+	</header>
+
+	<section class="hero">
+		<div class="container hero-grid">
+			<div class="hero-copy">
+				<span class="tag">Entreprise autochtone</span>
+				<h1>Consultation en gestion</h1>
+				<p class="intro-text">
+					Aiionwatha est un partenaire enraciné à Wendake qui unit l’innovation et les traditions pour accélérer des projets communautaires,
+					culturels et économiques.
+				</p>
+				<p>
+					Nous accompagnons les petites entreprises et organismes dans l’obtention de subventions, sans frais initiaux, grâce à une maîtrise
+					pointue des processus administratifs et des outils IA.
+				</p>
+				<div class="hero-ctas">
+					<a class="button primary" href="https://calendly.com/steven-germain-gl" target="_blank" rel="noreferrer">Parler à un expert</a>
+					<a class="button secondary" href="#services">Explorer nos services</a>
+				</div>
+				<ul class="hero-list">
+					<li>Modèle sans risque – commission de 10 % seulement lorsque votre financement est obtenu.</li>
+					<li>Perspective autochtone qui aligne modernité, culture et retombées locales.</li>
+					<li>Réseau de partenaires pour accélérer les étapes clés (finances, juridique, communication).</li>
+				</ul>
+			</div>
+			<div class="hero-media">
+				<img src="/images/hero.webp" loading="lazy" alt="Optimisation des subventions pour maximiser les financements des projets innovants." />
+				<div class="hero-badge">
+					<strong>+10 ans</strong>
+					<span>d’expérience en financement d’initiatives communautaires</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="about" id="apropos">
+		<div class="container about-grid">
+			<div>
+				<p class="section-title">Vision</p>
+				<h2>Vous avez un projet ambitieux en tête ? Ensemble, faisons-le grandir.</h2>
+				<p>
+					Inspiré par la figure d’Aïonhwá:tha, artisan de paix et d’innovation collective, Aiionwatha rassemble les expertises nécessaires pour
+					donner vie à vos idées. Notre méthodologie s’appuie sur la co-création, l’écoute active et le souci des résultats mesurables.
+				</p>
+				<p>
+					En tant qu’entreprise autochtone, nous savons naviguer les programmes gouvernementaux, les critères ESG et les réalités des PME
+					innovantes. Nous vous faisons gagner du temps, éliminons le stress administratif et transformons vos initiatives en réussites
+					durables.
+				</p>
+			</div>
+			<div class="card-stack">
+				{reasons.map((reason) => (
+					<div class="card">
+						<h3>{reason.title}</h3>
+						<p>{reason.text}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="founder">
+		<div class="container founder-grid">
+			<div class="founder-text">
+				<p class="section-title">Leadership</p>
+				<h2>Steven Germain Gros-Louis</h2>
+				<h3>Votre catalyseur de changement</h3>
+				<p>
+					Plus de dix ans d’expérience en gestion, économie et accompagnement de communautés me permettent d’unir vision stratégique et
+					ancrage culturel. Je travaille aux côtés des dirigeants et des porteurs de projets pour clarifier les objectifs, structurer les plans
+					de financement et bâtir des solutions pérennes.
+				</p>
+				<p>
+					J’ai eu le privilège de soutenir des organismes culturels, des PME en croissance et des leaders communautaires qui souhaitaient
+					maximiser l’impact de leurs initiatives. Ensemble, nous transformons les idées ambitieuses en réussites tangibles.
+				</p>
+				<div class="hero-ctas">
+					<a class="button primary" href="mailto:steven.germain.gl@gmail.com">Écrire à Steven</a>
+					<a class="button secondary" href="tel:+15815782260">Appeler (581) 578-2260</a>
+				</div>
+			</div>
+			<div class="founder-media">
+				<img src="/images/founder.jpg" alt="Stratégies de négociation pour renforcer vos partenariats et optimiser vos financements." loading="lazy" />
+			</div>
+		</div>
+	</section>
+
+	<section class="services" id="services">
+		<div class="container">
+			<p class="section-title">Nos services</p>
+			<h2>Obtenez le financement dont vous avez besoin</h2>
+			<div class="card-grid">
+				{services.map((service) => (
+					<div class="card">
+						<h3>{service.title}</h3>
+						<p>{service.text}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="story">
+		<div class="container story-grid">
+			<div>
+				<p class="section-title">Subventions pour PME</p>
+				<h2>Ne passez pas à côté des opportunités</h2>
+				<p>
+					Aiionwatha est une entreprise autochtone dédiée à l’accompagnement des projets innovants et à la valorisation des cultures
+					traditionnelles. Nous proposons des solutions sur mesure, respectueuses des valeurs locales et adaptées aux besoins spécifiques des
+					communautés.
+				</p>
+				<p>Ensemble, nous créons des initiatives durables, inclusives et porteuses de sens.</p>
+				<a class="button primary" href="https://calendly.com/steven-germain-gl" target="_blank" rel="noreferrer">Planifier une rencontre</a>
+			</div>
+			<div class="accent-box">
+				<figure>
+					<img src="/images/testimonial.png" alt="Illustration sur la planification stratégique" loading="lazy" />
+				</figure>
+				<p class="testimonial">
+					« Nous recommandons grandement Steven pour sa flexibilité, son engagement, son intégrité et sa rigueur dans la gestion des délais. Il
+					a joué un rôle significatif dans la planification de notre projet et la rédaction de documents complexes. »
+				</p>
+				<p class="testimonial-author">
+					<strong>Diane Andicha Picard</strong><br />Vice-présidente – Rendez-vous des artisans et artistes de Wendake
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="values" id="valeurs">
+		<div class="container">
+			<p class="section-title">Notre approche</p>
+			<h2>Aiionwatha, un conseiller présent à chaque étape</h2>
+			<div class="values-grid">
+				{values.map((value, index) => (
+					<div class="value-card">
+						<span>{String(index + 1).padStart(2, '0')}</span>
+						<h3>{value.title}</h3>
+						<p>{value.text}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="cta" id="contact">
+		<div class="container cta-box">
+			<div>
+				<p class="section-title">Contact</p>
+				<h2>Transformez vos idées en réussites durables avec Aiionwatha</h2>
+				<p>
+					Du premier diagnostic jusqu’au dépôt final, nous restons à vos côtés pour sécuriser les financements, gérer la gouvernance et
+					partager les enseignements.
+				</p>
+			</div>
+			<div class="cta-actions">
+				<a class="button primary" href="https://calendly.com/steven-germain-gl" target="_blank" rel="noreferrer">Planifier une session</a>
+				<a class="button secondary" href="mailto:steven.germain.gl@gmail.com">steven.germain.gl@gmail.com</a>
+			</div>
+		</div>
+	</section>
+
+	<footer class="footer">
+		<div class="container">
+			<div class="branding footer-branding">
+				<span>Aiionwatha</span>
+				<small>Conseils en gestion</small>
+			</div>
+			<div class="footer-contact">
+				<span>⭐ ⭐ ⭐ ⭐ ⭐</span>
+				<a href="tel:+15815782260">(581) 578-2260</a>
+				<a href="mailto:steven.germain.gl@gmail.com">steven.germain.gl@gmail.com</a>
+			</div>
+			<div class="footer-nav">
+				{navLinks.map((link) => (
+					<a href={link.href}>{link.label}</a>
+				))}
+			</div>
+			<p>Politique de confidentialité • Copyright © {new Date().getFullYear()} Aiionwatha – Tous droits réservés.</p>
+			<p class="credits">Site web recréé avec Astro pour préparer la migration depuis WordPress.</p>
+		</div>
+	</footer>
+
+	<style>
+		.site-header {
+			position: sticky;
+			top: 0;
+			background: rgba(248, 246, 240, 0.95);
+			backdrop-filter: blur(10px);
+			border-bottom: 1px solid rgba(13, 59, 47, 0.05);
+			z-index: 20;
+			padding: 1rem 1.5rem;
+		}
+
+		.header-nav {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 1rem;
+		}
+
+		.branding span {
+			font-size: 1.4rem;
+			font-weight: 700;
+			display: block;
+		}
+
+		.branding small {
+			font-size: 0.85rem;
+			color: var(--color-muted);
+		}
+
+		.nav-links {
+			display: flex;
+			align-items: center;
+			gap: 1.25rem;
+			font-weight: 500;
+		}
+
+		.nav-links a {
+			position: relative;
+			padding-bottom: 0.2rem;
+		}
+
+		.nav-links a::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 0;
+			height: 2px;
+			background: var(--color-fern);
+			transition: width 0.2s ease;
+		}
+
+		.nav-links a:hover::after {
+			width: 100%;
+		}
+
+		.button.small {
+			padding: 0.65rem 1.4rem;
+			font-size: 0.95rem;
+		}
+
+		.hero {
+			background: radial-gradient(circle at top right, rgba(20, 108, 67, 0.15), transparent 60%), var(--color-cream);
+			padding-top: 5rem;
+			padding-bottom: 4rem;
+		}
+
+		.hero-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+			gap: 2rem;
+			align-items: center;
+		}
+
+		.hero-copy h1 {
+			font-size: clamp(2.2rem, 4vw, 3.6rem);
+			margin-bottom: 1rem;
+		}
+
+		.hero-media {
+			position: relative;
+		}
+
+		.hero-media img {
+			border-radius: 2rem;
+			box-shadow: 0 40px 80px rgba(6, 24, 12, 0.2);
+			border: 1px solid rgba(255, 255, 255, 0.7);
+		}
+
+		.hero-badge {
+			position: absolute;
+			bottom: -1.5rem;
+			left: 1.5rem;
+			background: #fff;
+			padding: 1rem 1.5rem;
+			border-radius: 1rem;
+			box-shadow: 0 20px 45px rgba(6, 24, 12, 0.15);
+			max-width: 260px;
+		}
+
+		.hero-badge strong {
+			font-size: 1.5rem;
+			display: block;
+			color: var(--color-forest);
+		}
+
+		.hero-ctas {
+			display: flex;
+			gap: 1rem;
+			flex-wrap: wrap;
+			margin: 1.5rem 0;
+		}
+
+		.hero-list {
+			list-style: none;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			gap: 0.8rem;
+		}
+
+		.hero-list li {
+			display: flex;
+			gap: 0.6rem;
+		}
+
+		.hero-list li::before {
+			content: '•';
+			color: var(--color-fern);
+		}
+
+		.about {
+			background: #fff;
+		}
+
+		.about-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 2.5rem;
+			align-items: start;
+		}
+
+		.card-stack {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+
+		.founder {
+			background: var(--color-cream);
+		}
+
+		.founder-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 2rem;
+			align-items: center;
+		}
+
+		.founder-media img {
+			border-radius: 1.5rem;
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+			box-shadow: 0 25px 60px rgba(6, 24, 12, 0.15);
+		}
+
+		.services .card-grid .card {
+			min-height: 220px;
+		}
+
+		.story {
+			background: linear-gradient(180deg, #fdfcf8 0%, #f6f1e6 100%);
+		}
+
+		.story-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 2.5rem;
+			align-items: start;
+		}
+
+		.testimonial {
+			font-size: 1.1rem;
+			font-weight: 500;
+			line-height: 1.6;
+		}
+
+		.testimonial-author {
+			margin-top: 1rem;
+			color: var(--color-muted);
+		}
+
+		.cta {
+			padding-top: 2rem;
+			padding-bottom: 4rem;
+		}
+
+		.cta-box {
+			background: #fff;
+			border-radius: 2rem;
+			padding: clamp(2rem, 4vw, 3rem);
+			box-shadow: 0 30px 80px rgba(6, 24, 12, 0.12);
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 1.5rem;
+			align-items: center;
+		}
+
+		.cta-actions {
+			display: flex;
+			flex-direction: column;
+			gap: 0.75rem;
+			align-items: flex-start;
+		}
+
+		.footer-branding span {
+			color: #fff;
+		}
+
+		.credits {
+			font-size: 0.85rem;
+			color: rgba(255, 255, 255, 0.7);
+		}
+
+		@media (max-width: 900px) {
+			.nav-links {
+				display: none;
+			}
+
+			.site-header {
+				position: static;
+			}
+		}
+	</style>
+</Layout>

@@ -1,0 +1,30 @@
+---
+import '../styles/global.css';
+const {
+	title = 'Aiionwatha - Optimisez vos subventions',
+	description = "Aiionwatha accompagne les organisations autochtones et les PME à décrocher des subventions et à structurer leurs projets grâce à l'IA et à une expertise terrain."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr-CA">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="icon" href="/images/logo.png" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap"
+		/>
+	</head>
+	<body>
+		<div class="page">
+			<slot />
+		</div>
+	</body>
+</html>
