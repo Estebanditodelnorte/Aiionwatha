@@ -9,7 +9,7 @@ const content = pageContent.en;
 const { meta, alternates, navLinks, hero, about, reasons, founder, services, story, values, topCtas, cta, footer } = content;
 ---
 
-<Layout title={meta.title} description={meta.description} url={meta.url} image={meta.image} locale={meta.locale} alternates={alternates}>
+<Layout title={meta.title} description={meta.description} url={meta.url} image={meta.image} ogImageAlt={meta.imageAlt} locale={meta.locale} alternates={alternates}>
 	<header class="site-header" id="home">
 		<div class="container header-nav">
 			<div class="branding header-branding">
@@ -81,13 +81,25 @@ const { meta, alternates, navLinks, hero, about, reasons, founder, services, sto
 		<div class="container">
 			<p class="section-title">{services.sectionTitle}</p>
 			<h2>{services.heading}</h2>
-			<div class="card-grid">
-				{services.cards.map((service) => (
-					<div class="card">
-						<h3>{service.title}</h3>
-						<p>{service.text}</p>
-					</div>
-				))}
+			<div class="table-wrap">
+				<table class="services-table">
+					<thead>
+						<tr>
+							<th>Service</th>
+							<th>Deliverable</th>
+							<th>Why now</th>
+						</tr>
+					</thead>
+					<tbody>
+						{services.rows.map((row) => (
+							<tr>
+								<td>{row.title}</td>
+								<td>{row.deliverable}</td>
+								<td>{row.value}</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</section>
@@ -236,8 +248,39 @@ const { meta, alternates, navLinks, hero, about, reasons, founder, services, sto
 			box-shadow: 0 25px 60px rgba(6, 24, 12, 0.15);
 		}
 
-		.services .card-grid .card {
-			min-height: 220px;
+		.table-wrap {
+			overflow-x: auto;
+			border-radius: 1.25rem;
+			box-shadow: 0 20px 50px rgba(6, 24, 12, 0.08);
+			background: #fff;
+		}
+
+		.services-table {
+			width: 100%;
+			border-collapse: collapse;
+			min-width: 320px;
+		}
+
+		.services-table th,
+		.services-table td {
+			text-align: left;
+			padding: 1rem 1.25rem;
+			vertical-align: top;
+		}
+
+		.services-table thead {
+			background: rgba(20, 108, 67, 0.08);
+			color: var(--color-deep-green);
+		}
+
+		.services-table tbody tr:nth-child(odd) {
+			background: rgba(0, 0, 0, 0.01);
+		}
+
+		.services-table th:first-child,
+		.services-table td:first-child {
+			min-width: 180px;
+			font-weight: 700;
 		}
 
 		.cta {

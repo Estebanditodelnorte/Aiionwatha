@@ -74,7 +74,16 @@ const faqs = [
 ];
 ---
 
-<Layout title={metadata.title} description={metadata.description} url={metadata.url} image={metadata.image} locale={metadata.locale} alternates={alternates}>
+<Layout
+	title={metadata.title}
+	description={metadata.description}
+	url={metadata.url}
+	image={metadata.image}
+	ogImageAlt="Optimisation des subventions pour maximiser les financements des projets innovants."
+	locale={metadata.locale}
+	alternates={alternates}
+	faqItems={faqs}
+>
 	<SiteHeader
 		navLinks={navLinks}
 		brandingSmall={footer.brandingSmall}

@@ -6,6 +6,7 @@ export const pageContent = {
 				"Aiionwatha accompagne les organisations autochtones et les PME à décrocher des subventions et à structurer leurs projets grâce à l'IA et à une expertise terrain.",
 			url: "https://www.aiionwatha.com/",
 			image: "/images/wp-uploads/2025/01/subventions-autochtones-wendake.webp",
+			imageAlt: "Optimisation des subventions pour maximiser les financements des projets innovants.",
 			locale: "fr_CA"
 		},
 		alternates: [
@@ -82,19 +83,57 @@ export const pageContent = {
 		},
 		services: {
 			sectionTitle: "Nos services",
-			heading: "Obtenez le financement dont vous avez besoin",
-			cards: [
+			heading: "Tableau des services et pourquoi le faire maintenant",
+			rows: [
 				{
 					title: "Optimisation des subventions",
-					text: "Veille stratégique, rédaction des dossiers, preuves d'impact et suivi complet auprès des bailleurs."
+					deliverable: "Veille stratégique, montage des dossiers, preuves d'impact, coordination complète avec bailleurs.",
+					value: "Sécurise les financements, réduit les refus et fonctionne en modèle sans risque."
 				},
 				{
-					title: "Consultation en gestion",
-					text: "Clarification de la vision, structuration budgétaire et accompagnement opérationnel durant le cycle du projet."
+					title: "Consultation stratégique & gestion de projet",
+					deliverable: "Clarification de la vision, structuration budgétaire, suivi des jalons et PMO allégé.",
+					value: "Diminue les retards et les dépassements, garde la gouvernance alignée."
 				},
 				{
-					title: "Formations sur les subventions",
-					text: "Ateliers pratiques pour rendre vos équipes autonomes dans la recherche de programmes et la préparation des demandes."
+					title: "Formations & guides subventions",
+					deliverable: "Ateliers pratiques, SOP, checklists et gabarits pour vos équipes.",
+					value: "Rend vos équipes autonomes, standardise la qualité des dépôts."
+				},
+				{
+					title: "Optimisation sécurité & performance web",
+					deliverable: "Audit Core Web Vitals, sécurisation, durcissement, plan d’amélioration.",
+					value: "Améliore l'expérience, le SEO et la confiance des bailleurs/clients."
+				},
+				{
+					title: "Design web & graphisme léger",
+					deliverable: "Landing pages ciblées, UX claire, visuels et microcopies de conversion.",
+					value: "Hausse le taux de conversion et la crédibilité des dossiers et campagnes."
+				},
+				{
+					title: "Construction de documents clés",
+					deliverable: "Plans d’affaires, budgets, pitch decks, preuves d’impact, révision et mise en forme.",
+					value: "Dossiers cohérents et convaincants qui passent les comités plus vite."
+				},
+				{
+					title: "Relations médias & relations publiques",
+					deliverable: "Messages clés, communiqués, préparation d’entrevues et retombées presse.",
+					value: "Renforce la visibilité et l’acceptabilité sociale des projets."
+				},
+				{
+					title: "Partenariats (local, national, international)",
+					deliverable: "Ciblage et négociation de partenaires institutionnels, associatifs et privés.",
+					value: "Accélère le cofinancement et crédibilise les initiatives."
+				},
+				{
+					title: "Développement produits touristiques / attractions",
+					deliverable: "Conception de produits, marketing, positionnement, billetterie et expériences.",
+					value: "Crée de nouveaux revenus et dynamise la destination."
+				},
+				{
+					title: "Organisation d’événements",
+					deliverable: "Logistique, programmation, opérations terrain, commandites.",
+					value: "Augmente l’engagement et la rentabilité des événements."
 				}
 			]
 		},
@@ -155,6 +194,7 @@ export const pageContent = {
 			description: "Aiionwatha helps Indigenous organizations and SMBs secure grants and structure projects with AI-enabled expertise.",
 			url: "https://www.aiionwatha.com/en/",
 			image: "/images/wp-uploads/2025/01/subventions-autochtones-wendake.webp",
+			imageAlt: "Grant optimization to maximize funding for innovative projects.",
 			locale: "en_CA"
 		},
 		alternates: [
@@ -231,19 +271,57 @@ export const pageContent = {
 		},
 		services: {
 			sectionTitle: "Our services",
-			heading: "Secure the funding you need",
-			cards: [
+			heading: "Services table and why to do them now",
+			rows: [
 				{
 					title: "Grant optimization",
-					text: "Strategic intel, file preparation, impact evidence, and full coordination with funders."
+					deliverable: "Program scouting, file prep, impact evidence, full liaison with funders.",
+					value: "Secures funding faster, lowers rejection risk, and uses a risk-free model."
 				},
 				{
-					title: "Management consulting",
-					text: "Clarify your vision, structure budgets, and stay on track through every project milestone."
+					title: "Strategic advisory & project delivery",
+					deliverable: "Vision alignment, budget structure, milestone tracking, lightweight PMO.",
+					value: "Cuts delays/overruns and keeps leadership aligned."
 				},
 				{
-					title: "Grant training",
-					text: "Hands-on workshops so your teams can find programs and craft winning applications."
+					title: "Training + guides",
+					deliverable: "Workshops, SOPs, checklists, templates for your teams.",
+					value: "Builds autonomy and standardizes application quality."
+				},
+				{
+					title: "Web security & performance optimization",
+					deliverable: "Core Web Vitals audit, hardening, remediation plan.",
+					value: "Improves UX/SEO and trust with funders and clients."
+				},
+				{
+					title: "Web design & light graphics",
+					deliverable: "Focused landing pages, clear UX, visuals and microcopy for conversion.",
+					value: "Raises conversion rates and credibility for campaigns and dossiers."
+				},
+				{
+					title: "Key document production",
+					deliverable: "Business plans, budgets, pitch decks, impact proofs, edits and formatting.",
+					value: "Creates consistent, persuasive packages for committees."
+				},
+				{
+					title: "Media relations & PR",
+					deliverable: "Key messages, press releases, interview prep, coverage follow-up.",
+					value: "Boosts visibility and social acceptance for projects."
+				},
+				{
+					title: "Partnerships (local, national, international)",
+					deliverable: "Targeting and negotiating institutional, association, and private partners.",
+					value: "Accelerates co-funding and strengthens credibility."
+				},
+				{
+					title: "Tourism product / attraction development",
+					deliverable: "Concept, marketing, positioning, ticketing/experience design.",
+					value: "Generates new revenue and energizes the destination."
+				},
+				{
+					title: "Event organization",
+					deliverable: "Logistics, programming, onsite operations, sponsorships.",
+					value: "Drives engagement and event profitability."
 				}
 			]
 		},

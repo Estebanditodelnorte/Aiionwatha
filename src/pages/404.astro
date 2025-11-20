@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const meta = {
+	title: 'Page non trouvée – Aiionwatha',
+	description: 'La page demandée est introuvable. Retournez à l’accueil ou consultez nos services.',
+	url: 'https://www.aiionwatha.com/404',
+	image: '/images/hero.webp',
+	locale: 'fr_CA'
+};
+
+const alternates = [
+	{ href: 'https://www.aiionwatha.com/en/404', hreflang: 'en-CA' },
+	{ href: 'https://www.aiionwatha.com/', hreflang: 'x-default' }
+];
+---
+
+<Layout title={meta.title} description={meta.description} url={meta.url} image={meta.image} locale={meta.locale} alternates={alternates}>
+	<section class="not-found">
+		<div class="container">
+			<p class="section-title">404</p>
+			<h1>Page introuvable</h1>
+			<p>La ressource que vous cherchez n’existe plus ou a été déplacée.</p>
+			<div class="actions">
+				<a class="button primary" href="/">Retour à l’accueil</a>
+				<a class="button secondary" href="/#contact">Nous contacter</a>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.not-found {
+		min-height: 60vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+	}
+
+	.actions {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		margin-top: 1.5rem;
+		flex-wrap: wrap;
+	}
+</style>

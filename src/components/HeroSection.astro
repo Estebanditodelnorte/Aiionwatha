@@ -60,7 +60,7 @@ const { hero } = Astro.props;
 						)}
 					</div>
 				)}
-				<img src="/images/hero.webp" loading="lazy" alt={hero.mediaAlt} />
+				<img src="/images/hero.webp" loading="eager" fetchpriority="high" alt={hero.mediaAlt} />
 			<div class="hero-badge">
 				<strong>{hero.badge.headline}</strong>
 				<span>{hero.badge.subline}</span>
