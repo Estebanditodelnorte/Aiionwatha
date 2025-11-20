@@ -1,28 +1,43 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { pageContent } from '../content/siteContent';
-import HeroSection from '../components/HeroSection.astro';
-import GallerySection from '../components/GallerySection.astro';
-import SiteFooter from '../components/SiteFooter.astro';
-import SiteHeader from '../components/SiteHeader.astro';
+import Layout from '../../layouts/Layout.astro';
+import { pageContent } from '../../content/siteContent';
+import HeroSection from '../../components/HeroSection.astro';
+import GallerySection from '../../components/GallerySection.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
 
-const content = pageContent.fr;
+const content = pageContent.en;
 const { meta, alternates, navLinks, hero, about, reasons, founder, services, story, values, topCtas, cta, footer } = content;
 ---
 
 <Layout title={meta.title} description={meta.description} url={meta.url} image={meta.image} locale={meta.locale} alternates={alternates}>
-	<SiteHeader
-		navLinks={navLinks}
-		brandingSmall={footer.brandingSmall}
-		calendlyUrl={topCtas.calendly}
-		primaryCtaLabel="Prendre rendez-vous"
-		langToggle={{ label: 'English', href: '/en', ariaLabel: 'Voir la version anglaise du site', lang: 'en' }}
-		anchorId="accueil"
-	/>
+	<header class="site-header" id="home">
+		<div class="container header-nav">
+			<div class="branding header-branding">
+				<img class="branding-logo" src="/images/logo-aiionwatha-conseils.svg" alt="Aiionwatha Conseils en gestion logo" width="56" height="56" loading="lazy" />
+				<div class="branding-text">
+					<span>Aiionwatha</span>
+					<small>{footer.brandingSmall}</small>
+				</div>
+			</div>
+			<nav class="nav-links">
+				{navLinks.map((link) => (
+					<a href={link.href}>{link.label}</a>
+				))}
+			</nav>
+			<div class="header-actions">
+				<a class="lang-toggle" href="/" lang="fr" aria-label="View the French version of the site">
+					Français
+				</a>
+				<a class="button primary small" href={topCtas.calendly} target="_blank" rel="noreferrer">
+					Book a call
+				</a>
+			</div>
+		</div>
+	</header>
 
 	<HeroSection hero={hero} />
 
-	<section class="about" id="apropos">
+	<section class="about" id="about">
 		<div class="container about-grid">
 			<div>
 				<p class="section-title">{about.sectionTitle}</p>
@@ -57,7 +72,7 @@ const { meta, alternates, navLinks, hero, about, reasons, founder, services, sto
 				</div>
 			</div>
 			<div class="founder-media">
-				<img src="/images/start-up-weekend-2018.webp" alt="Steven Germain Gros-Louis lors du Start-up Weekend 2018" loading="lazy" />
+				<img src="/images/start-up-weekend-2018.webp" alt="Steven Germain Gros-Louis at Start-up Weekend 2018" loading="lazy" />
 			</div>
 		</div>
 	</section>
@@ -79,7 +94,7 @@ const { meta, alternates, navLinks, hero, about, reasons, founder, services, sto
 
 	<GallerySection story={story} calendlyUrl={topCtas.calendly} />
 
-	<section class="values" id="valeurs">
+	<section class="values" id="values">
 		<div class="container">
 			<p class="section-title">{values.sectionTitle}</p>
 			<h2>{values.heading}</h2>
@@ -112,6 +127,79 @@ const { meta, alternates, navLinks, hero, about, reasons, founder, services, sto
 	<SiteFooter footer={footer} navLinks={navLinks} topCtas={topCtas} />
 
 	<style>
+		.site-header {
+			position: sticky;
+			top: 0;
+			background: rgba(248, 246, 240, 0.95);
+			backdrop-filter: blur(10px);
+			border-bottom: 1px solid rgba(13, 59, 47, 0.05);
+			z-index: 20;
+			padding: 1rem 1.5rem;
+		}
+
+		.header-nav {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 1rem;
+		}
+
+		.header-actions {
+			display: flex;
+			align-items: center;
+			gap: 0.75rem;
+		}
+
+		.header-branding {
+			display: flex;
+			align-items: center;
+			gap: 0.65rem;
+		}
+
+		.header-branding .branding-logo {
+			height: 52px;
+			width: auto;
+			display: block;
+		}
+
+		.branding span {
+			font-size: 1.4rem;
+			font-weight: 700;
+			display: block;
+		}
+
+		.branding small {
+			font-size: 0.85rem;
+			color: var(--color-muted);
+		}
+
+		.nav-links {
+			display: flex;
+			align-items: center;
+			gap: 1.25rem;
+			font-weight: 500;
+		}
+
+		.nav-links a {
+			position: relative;
+			padding-bottom: 0.2rem;
+		}
+
+		.nav-links a::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 0;
+			height: 2px;
+			background: var(--color-fern);
+			transition: width 0.2s ease;
+		}
+
+		.nav-links a:hover::after {
+			width: 100%;
+		}
+
 		.about {
 			background: #fff;
 		}

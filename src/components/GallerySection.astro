@@ -1,0 +1,70 @@
+---
+export interface Props {
+	story: {
+		sectionTitle: string;
+		heading: string;
+		paragraphs: string[];
+		button: string;
+		testimonial: string;
+		testimonialAuthor: string;
+		testimonialRole: string;
+	};
+	calendlyUrl: string;
+}
+
+const { story, calendlyUrl } = Astro.props;
+---
+
+<section class="story">
+	<div class="container story-grid">
+		<div>
+			<p class="section-title">{story.sectionTitle}</p>
+			<h2>{story.heading}</h2>
+			{story.paragraphs.map((paragraph) => (
+				<p>{paragraph}</p>
+			))}
+			<a class="button primary" href={calendlyUrl} target="_blank" rel="noreferrer">{story.button}</a>
+		</div>
+		<div class="accent-box">
+			<figure>
+				<img src="/images/testimonial.png" alt="Illustration sur la planification stratégique" loading="lazy" />
+			</figure>
+			<p class="testimonial">{story.testimonial}</p>
+			<p class="testimonial-author">
+				<strong>{story.testimonialAuthor}</strong><br />
+				{story.testimonialRole}
+			</p>
+		</div>
+	</div>
+</section>
+
+<style>
+	.story {
+		background: linear-gradient(180deg, #fdfcf8 0%, #f6f1e6 100%);
+	}
+
+	.story-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2.5rem;
+		align-items: start;
+	}
+
+	.accent-box {
+		background: #eaffe0;
+		border-radius: 2rem;
+		padding: clamp(2rem, 4vw, 3.5rem);
+		box-shadow: 0 40px 80px rgba(11, 49, 34, 0.08);
+	}
+
+	.testimonial {
+		font-size: 1.1rem;
+		font-weight: 500;
+		line-height: 1.6;
+	}
+
+	.testimonial-author {
+		margin-top: 1rem;
+		color: var(--color-muted);
+	}
+</style>

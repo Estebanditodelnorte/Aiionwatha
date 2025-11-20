@@ -1,0 +1,154 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { pageContent } from '../../content/siteContent';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+
+const metadata = {
+	title: 'FAQ – Aiionwatha',
+	description:
+		'Common questions about Aiionwatha’s grant optimization, consulting practice, Law 25 support, and collaboration with Indigenous organizations and SMBs.',
+	url: 'https://www.aiionwatha.com/en/faq',
+	image: '/images/wp-uploads/2025/01/subventions-autochtones-wendake.webp',
+	locale: 'en_CA'
+};
+
+const alternates = [
+	{ href: 'https://www.aiionwatha.com/faq', hreflang: 'fr-CA' },
+	{ href: metadata.url, hreflang: 'x-default' }
+];
+
+const { navLinks, topCtas, footer } = pageContent.en;
+
+const faqs = [
+	{
+		question: 'What kind of projects does Aiionwatha support?',
+		answer:
+			'We work with innovative SMBs, Indigenous organizations, and community-led projects aiming to fund cultural, economic, or tech-driven initiatives. We assess the fit between your goals and available programs, then coordinate submissions and follow-ups.'
+	},
+	{
+		question: 'How do you analyze funding opportunities?',
+		answer:
+			'We begin with a short diagnostic, identify active programs, and outline required impact evidence. You receive a prioritised roadmap so your team knows which applications to tackle first.'
+	},
+	{
+		question: 'What does “no-risk model” mean?',
+		answer:
+			'We do not charge upfront fees; our compensation is activated once funding is secured. This model aligns our incentives with yours and eases budget pressure for organizations with limited cash flow.'
+	},
+	{
+		question: 'Can you collaborate with our internal team?',
+		answer:
+			'Absolutely. We can either lead the project or work alongside your analysts, providing templates, feedback, and quality control while transferring our methods.'
+	},
+	{
+		question: 'How do you help with Law 25 compliance?',
+		answer:
+			'We map personal data flows, clarify the required notices, and design retention schedules. When additional legal input is needed, we coordinate trusted partners to formalize policies and consent mechanisms.'
+	},
+	{
+		question: 'Do you only operate in Québec?',
+		answer:
+			'Most engagements are Quebec-based, but we collaborate across Canada whenever projects touch Indigenous realities or relevant federal programs.'
+	},
+	{
+		question: 'How do you measure project impact?',
+		answer:
+			'We define clear KPIs (Key Performance Indicators) upfront—economic outcomes, community participation, cultural transmission, ESG (Environmental, Social, and Governance) alignment—and integrate them into the deliverables to strengthen your application.'
+	},
+	{
+		question: 'Do you offer workshops or training?',
+		answer:
+			'Yes, we run workshops on program scouting, needs assessments, evidence gathering, and grant project management. Content is tailored to your internal teams.'
+	},
+	{
+		question: 'How long does it take to prepare a grant file?',
+		answer:
+			'Depending on complexity, expect 2–6 weeks to gather data, budgets, and letters. We schedule weekly checkpoints so decision-makers stay aligned.'
+	},
+	{
+		question: 'How do we get started?',
+		answer:
+			'Book a discovery call. We will review your objectives, current assets, and timeline, then present a custom roadmap to move forward.'
+	}
+];
+---
+
+<Layout title={metadata.title} description={metadata.description} url={metadata.url} image={metadata.image} locale={metadata.locale} alternates={alternates}>
+	<SiteHeader
+		navLinks={navLinks}
+		brandingSmall={footer.brandingSmall}
+		calendlyUrl={topCtas.calendly}
+		primaryCtaLabel="Book a call"
+		langToggle={{ label: 'Français', href: '/faq', ariaLabel: 'Voir la FAQ en français', lang: 'fr' }}
+		anchorId="faq-top"
+	/>
+
+	<main class="faq-page">
+		<header class="faq-hero">
+			<div class="container">
+				<p class="tag">Frequently asked questions</p>
+				<h1>FAQ Aiionwatha</h1>
+				<p>
+					Explore how we simplify grant applications, strategic consulting, and Law 25 compliance for Indigenous organizations and SMBs.
+				</p>
+			</div>
+		</header>
+
+		<section class="faq-container">
+			<div class="container">
+				{faqs.map((faq) => (
+					<article class="faq-item">
+						<h2>{faq.question}</h2>
+						<p>{faq.answer}</p>
+					</article>
+				))}
+			</div>
+		</section>
+	</main>
+
+	<SiteFooter footer={footer} navLinks={navLinks} topCtas={topCtas} />
+
+	<style>
+		.faq-hero {
+			background: linear-gradient(135deg, rgba(20, 108, 67, 0.12), rgba(48, 162, 58, 0.18));
+			padding: 3rem 1.5rem;
+		}
+
+		.faq-page h1 {
+			margin-bottom: 1rem;
+		}
+
+		.faq-container {
+			padding: 2.5rem 1.5rem 4rem;
+		}
+
+		.faq-container .container {
+			max-width: 900px;
+			margin: 0 auto;
+			background: #fff;
+			border-radius: 1.5rem;
+			padding: clamp(1.5rem, 4vw, 3rem);
+			box-shadow: 0 30px 70px rgba(6, 24, 12, 0.08);
+			display: flex;
+			flex-direction: column;
+			gap: 1.5rem;
+		}
+
+		.faq-item h2 {
+			margin-bottom: 0.5rem;
+			font-size: 1.3rem;
+		}
+
+		.faq-item p {
+			margin: 0;
+			line-height: 1.55;
+		}
+
+		@media (max-width: 700px) {
+			.faq-container .container {
+				padding: 1rem;
+			}
+		}
+	</style>
+</Layout>

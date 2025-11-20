@@ -1,0 +1,238 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { pageContent } from '../../content/siteContent';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+
+const metadata = {
+	title: 'Privacy Policy | Aiionwatha',
+	description: 'Aiionwatha protects personal information in line with Quebec\'s Law 25 and transparent data governance practices.',
+	url: 'https://www.aiionwatha.com/en/privacy-policy',
+	image: '/images/wp-uploads/2025/01/subventions-autochtones-wendake.webp',
+	locale: 'en_CA'
+};
+
+const alternates = [
+	{ href: 'https://www.aiionwatha.com/politique-de-confidentialite', hreflang: 'fr-CA' },
+	{ href: metadata.url, hreflang: 'x-default' }
+];
+
+const lastUpdated = 'January 5, 2025';
+const introParagraphs = [
+	"Welcome to Aiionwatha's website. We are committed to protecting the confidentiality of your personal information in accordance with Quebec Law 25 and industry best practices.",
+	"This privacy policy explains how we collect, use, share, and retain your data when you interact with our website. By using it, you consent to the practices outlined below."
+];
+
+const { navLinks, topCtas, footer } = pageContent.en;
+
+const sections = [
+	{
+		title: '1. Collection of personal information',
+		paragraphs: [
+			'We collect the personal information you voluntarily share with us (name, email, phone number, organization, etc.) when you complete a contact form, book a meeting, or request information.'
+		]
+	},
+	{
+		title: '2. Use of personal information',
+		paragraphs: ['Your information is used solely to:'],
+		list: [
+			'Respond to your inquiries and deliver the services you request.',
+			'Personalize your experience on the site and tailor our communications.',
+			'Provide updates related to products or services you purchased or evaluated.'
+		]
+	},
+	{
+		title: '3. Sharing personal information',
+		paragraphs: ['We only share your data with third parties in the following situations:'],
+		list: [
+			'When it is required to perform a mandate (e.g., with grant partners or technology vendors).',
+			'If required by law, regulation, or a court order.',
+			'When you have provided explicit and informed consent.'
+		]
+	},
+	{
+		title: '4. Data security',
+		paragraphs: [
+			'We adopt reasonable safeguards to prevent the loss, unauthorized access, disclosure, alteration, or destruction of your data.'
+		],
+		list: [
+			'Data storage: information is hosted on secure servers with restricted access limited to authorized personnel and vetted service providers.',
+			'Transmission: online forms use encrypted protocols (SSL/TLS) to protect sensitive data sent over the internet.'
+		],
+		note:
+			'No method of electronic storage or transmission is absolutely secure. We encourage every user to follow good cybersecurity practices when sharing personal information.'
+	},
+	{
+		title: '5. Retention period',
+		paragraphs: [
+			'We keep personal information only for the time required to achieve the purposes outlined in this policy or to meet our legal obligations.'
+		],
+		list: [
+			'Request or booking records: these details are retained for up to five years after a file is closed in order to provide aftercare, meet tax obligations, and support regulatory reporting.'
+		],
+		conclusion:
+			'Depending on the type of data and applicable legal requirements, some information may be deleted sooner or anonymized.'
+	},
+	{
+		title: '6. Your rights',
+		paragraphs: [
+			'You may request access to, rectification of, deletion of, or portability of your personal information. You can also withdraw consent whenever processing is based on it. To exercise these rights, write to <a href="mailto:steven.germain.gl@gmail.com">steven.germain.gl@gmail.com</a>.'
+		]
+	},
+	{
+		title: '7. Policy updates',
+		paragraphs: ['We may update this policy to reflect legal or operational changes. The effective date is always displayed at the top of the page.']
+	},
+	{
+		title: '8. Contact',
+		paragraphs: ['For any privacy or Law 25 questions, contact us at <a href="mailto:steven.germain.gl@gmail.com">steven.germain.gl@gmail.com</a>.']
+	}
+];
+---
+
+<Layout title={metadata.title} description={metadata.description} url={metadata.url} image={metadata.image} locale={metadata.locale} alternates={alternates}>
+	<SiteHeader
+		navLinks={navLinks}
+		brandingSmall={footer.brandingSmall}
+		calendlyUrl={topCtas.calendly}
+		primaryCtaLabel="Book a call"
+		langToggle={{ label: 'Français', href: '/politique-de-confidentialite', ariaLabel: 'Voir la version française', lang: 'fr' }}
+		anchorId="policy-top"
+	/>
+
+	<main class="policy">
+		<section class="policy-hero">
+			<div class="container">
+				<p class="tag">Quebec Law 25 compliance</p>
+				<h1>Privacy policy</h1>
+				<p>This page explains how Aiionwatha protects personal data collected through this website.</p>
+				<p class="last-updated">Last updated: {lastUpdated}</p>
+			</div>
+		</section>
+
+		<section class="policy-content">
+			<div class="container">
+				<div class="policy-lang-switch">
+					<a class="lang-toggle" href="/politique-de-confidentialite" lang="fr" aria-label="Voir la version française de cette politique">
+						Français
+					</a>
+				</div>
+				{introParagraphs.map((paragraph) => (
+					<p>{paragraph}</p>
+				))}
+
+				{sections.map((section) => (
+					<section class="policy-section">
+						<h2>{section.title}</h2>
+						{section.paragraphs?.map((paragraph) => (
+							<p set:html={paragraph} />
+						))}
+						{section.list && (
+							<ul>
+								{section.list.map((item) => (
+									<li>{item}</li>
+								))}
+							</ul>
+						)}
+						{section.note && <p class="note">{section.note}</p>}
+						{section.conclusion && <p>{section.conclusion}</p>}
+					</section>
+				))}
+			</div>
+		</section>
+	</main>
+
+	<SiteFooter footer={footer} navLinks={navLinks} topCtas={topCtas} />
+
+	<style>
+		.policy-hero {
+			background: linear-gradient(120deg, rgba(20, 108, 67, 0.1), rgba(48, 162, 58, 0.15)), var(--color-cream);
+			padding: 4rem 1.5rem;
+		}
+
+		.policy-hero .container {
+			max-width: var(--max-width);
+			margin: 0 auto;
+		}
+
+		.policy-hero h1 {
+			margin-bottom: 1rem;
+		}
+
+		.last-updated {
+			font-weight: 600;
+			color: var(--color-muted);
+		}
+
+		.policy-content {
+			padding: 2.5rem 1.25rem 3.5rem;
+		}
+
+		.policy-content .container {
+			max-width: 860px;
+			margin: 0 auto;
+			background: #fff;
+			border-radius: 1.5rem;
+			padding: clamp(1rem, 3vw, 2.25rem);
+			box-shadow: 0 30px 70px rgba(6, 24, 12, 0.08);
+		}
+
+		.policy-lang-switch {
+			display: flex;
+			justify-content: flex-end;
+			margin-bottom: 0.35rem;
+		}
+
+		.policy-lang-switch .lang-toggle {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.35rem;
+			border: 1px solid rgba(20, 108, 67, 0.4);
+			border-radius: 999px;
+			padding: 0.35rem 0.85rem;
+			font-size: 0.85rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+		}
+
+		.policy-content p {
+			margin-bottom: 0;
+			line-height: 1.35;
+		}
+
+		.policy-section {
+			margin-top: 0.65rem;
+		}
+
+		.policy-section h2 {
+			font-size: 1.18rem;
+			margin: 0;
+		}
+
+		.policy-section ul {
+			margin: 0 0 0.2rem 1.1rem;
+		}
+
+		.policy-section li {
+			margin-bottom: 0.5rem;
+		}
+
+		.note {
+			background: rgba(244, 248, 242, 1);
+			border-left: 3px solid var(--color-forest);
+			padding: 0.9rem 1rem;
+			border-radius: 0.75rem;
+		}
+
+		@media (max-width: 600px) {
+			.policy-content .container {
+				padding: 1rem;
+			}
+
+			.policy-section h2 {
+				font-size: 1.2rem;
+			}
+		}
+	</style>
+</Layout>

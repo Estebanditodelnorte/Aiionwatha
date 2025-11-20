@@ -1,0 +1,92 @@
+---
+export interface Props {
+	footer: {
+		brandingSmall: string;
+		ratingHtml: string;
+		policyLink?: { label: string; href: string };
+		legal: string;
+		legalSuffix: string;
+		credits?: string;
+	};
+	navLinks: { label: string; href: string }[];
+	topCtas: { phone: string; mail: string };
+}
+
+const { footer, navLinks, topCtas } = Astro.props;
+---
+
+<footer class="footer">
+	<div class="container">
+		<div class="branding footer-branding">
+			<span>Aiionwatha</span>
+			<small>{footer.brandingSmall}</small>
+		</div>
+		<div class="footer-contact">
+			<span set:html={footer.ratingHtml} />
+			<a href={topCtas.phone}>(581) 578-2260</a>
+			<a href={topCtas.mail}>steven.germain.gl@gmail.com</a>
+		</div>
+		<div class="footer-nav">
+			{navLinks.map((link) => (
+				<a href={link.href}>{link.label}</a>
+			))}
+		</div>
+		{footer.policyLink && (
+			<p class="policy-link">
+				<a href={footer.policyLink.href}>{footer.policyLink.label}</a>
+			</p>
+		)}
+		<p>
+			{footer.legal}
+			{new Date().getFullYear()}
+			{footer.legalSuffix}
+		</p>
+		{footer.credits && <p class="credits">{footer.credits}</p>}
+	</div>
+</footer>
+
+<style>
+	.footer {
+		background: var(--color-deep-green);
+		color: rgba(255, 255, 255, 0.85);
+		padding: 3rem 1.5rem 2rem;
+	}
+
+	.footer a {
+		color: inherit;
+	}
+
+	.footer-branding span {
+		color: #fff;
+	}
+
+	.footer-contact {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		font-weight: 500;
+	}
+
+	.footer-nav {
+		display: flex;
+		gap: 1.5rem;
+		flex-wrap: wrap;
+		margin: 1rem 0 2rem;
+	}
+
+	.policy-link {
+		margin: 1rem 0;
+		font-size: 0.95rem;
+		color: rgba(255, 255, 255, 0.85);
+	}
+
+	.policy-link a {
+		color: inherit;
+		text-decoration: underline;
+	}
+
+	.credits {
+		font-size: 0.85rem;
+		color: rgba(255, 255, 255, 0.7);
+	}
+</style>

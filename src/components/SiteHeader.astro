@@ -1,0 +1,159 @@
+---
+export interface NavLink {
+	label: string;
+	href: string;
+}
+
+export interface LangToggle {
+	label: string;
+	href: string;
+	ariaLabel: string;
+	lang: string;
+}
+
+export interface Props {
+	navLinks: NavLink[];
+	brandingSmall: string;
+	calendlyUrl: string;
+	primaryCtaLabel: string;
+	langToggle: LangToggle;
+	anchorId: string;
+}
+
+const { navLinks, brandingSmall, calendlyUrl, primaryCtaLabel, langToggle, anchorId } = Astro.props;
+---
+
+<header class="site-header" id={anchorId}>
+	<div class="container header-nav">
+		<div class="branding header-branding">
+			<img class="branding-logo" src="/images/logo-aiionwatha-conseils.svg" alt="Aiionwatha logo" width="56" height="56" loading="lazy" />
+			<div class="branding-text">
+				<span>Aiionwatha</span>
+				<small>{brandingSmall}</small>
+			</div>
+		</div>
+		<nav class="nav-links">
+			{navLinks.map((link) => (
+				<a href={link.href}>{link.label}</a>
+			))}
+		</nav>
+		<div class="header-actions">
+			<a class="lang-toggle" href={langToggle.href} lang={langToggle.lang} aria-label={langToggle.ariaLabel}>
+				{langToggle.label}
+			</a>
+			<a class="button primary small" href={calendlyUrl} target="_blank" rel="noreferrer">
+				{primaryCtaLabel}
+			</a>
+		</div>
+	</div>
+</header>
+
+<style>
+	.site-header {
+		position: sticky;
+		top: 0;
+		background: rgba(248, 246, 240, 0.95);
+		backdrop-filter: blur(10px);
+		border-bottom: 1px solid rgba(13, 59, 47, 0.05);
+		z-index: 20;
+		padding: 1rem 1.5rem;
+	}
+
+	.header-nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+
+	.header-branding {
+		display: flex;
+		align-items: center;
+		gap: 0.65rem;
+	}
+
+	.header-branding .branding-logo {
+		height: 52px;
+		width: auto;
+		display: block;
+	}
+
+	.branding span {
+		font-size: 1.4rem;
+		font-weight: 700;
+		display: block;
+	}
+
+	.branding small {
+		font-size: 0.85rem;
+		color: var(--color-muted);
+	}
+
+	.nav-links {
+		display: flex;
+		align-items: center;
+		gap: 1.25rem;
+		font-weight: 500;
+	}
+
+	.nav-links a {
+		position: relative;
+		padding-bottom: 0.2rem;
+	}
+
+	.nav-links a::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 0;
+		height: 2px;
+		background: var(--color-fern);
+		transition: width 0.2s ease;
+	}
+
+	.nav-links a:hover::after {
+		width: 100%;
+	}
+
+	.header-actions {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	.lang-toggle {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 0.9rem;
+		font-weight: 600;
+		border-radius: 999px;
+		padding: 0.45rem 0.95rem;
+		border: 1px solid rgba(13, 59, 47, 0.25);
+		background: #fff;
+		color: var(--color-deep-green);
+		transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+	}
+
+	.lang-toggle:hover {
+		background: var(--color-forest);
+		color: #fff;
+		transform: translateY(-1px);
+	}
+
+	@media (max-width: 900px) {
+		.nav-links {
+			display: none;
+		}
+
+		.site-header {
+			position: static;
+		}
+
+		.header-actions {
+			width: 100%;
+			justify-content: flex-start;
+		}
+	}
+</style>

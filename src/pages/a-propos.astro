@@ -1,0 +1,226 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { pageContent } from '../content/siteContent';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const site = pageContent.fr;
+const { navLinks, topCtas, footer } = site;
+
+const metadata = {
+	title: 'À propos de Steven Germain Gros-Louis | Aiionwatha',
+	description: 'Découvrez le parcours de Steven Germain Gros-Louis, fondateur d\'Aiionwatha, et sa méthode pour accélérer les projets autochtones et PME.',
+	url: 'https://www.aiionwatha.com/a-propos',
+	image: '/images/1761612506932.webp',
+	locale: 'fr_CA'
+};
+
+const alternates = [
+	{ href: 'https://www.aiionwatha.com/en/about', hreflang: 'en-CA' },
+	{ href: metadata.url, hreflang: 'x-default' }
+];
+
+const highlights = [
+	{ title: '10+ ans', text: 'À conseiller des dirigeants et à structurer des projets financés.' },
+	{ title: '40+ dossiers', text: 'Montés ou optimisés pour des organisations autochtones et culturelles.' },
+	{ title: '100% sur mesure', text: 'Chaque intervention respecte le rythme, la gouvernance et les valeurs locales.' }
+];
+
+const pillars = [
+	{
+		name: 'Clarté stratégique',
+		text: 'Co-définir les objectifs, les indicateurs d’impact et les partenariats clés avant toute rédaction.'
+	},
+	{
+		name: 'Méthode collaborative',
+		text: 'Impliquer vos équipes, outiller la transmission des connaissances et documenter chaque étape.'
+	},
+	{
+		name: 'Rigueur réglementaire',
+		text: 'Aligner dossiers, politiques internes et Loi 25 pour sécuriser vos financements.'
+	}
+];
+---
+
+<Layout title={metadata.title} description={metadata.description} url={metadata.url} image={metadata.image} locale={metadata.locale} alternates={alternates}>
+	<SiteHeader
+		navLinks={navLinks}
+		brandingSmall={footer.brandingSmall}
+		calendlyUrl={topCtas.calendly}
+		primaryCtaLabel="Prendre rendez-vous"
+		langToggle={{ label: 'English', href: '/en/about', ariaLabel: 'View the English about page', lang: 'en' }}
+		anchorId="top"
+	/>
+
+	<main class="about-page">
+		<section class="about-hero">
+			<div class="container hero-grid">
+				<div>
+					<p class="tag">Fondateur d’Aiionwatha</p>
+					<h1>Steven Germain Gros-Louis</h1>
+					<p>
+						J’aide les communautés et les PME à transformer leurs ambitions en réalisations concrètes, en mariant vision stratégique, connaissances terrain et respect des cultures.
+					</p>
+					<div class="hero-ctas">
+						<a class="button primary" href="https://calendly.com/steven-germain-gl" target="_blank" rel="noreferrer">Réserver un diagnostic</a>
+						<a class="button secondary" href="mailto:steven.germain.gl@gmail.com">Me contacter</a>
+					</div>
+				</div>
+				<figure class="hero-photo">
+					<img src="/images/1761612506932.webp" alt="Steven Germain Gros-Louis" loading="lazy" />
+				</figure>
+			</div>
+		</section>
+
+		<section class="highlights">
+			<div class="container highlights-grid">
+				{highlights.map((item) => (
+					<div class="highlight-card">
+						<strong>{item.title}</strong>
+						<p>{item.text}</p>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<section class="story-section">
+			<div class="container">
+				<h2>Pourquoi j’ai fondé Aiionwatha</h2>
+				<p>
+					Les porteurs de projets autochtones et les dirigeants de PME innovantes doivent souvent naviguer seuls entre exigences administratives, pression financière et enjeux de gouvernance. Aiionwatha est né pour offrir un accompagnement enraciné dans les réalités des Premières Nations tout en exploitant les meilleures pratiques de gestion et de financement.
+				</p>
+				<p>
+					J’ai travaillé au sein d’organismes économiques, d’institutions publiques et de cabinets-conseils. Cette expérience me permet d’anticiper les attentes des bailleurs, de structurer les dossiers complexes et de protéger les identités culturelles qui font la richesse de vos initiatives.
+				</p>
+			</div>
+		</section>
+
+		<section class="pillars">
+			<div class="container">
+				<h3>Ce que je vous apporte au quotidien</h3>
+				<div class="pillar-grid">
+					{pillars.map((pillar) => (
+						<div class="pillar-card">
+							<h4>{pillar.name}</h4>
+							<p>{pillar.text}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="cta">
+			<div class="container cta-box">
+				<div>
+					<p class="tag">Prêt à collaborer ?</p>
+					<h2>Cofaisons grandir vos projets</h2>
+					<p>
+						Que vous soyez au début d’une idée ou en pleine rédaction d’un dossier, je vous aide à clarifier les étapes et à mobiliser les ressources nécessaires.
+					</p>
+				</div>
+				<div class="cta-actions">
+					<a class="button primary" href="https://calendly.com/steven-germain-gl" target="_blank" rel="noreferrer">Planifier un appel</a>
+					<a class="button secondary" href="mailto:steven.germain.gl@gmail.com">Écrire à Steven</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<SiteFooter footer={footer} navLinks={navLinks} topCtas={topCtas} />
+
+	<style>
+		.about-hero {
+			background: linear-gradient(120deg, rgba(20, 108, 67, 0.08), rgba(48, 162, 58, 0.15)), var(--color-cream);
+			padding: 3.5rem 1.5rem;
+		}
+
+		.hero-grid {
+			max-width: var(--max-width);
+			margin: 0 auto;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 2.5rem;
+			align-items: center;
+		}
+
+		.hero-photo img {
+			width: 100%;
+			border-radius: 1.5rem;
+			box-shadow: 0 30px 70px rgba(6, 24, 12, 0.15);
+		}
+
+		.highlights {
+			padding: 2.5rem 1.5rem;
+		}
+
+		.highlights-grid {
+			max-width: var(--max-width);
+			margin: 0 auto;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+			gap: 1.25rem;
+		}
+
+		.highlight-card {
+			background: #fff;
+			border-radius: 1rem;
+			padding: 1.5rem;
+			box-shadow: 0 20px 45px rgba(6, 24, 12, 0.08);
+		}
+
+		.highlight-card strong {
+			font-size: 1.4rem;
+		}
+
+		.story-section {
+			padding: 2.5rem 1.5rem;
+			background: #fff;
+		}
+
+		.pillars {
+			padding: 2.5rem 1.5rem;
+			background: var(--color-cream);
+		}
+
+		.pillar-grid {
+			max-width: var(--max-width);
+			margin: 0 auto;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+			gap: 1.5rem;
+		}
+
+		.pillar-card {
+			background: #fff;
+			border-radius: 1rem;
+			padding: 1.5rem;
+			box-shadow: 0 15px 40px rgba(6, 24, 12, 0.08);
+		}
+
+		.cta {
+			padding: 2.5rem 1.5rem 4rem;
+		}
+
+		.cta .container {
+			max-width: var(--max-width);
+			margin: 0 auto;
+		}
+
+		.cta-box {
+			background: #fff;
+			border-radius: 1.5rem;
+			padding: clamp(1.5rem, 4vw, 3rem);
+			box-shadow: 0 25px 60px rgba(6, 24, 12, 0.12);
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+			gap: 1.25rem;
+			align-items: center;
+		}
+
+		.cta-actions {
+			display: flex;
+			flex-direction: column;
+			gap: 0.75rem;
+		}
+	</style>
+</Layout>

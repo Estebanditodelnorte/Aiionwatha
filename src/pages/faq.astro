@@ -1,0 +1,154 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { pageContent } from '../content/siteContent';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const metadata = {
+	title: 'FAQ – Aiionwatha',
+	description:
+		'Questions fréquentes sur l’accompagnement Aiionwatha : services de subventions, consultation, Loi 25 et manière de travailler avec les équipes autochtones et PME.',
+	url: 'https://www.aiionwatha.com/faq',
+	image: '/images/wp-uploads/2025/01/subventions-autochtones-wendake.webp',
+	locale: 'fr_CA'
+};
+
+const alternates = [
+	{ href: 'https://www.aiionwatha.com/en/faq', hreflang: 'en-CA' },
+	{ href: metadata.url, hreflang: 'x-default' }
+];
+
+const { navLinks, topCtas, footer } = pageContent.fr;
+
+const faqs = [
+	{
+		question: 'Quels types de projets accompagne Aiionwatha ?',
+		answer:
+			'Aiionwatha travaille avec des PME innovantes, des organismes communautaires et des organisations autochtones qui souhaitent financer des initiatives culturelles, économiques ou technologiques. Nous évaluons l’adéquation projet-programme et assurons un suivi jusqu’au dépôt final.'
+	},
+	{
+		question: 'Comment se déroule l’analyse des subventions ?',
+		answer:
+			'Nous réalisons un diagnostic rapide de vos besoins, identifions les programmes actifs, puis clarifions les preuves d’impact requises. L’analyse est documentée afin que vous puissiez prendre des décisions éclairées sur les démarches à lancer en priorité.'
+	},
+	{
+		question: 'Que signifie votre modèle « sans risque » ?',
+		answer:
+			'Nous n’exigeons pas de frais initiaux : notre rémunération s’enclenche lorsque le financement est obtenu. Cette approche aligne nos intérêts sur les résultats et rassure les organisations qui doivent protéger leur trésorerie.'
+	},
+	{
+		question: 'Pouvez-vous travailler avec une équipe interne déjà en place ?',
+		answer:
+			'Oui. Nous aimons fonctionner en mode collaboratif : soit nous prenons le dossier en main, soit nous épaulons vos analystes et conseillers pour accélérer la préparation des livrables, tout en transférant nos méthodes.'
+	},
+	{
+		question: 'Comment soutenez-vous les obligations liées à la Loi 25 ?',
+		answer:
+			'Nous aidons les organisations à cartographier les données personnelles collectées, à rédiger des politiques claires et à instaurer un calendrier de conservation. Lorsque nécessaire, nous coordonnons des partenaires juridiques pour formaliser les avis et procédures.'
+	},
+	{
+		question: 'Accompagnez-vous uniquement au Québec ?',
+		answer:
+			'Nos mandats sont principalement québécois, mais nous collaborons avec des équipes partout au Canada dès que les projets touchent des réalités autochtones ou des programmes fédéraux pertinents.'
+	},
+	{
+		question: 'Comment mesurez-vous l’impact d’un projet financé ?',
+		answer:
+			'Nous définissons dès le départ des indicateurs quantitatifs et qualitatifs : retombées économiques, participation communautaire, transmissions culturelles, cohérence ESG. Ces mesures sont intégrées dans les livrables pour renforcer votre dossier.'
+	},
+	{
+		question: 'Proposez-vous des ateliers ou formations ?',
+		answer:
+			'Oui. Nous animons des ateliers sur la veille de programmes, la rédaction d’études de besoins, la conformité des pièces justificatives et la gestion de projet subventionné. Les contenus sont personnalisés selon vos équipes.'
+	},
+	{
+		question: 'Combien de temps faut-il pour préparer un dossier ?',
+		answer:
+			'Selon la complexité, compter 2 à 6 semaines pour réunir les éléments clés (études, budgets, lettres de soutien). Nous planifions des points d’étape hebdomadaires pour garder votre gouvernance informée.'
+	},
+	{
+		question: 'Comment démarrer avec Aiionwatha ?',
+		answer:
+			'il suffit de réserver un appel exploratoire. Nous validerons vos objectifs, la maturité des livrables et les prochaines échéances, puis nous proposerons une feuille de route adaptée.'
+	}
+];
+---
+
+<Layout title={metadata.title} description={metadata.description} url={metadata.url} image={metadata.image} locale={metadata.locale} alternates={alternates}>
+	<SiteHeader
+		navLinks={navLinks}
+		brandingSmall={footer.brandingSmall}
+		calendlyUrl={topCtas.calendly}
+		primaryCtaLabel="Prendre rendez-vous"
+		langToggle={{ label: 'English', href: '/en/faq', ariaLabel: 'View the English FAQ', lang: 'en' }}
+		anchorId="faq-top"
+	/>
+
+	<main class="faq-page">
+		<header class="faq-hero">
+			<div class="container">
+				<p class="tag">Questions fréquentes</p>
+				<h1>FAQ Aiionwatha</h1>
+				<p>
+					Découvrez comment nous simplifions les demandes de subventions, l’accompagnement stratégique et la conformité aux exigences de la Loi 25 pour les PME et organisations autochtones.
+				</p>
+			</div>
+		</header>
+
+		<section class="faq-container">
+			<div class="container">
+				{faqs.map((faq) => (
+					<article class="faq-item">
+						<h2>{faq.question}</h2>
+						<p>{faq.answer}</p>
+					</article>
+				))}
+			</div>
+		</section>
+	</main>
+
+	<SiteFooter footer={footer} navLinks={navLinks} topCtas={topCtas} />
+
+	<style>
+		.faq-hero {
+			background: linear-gradient(135deg, rgba(20, 108, 67, 0.12), rgba(48, 162, 58, 0.18));
+			padding: 3rem 1.5rem;
+		}
+
+		.faq-page h1 {
+			margin-bottom: 1rem;
+		}
+
+		.faq-container {
+			padding: 2.5rem 1.5rem 4rem;
+		}
+
+		.faq-container .container {
+			max-width: 900px;
+			margin: 0 auto;
+			background: #fff;
+			border-radius: 1.5rem;
+			padding: clamp(1.5rem, 4vw, 3rem);
+			box-shadow: 0 30px 70px rgba(6, 24, 12, 0.08);
+			display: flex;
+			flex-direction: column;
+			gap: 1.5rem;
+		}
+
+		.faq-item h2 {
+			margin-bottom: 0.5rem;
+			font-size: 1.3rem;
+		}
+
+		.faq-item p {
+			margin: 0;
+			line-height: 1.55;
+		}
+
+		@media (max-width: 700px) {
+			.faq-container .container {
+				padding: 1rem;
+			}
+		}
+	</style>
+</Layout>

@@ -1,0 +1,226 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { pageContent } from '../../content/siteContent';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+
+const site = pageContent.en;
+const { navLinks, topCtas, footer } = site;
+
+const metadata = {
+	title: 'About Steven Germain Gros-Louis | Aiionwatha',
+	description: 'Learn how Steven Germain Gros-Louis blends Indigenous roots, management expertise, and hands-on execution to unlock grants for ambitious projects.',
+	url: 'https://www.aiionwatha.com/en/about',
+	image: '/images/1761612506932.webp',
+	locale: 'en_CA'
+};
+
+const alternates = [
+	{ href: 'https://www.aiionwatha.com/a-propos', hreflang: 'fr-CA' },
+	{ href: metadata.url, hreflang: 'x-default' }
+];
+
+const highlights = [
+	{ title: '10+ years', text: 'Guiding Indigenous leaders and SMB founders through funding and governance.' },
+	{ title: '40+ projects', text: 'Structured or optimized across social, cultural, and tech sectors.' },
+	{ title: 'Culture-first', text: 'Every mandate respects your governance, language, and long-term vision.' }
+];
+
+const pillars = [
+	{
+		name: 'Strategic clarity',
+		text: 'Set measurable impact goals, partnership roadmaps, and KPIs before writing a single deliverable.'
+	},
+	{
+		name: 'Collaborative process',
+		text: 'Embed your internal teams, transfer templates, and leave you autonomous for future rounds.'
+	},
+	{
+		name: 'Compliance mindset',
+		text: 'Keep every dossier aligned with funding criteria, ESG expectations, and Law 25 requirements.'
+	}
+];
+---
+
+<Layout title={metadata.title} description={metadata.description} url={metadata.url} image={metadata.image} locale={metadata.locale} alternates={alternates}>
+	<SiteHeader
+		navLinks={navLinks}
+		brandingSmall={footer.brandingSmall}
+		calendlyUrl={topCtas.calendly}
+		primaryCtaLabel="Book a call"
+		langToggle={{ label: 'Français', href: '/a-propos', ariaLabel: 'Voir la version française', lang: 'fr' }}
+		anchorId="top"
+	/>
+
+	<main class="about-page">
+		<section class="about-hero">
+			<div class="container hero-grid">
+				<div>
+					<p class="tag">Founder, Aiionwatha</p>
+					<h1>Steven Germain Gros-Louis</h1>
+					<p>
+						I help Indigenous communities and bold SMBs turn ideas into funded, measurable impact—balancing strategic planning, cultural respect, and execution.
+					</p>
+					<div class="hero-ctas">
+						<a class="button primary" href="https://calendly.com/steven-germain-gl" target="_blank" rel="noreferrer">Book an intro call</a>
+						<a class="button secondary" href="mailto:steven.germain.gl@gmail.com">Email Steven</a>
+					</div>
+				</div>
+				<figure class="hero-photo">
+					<img src="/images/1761612506932.webp" alt="Steven Germain Gros-Louis" loading="lazy" />
+				</figure>
+			</div>
+		</section>
+
+		<section class="highlights">
+			<div class="container highlights-grid">
+				{highlights.map((item) => (
+					<div class="highlight-card">
+						<strong>{item.title}</strong>
+						<p>{item.text}</p>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<section class="story-section">
+			<div class="container">
+				<h2>Why Aiionwatha exists</h2>
+				<p>
+					Many founders and community leaders handle complex grant processes alone. Aiionwatha offers an ally who understands Indigenous realities, government expectations, and the operational pressure that fast-growing teams face.
+				</p>
+				<p>
+					My background spans economic development agencies, advisory firms, and grassroots projects. This hybrid experience helps you navigate funding timelines, stakeholder governance, and the cultural dimensions that make your initiative unique.
+				</p>
+			</div>
+		</section>
+
+		<section class="pillars">
+			<div class="container">
+				<h3>What you can expect from me</h3>
+				<div class="pillar-grid">
+					{pillars.map((pillar) => (
+						<div class="pillar-card">
+							<h4>{pillar.name}</h4>
+							<p>{pillar.text}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="cta">
+			<div class="container cta-box">
+				<div>
+					<p class="tag">Let’s build together</p>
+					<h2>Ready to unlock your next project?</h2>
+					<p>
+						Whether you are validating an idea or finalizing a dossier, I can help you structure the path forward and keep every stakeholder aligned.
+					</p>
+				</div>
+				<div class="cta-actions">
+					<a class="button primary" href="https://calendly.com/steven-germain-gl" target="_blank" rel="noreferrer">Schedule a call</a>
+					<a class="button secondary" href="mailto:steven.germain.gl@gmail.com">Send an email</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<SiteFooter footer={footer} navLinks={navLinks} topCtas={topCtas} />
+
+	<style>
+		.about-hero {
+			background: linear-gradient(120deg, rgba(20, 108, 67, 0.08), rgba(48, 162, 58, 0.15)), var(--color-cream);
+			padding: 3.5rem 1.5rem;
+		}
+
+		.hero-grid {
+			max-width: var(--max-width);
+			margin: 0 auto;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 2.5rem;
+			align-items: center;
+		}
+
+		.hero-photo img {
+			width: 100%;
+			border-radius: 1.5rem;
+			box-shadow: 0 30px 70px rgba(6, 24, 12, 0.15);
+		}
+
+		.highlights {
+			padding: 2.5rem 1.5rem;
+		}
+
+		.highlights-grid {
+			max-width: var(--max-width);
+			margin: 0 auto;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+			gap: 1.25rem;
+		}
+
+		.highlight-card {
+			background: #fff;
+			border-radius: 1rem;
+			padding: 1.5rem;
+			box-shadow: 0 20px 45px rgba(6, 24, 12, 0.08);
+		}
+
+		.highlight-card strong {
+			font-size: 1.4rem;
+		}
+
+		.story-section {
+			padding: 2.5rem 1.5rem;
+			background: #fff;
+		}
+
+		.pillars {
+			padding: 2.5rem 1.5rem;
+			background: var(--color-cream);
+		}
+
+		.pillar-grid {
+			max-width: var(--max-width);
+			margin: 0 auto;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+			gap: 1.5rem;
+		}
+
+		.pillar-card {
+			background: #fff;
+			border-radius: 1rem;
+			padding: 1.5rem;
+			box-shadow: 0 15px 40px rgba(6, 24, 12, 0.08);
+		}
+
+		.cta {
+			padding: 2.5rem 1.5rem 4rem;
+		}
+
+		.cta .container {
+			max-width: var(--max-width);
+			margin: 0 auto;
+		}
+
+		.cta-box {
+			background: #fff;
+			border-radius: 1.5rem;
+			padding: clamp(1.5rem, 4vw, 3rem);
+			box-shadow: 0 25px 60px rgba(6, 24, 12, 0.12);
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+			gap: 1.25rem;
+			align-items: center;
+		}
+
+		.cta-actions {
+			display: flex;
+			flex-direction: column;
+			gap: 0.75rem;
+		}
+	</style>
+</Layout>

@@ -1,0 +1,235 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { pageContent } from '../content/siteContent';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const site = pageContent.fr;
+const { navLinks, topCtas, footer } = site;
+
+const metadata = {
+	title: 'Politique de confidentialité | Aiionwatha',
+	description: 'Politique de confidentialité d\'Aiionwatha conforme à la Loi 25 du Québec et aux meilleures pratiques de protection des données.',
+	url: 'https://www.aiionwatha.com/politique-de-confidentialite',
+	image: '/images/wp-uploads/2025/01/subventions-autochtones-wendake.webp',
+	locale: 'fr_CA'
+};
+
+const alternates = [
+	{ href: 'https://www.aiionwatha.com/en/privacy-policy', hreflang: 'en-CA' },
+	{ href: metadata.url, hreflang: 'x-default' }
+];
+
+const lastUpdated = '5 janvier 2025';
+const introParagraphs = [
+	"Bienvenue sur le site d'Aiionwatha. Nous nous engageons à protéger la confidentialité de vos informations personnelles conformément à la Loi 25 et aux meilleures pratiques de protection des données.",
+	"Cette politique explique comment nous collectons, utilisons, partageons et conservons vos données lorsque vous interagissez avec notre site Web. En l'utilisant, vous consentez aux pratiques décrites ci-dessous."
+];
+
+const sections = [
+	{
+		title: '1. Collecte des informations personnelles',
+		body: [
+			"Nous collectons les informations personnelles que vous nous fournissez volontairement (nom, adresse courriel, téléphone, organisation, etc.) lorsque vous remplissez un formulaire de contact, prenez rendez-vous ou demandez des renseignements."
+		]
+	},
+	{
+		title: '2. Utilisation des informations personnelles',
+		body: ['Vos informations sont utilisées uniquement pour :'],
+		list: [
+			'Répondre à vos demandes et fournir les services demandés.',
+			'Personnaliser votre expérience sur le site et adapter nos communications.',
+			'Vous transmettre des informations sur des produits ou services que vous avez achetés ou évalués.'
+		]
+	},
+	{
+		title: '3. Partage des informations personnelles',
+		body: ["Nous partageons vos données avec des tiers uniquement dans les situations suivantes :"],
+		list: [
+			'Lorsque c\'est nécessaire pour livrer un mandat (ex. partenaires de subventions ou prestataires technologiques).',
+			'Si la loi, un règlement ou une ordonnance d\'un tribunal l\'exige.',
+			'Si vous avez donné votre consentement explicite et éclairé.'
+		]
+	},
+	{
+		title: '4. Sécurité des données',
+		body: [
+			"Nous mettons en place des mesures raisonnables pour prévenir la perte, l'accès non autorisé, la divulgation, l'altération ou la destruction de vos données."
+		],
+		list: [
+			"Stockage : les informations sont hébergées sur des serveurs sécurisés dont l'accès est restreint aux personnes autorisées remplissant un rôle précis.",
+			"Transmission : les formulaires en ligne utilisent des protocoles chiffrés (SSL/TLS) afin de protéger les données sensibles partagées via Internet."
+		],
+		note:
+			"Malgré nos efforts, aucune méthode de transmission ou de stockage électronique n'est entièrement sécurisée. Nous encourageons donc nos utilisateurs à appliquer eux aussi de bonnes pratiques de cybersécurité."
+	},
+	{
+		title: '5. Durée de conservation',
+		body: [
+			"Nous conservons vos informations personnelles uniquement pendant la période nécessaire à la réalisation des objectifs décrits dans cette politique ou pour respecter nos obligations légales."
+		],
+		list: [
+			"Dossiers de demandes ou de réservation : ces données sont conservées jusqu'à cinq ans après la clôture du dossier afin d'assurer le service après-vente, la reddition de comptes fiscale et la conformité réglementaire."
+		],
+		conclusion:
+			"Selon la nature des données et les exigences légales applicables, certaines informations peuvent être supprimées plus rapidement ou anonymisées."
+	},
+	{
+		title: '6. Vos droits',
+		body: [
+			"Vous pouvez demander l'accès, la rectification, la suppression ou la portabilité de vos données personnelles. Vous pouvez également retirer votre consentement lorsque le traitement repose sur celui-ci. Pour exercer ces droits, écrivez à <a href=\"mailto:steven.germain.gl@gmail.com\">steven.germain.gl@gmail.com</a>."
+		]
+	},
+	{
+		title: '7. Modifications de la politique',
+		body: ['Cette politique peut être mise à jour afin de refléter des changements législatifs ou opérationnels. La date de la dernière mise à jour figure en haut de la page.']
+	},
+	{
+		title: '8. Contact',
+		body: ['Pour toute question ou préoccupation concernant la confidentialité ou la Loi 25, veuillez communiquer avec nous à <a href="mailto:steven.germain.gl@gmail.com">steven.germain.gl@gmail.com</a>.']
+	}
+];
+---
+
+<Layout title={metadata.title} description={metadata.description} url={metadata.url} image={metadata.image} locale={metadata.locale} alternates={alternates}>
+	<SiteHeader
+		navLinks={navLinks}
+		brandingSmall={footer.brandingSmall}
+		calendlyUrl={topCtas.calendly}
+		primaryCtaLabel="Prendre rendez-vous"
+		langToggle={{ label: 'English', href: '/en/privacy-policy', ariaLabel: 'View the English policy', lang: 'en' }}
+		anchorId="politique"
+	/>
+
+	<main class="policy">
+		<section class="policy-hero">
+			<div class="container">
+				<p class="tag">Conformité Loi 25</p>
+				<h1>Politique de confidentialité</h1>
+				<p>Cette page décrit la façon dont Aiionwatha collecte, utilise et protège vos données personnelles dans le respect des lois québécoises.</p>
+				<p class="last-updated">Dernière mise à jour : {lastUpdated}</p>
+			</div>
+		</section>
+
+		<section class="policy-content">
+			<div class="container">
+				<div class="policy-lang-switch">
+					<a class="lang-toggle" href="/en/privacy-policy" lang="en" aria-label="View the English version of this policy">
+						English
+					</a>
+				</div>
+				{introParagraphs.map((paragraph) => (
+					<p>{paragraph}</p>
+				))}
+
+				{sections.map((section) => (
+					<section class="policy-section">
+						<h2>{section.title}</h2>
+					{section.body?.map((paragraph) => (
+						<p set:html={paragraph} />
+					))}
+						{section.list && (
+							<ul>
+								{section.list.map((item) => (
+									<li>{item}</li>
+								))}
+							</ul>
+						)}
+						{section.note && <p class="note">{section.note}</p>}
+						{section.conclusion && <p>{section.conclusion}</p>}
+					</section>
+				))}
+			</div>
+		</section>
+	</main>
+
+	<SiteFooter footer={footer} navLinks={navLinks} topCtas={topCtas} />
+
+	<style>
+		.policy-hero {
+			background: linear-gradient(120deg, rgba(20, 108, 67, 0.1), rgba(48, 162, 58, 0.15)), var(--color-cream);
+			padding: 4rem 1.5rem;
+		}
+
+		.policy-hero .container {
+			max-width: var(--max-width);
+			margin: 0 auto;
+		}
+
+		.policy-hero h1 {
+			margin-bottom: 1rem;
+		}
+
+		.last-updated {
+			font-weight: 600;
+			color: var(--color-muted);
+		}
+
+		.policy-content {
+			padding: 2.5rem 1.25rem 3.5rem;
+		}
+
+		.policy-content .container {
+			max-width: 860px;
+			margin: 0 auto;
+			background: #fff;
+			border-radius: 1.5rem;
+			padding: clamp(1rem, 3vw, 2.25rem);
+			box-shadow: 0 30px 70px rgba(6, 24, 12, 0.08);
+		}
+
+		.policy-lang-switch {
+			display: flex;
+			justify-content: flex-end;
+			margin-bottom: 0.35rem;
+		}
+
+		.policy-lang-switch .lang-toggle {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.35rem;
+			border: 1px solid rgba(20, 108, 67, 0.4);
+			border-radius: 999px;
+			padding: 0.35rem 0.85rem;
+			font-size: 0.85rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+		}
+
+		.policy-content p {
+			margin-bottom: 0;
+			line-height: 1.35;
+		}
+
+		.policy-section h2 {
+			font-size: 1.3rem;
+			margin: 0.7rem 0 0.15rem;
+		}
+
+		.policy-section ul {
+			margin: 0 0 0.2rem 1.1rem;
+		}
+
+		.policy-section li {
+			margin-bottom: 0.5rem;
+		}
+
+		.note {
+			background: rgba(244, 248, 242, 1);
+			border-left: 3px solid var(--color-forest);
+			padding: 0.9rem 1rem;
+			border-radius: 0.75rem;
+		}
+
+		@media (max-width: 600px) {
+			.policy-content .container {
+				padding: 1rem;
+			}
+
+			.policy-section h2 {
+				font-size: 1.2rem;
+			}
+		}
+	</style>
+</Layout>

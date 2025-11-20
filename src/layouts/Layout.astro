@@ -2,25 +2,175 @@
 import '../styles/global.css';
 const {
 	title = 'Aiionwatha - Optimisez vos subventions',
-	description = "Aiionwatha accompagne les organisations autochtones et les PME à décrocher des subventions et à structurer leurs projets grâce à l'IA et à une expertise terrain."
+	description = "Aiionwatha accompagne les organisations autochtones et les PME à décrocher des subventions et à structurer leurs projets grâce à l'IA et à une expertise terrain.",
+	url = 'https://www.aiionwatha.com/',
+	image = '/images/wp-uploads/2025/01/subventions-autochtones-wendake.webp',
+	locale = 'fr_CA',
+	alternates = []
 } = Astro.props;
+
+const htmlLang = typeof locale === 'string' ? locale.replace('_', '-') : 'fr-CA';
+const alternateLinks = Array.isArray(alternates) ? alternates : [];
+
+const siteName = 'Aiionwatha Conseils en gestion';
+const logo = '/images/logo-aiionwatha-conseils.svg';
+const telephone = '+1-581-578-2260';
+const email = 'steven.germain.gl@gmail.com';
+const sameAs = ['https://www.linkedin.com/in/steven-gros-louis-germain/', 'https://www.facebook.com/Aiionwatha'];
+const headline = 'Aiionwatha - Optimisez vos subventions';
+const published = '2024-12-31T11:08:43-05:00';
+const modified = '2025-01-20T19:25:52-05:00';
+const address = {
+	'@type': 'PostalAddress',
+	addressLocality: 'Wendake',
+	addressRegion: 'QC',
+	postalCode: 'G0A 4V0',
+	addressCountry: 'CA'
+};
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': ['ProfessionalService', 'Organization'],
+			'@id': `${url}#organization`,
+			name: siteName,
+			url,
+			email,
+			telephone,
+			address,
+			logo: {
+				'@type': 'ImageObject',
+				'@id': `${url}#logo`,
+				url: `${url.replace(/\/$/, '')}${logo}`,
+				contentUrl: `${url.replace(/\/$/, '')}${logo}`,
+				inLanguage: locale
+			},
+			openingHours: ['Monday-Friday 09:00-17:00'],
+			sameAs
+		},
+		{
+			'@type': 'WebSite',
+			'@id': `${url}#website`,
+			url,
+			name: siteName,
+			inLanguage: locale,
+			publisher: { '@id': `${url}#organization` },
+			potentialAction: {
+				'@type': 'SearchAction',
+				target: `${url}?s={search_term_string}`,
+				'query-input': 'required name=search_term_string'
+			}
+		},
+		{
+			'@type': 'WebPage',
+			'@id': `${url}#webpage`,
+			url,
+			name: headline,
+			isPartOf: { '@id': `${url}#website` },
+			about: { '@id': `${url}#organization` },
+			inLanguage: locale,
+			datePublished: published,
+			dateModified: modified,
+			primaryImageOfPage: { '@id': `${url}#primaryImage` }
+		},
+		{
+			'@type': 'ImageObject',
+			'@id': `${url}#primaryImage`,
+			url: `${url.replace(/\/$/, '')}${image}`,
+			inLanguage: locale
+		},
+		{
+			'@type': 'Article',
+			'@id': `${url}#article`,
+			headline,
+			author: {
+				'@type': 'Person',
+				name: 'Steven Gros-Louis Germain',
+				worksFor: { '@id': `${url}#organization` }
+			},
+			datePublished: published,
+			dateModified: modified,
+			image: { '@id': `${url}#primaryImage` },
+			isPartOf: { '@id': `${url}#webpage` }
+		},
+		{
+			'@type': 'FAQPage',
+			'@id': `${url}#faq`,
+			mainEntity: [
+				{
+					'@type': 'Question',
+					name: 'Pourquoi choisir Aiionwatha pour vos subventions ?',
+					acceptedAnswer: {
+						'@type': 'Answer',
+						text:
+							'Aiionwatha élimine les frais initiaux, s’appuie sur une expertise autochtone enracinée à Wendake et optimise les processus administratifs pour accélérer les demandes.'
+					}
+				},
+				{
+					'@type': 'Question',
+					name: 'Quels services offrez-vous ?',
+					acceptedAnswer: {
+						'@type': 'Answer',
+						text:
+							'Nous offrons l’optimisation des subventions, la consultation en gestion et des formations pour rendre les équipes autonomes dans leurs dossiers.'
+					}
+				},
+				{
+					'@type': 'Question',
+					name: 'Comment vous contacter ?',
+					acceptedAnswer: {
+						'@type': 'Answer',
+						text: 'Écrivez à steven.germain.gl@gmail.com ou appelez le +1 581 578 2260.'
+					}
+				}
+			]
+		}
+	]
+};
 ---
 
 <!doctype html>
-<html lang="fr-CA">
+<html lang={htmlLang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
-		<link rel="icon" href="/images/logo.png" />
+		<meta name="robots" content="index,follow" />
+		<link rel="canonical" href={url} />
+		<link rel="alternate" href={url} hreflang={htmlLang} />
+		{alternateLinks.map((link) => (
+			<link rel="alternate" href={link.href} hreflang={link.hreflang} />
+		))}
+		<link rel="icon" href={logo} />
+		<link rel="apple-touch-icon" sizes="180x180" href={logo} />
+		<link rel="manifest" href="/manifest.json" />
+		<meta property="og:locale" content={locale} />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={url} />
+		<meta property="og:site_name" content={siteName} />
+		<meta property="og:image" content={image} />
+		<meta property="og:image:alt" content="Optimisez vos démarches avec des outils IA performants pour vos projets." />
+		{alternateLinks
+			.filter((link) => link.hreflang && link.hreflang.toLowerCase() !== 'x-default')
+			.map((link) => (
+				<meta property="og:locale:alternate" content={link.hreflang.replace('-', '_')} />
+			))}
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={image} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			rel="stylesheet"
 			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap"
 		/>
+		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 	</head>
 	<body>
 		<div class="page">

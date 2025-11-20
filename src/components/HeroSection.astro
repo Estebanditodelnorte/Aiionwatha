@@ -1,0 +1,177 @@
+---
+type Promo =
+	| {
+			type: 'image';
+			image: string;
+			alt: string;
+	  }
+	| {
+			type: 'card';
+			eyebrow: string;
+			title: string;
+			text: string;
+	  };
+
+export interface Props {
+	hero: {
+		tag: string;
+		title: string;
+		intro: string;
+		body: string;
+		ctas: { primaryHref: string; primaryLabel: string; secondaryHref: string; secondaryLabel: string };
+		bullets: string[];
+		mediaAlt: string;
+		badge: { headline: string; subline: string };
+		promo?: Promo;
+	};
+}
+
+const { hero } = Astro.props;
+---
+
+<section class="hero">
+	<div class="container hero-grid">
+		<div class="hero-copy">
+			<span class="tag">{hero.tag}</span>
+			<h1>{hero.title}</h1>
+			<p class="intro-text">{hero.intro}</p>
+			<p>{hero.body}</p>
+			<div class="hero-ctas">
+				<a class="button primary" href={hero.ctas.primaryHref} target="_blank" rel="noreferrer">{hero.ctas.primaryLabel}</a>
+				<a class="button secondary" href={hero.ctas.secondaryHref}>{hero.ctas.secondaryLabel}</a>
+			</div>
+			<ul class="hero-list">
+				{hero.bullets.map((item) => (
+					<li>{item}</li>
+				))}
+			</ul>
+		</div>
+			<div class="hero-media">
+				{hero.promo && (
+					<div class="hero-promo">
+						{hero.promo.type === 'image' ? (
+							<img src={hero.promo.image} alt={hero.promo.alt} loading="lazy" />
+						) : (
+							<div class="hero-promo-card">
+								<p class="promo-eyebrow">{hero.promo.eyebrow}</p>
+								<p class="promo-title">{hero.promo.title}</p>
+								<p class="promo-text">{hero.promo.text}</p>
+							</div>
+						)}
+					</div>
+				)}
+				<img src="/images/hero.webp" loading="lazy" alt={hero.mediaAlt} />
+			<div class="hero-badge">
+				<strong>{hero.badge.headline}</strong>
+				<span>{hero.badge.subline}</span>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.hero {
+		background: radial-gradient(circle at top right, rgba(20, 108, 67, 0.15), transparent 60%), var(--color-cream);
+		padding-top: 5rem;
+		padding-bottom: 4rem;
+	}
+
+	.hero-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: 2rem;
+		align-items: center;
+	}
+
+	.hero-copy h1 {
+		font-size: clamp(2.5rem, 5vw, 3.5rem);
+	}
+
+	.intro-text {
+		font-size: 1.2rem;
+		font-weight: 500;
+	}
+
+	.hero-ctas {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+		margin: 1.5rem 0;
+	}
+
+	.hero-list {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.8rem;
+		margin: 0;
+	}
+
+	.hero-list li {
+		display: flex;
+		gap: 0.6rem;
+	}
+
+	.hero-list li::before {
+		content: '•';
+		color: var(--color-fern);
+	}
+
+	.hero-media {
+		position: relative;
+	}
+
+	.hero-promo {
+		margin-bottom: 1rem;
+	}
+
+	.hero-promo img {
+		width: 100%;
+		border-radius: 1rem;
+		box-shadow: 0 20px 40px rgba(6, 24, 12, 0.1);
+	}
+
+	.hero-promo-card {
+		background: linear-gradient(135deg, rgba(20, 108, 67, 0.12), rgba(48, 162, 58, 0.2));
+		border-radius: 1rem;
+		padding: 1.25rem;
+		color: var(--color-deep-green);
+		box-shadow: 0 20px 40px rgba(6, 24, 12, 0.1);
+	}
+
+	.promo-eyebrow {
+		text-transform: uppercase;
+		font-size: 0.8rem;
+		letter-spacing: 0.08em;
+		margin-bottom: 0.5rem;
+		color: var(--color-muted);
+	}
+
+	.promo-title {
+		font-size: 1.1rem;
+		font-weight: 700;
+		margin: 0 0 0.35rem;
+	}
+
+	.promo-text {
+		margin: 0;
+		font-size: 0.95rem;
+	}
+
+	.hero-media img {
+		border-radius: 1.25rem;
+		box-shadow: 0 25px 60px rgba(6, 24, 12, 0.15);
+	}
+
+	.hero-badge {
+		position: absolute;
+		bottom: 1.5rem;
+		right: 1.5rem;
+		background: #fff;
+		border-radius: 1rem;
+		padding: 1rem 1.25rem;
+		box-shadow: 0 20px 45px rgba(6, 24, 12, 0.2);
+		max-width: 220px;
+	}
+</style>
