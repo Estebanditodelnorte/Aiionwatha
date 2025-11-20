@@ -30,6 +30,8 @@ const address = {
 	addressCountry: 'CA'
 };
 
+const absoluteImage = image?.startsWith('http') ? image : `${url.replace(/\/$/, '')}${image.startsWith('/') ? image : `/${image}`}`;
+
 const graph = [
 	{
 		'@type': ['ProfessionalService', 'Organization'],
@@ -76,8 +78,8 @@ const graph = [
 	},
 	{
 		'@type': 'ImageObject',
-		'@id': `${url}#primaryImage`,
-		url: `${url.replace(/\/$/, '')}${image}`,
+			'@id': `${url}#primaryImage`,
+			url: absoluteImage,
 		inLanguage: locale
 	},
 	{

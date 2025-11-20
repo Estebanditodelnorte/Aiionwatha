@@ -5,7 +5,7 @@ export const pageContent = {
 			description:
 				"Aiionwatha accompagne les organisations autochtones et les PME à décrocher des subventions et à structurer leurs projets grâce à l'IA et à une expertise terrain.",
 			url: "https://www.aiionwatha.com/",
-			image: "/images/wp-uploads/2025/01/subventions-autochtones-wendake.webp",
+			image: "/images/hero.webp",
 			imageAlt: "Optimisation des subventions pour maximiser les financements des projets innovants.",
 			locale: "fr_CA"
 		},
@@ -193,7 +193,7 @@ export const pageContent = {
 			title: "Aiionwatha - Optimize your funding",
 			description: "Aiionwatha helps Indigenous organizations and SMBs secure grants and structure projects with AI-enabled expertise.",
 			url: "https://www.aiionwatha.com/en/",
-			image: "/images/wp-uploads/2025/01/subventions-autochtones-wendake.webp",
+			image: "/images/hero.webp",
 			imageAlt: "Grant optimization to maximize funding for innovative projects.",
 			locale: "en_CA"
 		},
