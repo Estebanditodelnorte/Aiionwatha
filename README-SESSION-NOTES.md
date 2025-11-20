@@ -8,6 +8,7 @@ Work session summary
 - Robots now references sitemap and sitemap-index; sitemap index enabled in Astro config.
 - GA4 ready via `PUBLIC_GA_ID` env.
 - Commit created: `feat: service tables, self-host fonts, security headers, 404s`.
+- Added bilingual services page with full services table and packages (`/services`, `/en/services`); nav links and hero CTAs updated to point to the new pages.
 
 Next steps (suggested)
 - Set `PUBLIC_GA_ID` in deploy environment.

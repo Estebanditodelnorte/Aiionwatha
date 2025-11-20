@@ -16,7 +16,7 @@ export const pageContent = {
 		navLinks: [
 			{ label: "Accueil", href: "/#accueil" },
 			{ label: "À propos", href: "/a-propos" },
-			{ label: "Services", href: "/#services" },
+			{ label: "Services", href: "/services" },
 			{ label: "Valeurs", href: "/#valeurs" },
 			{ label: "Contact", href: "/#contact" },
 			{ label: "FAQ", href: "/faq" }
@@ -37,7 +37,7 @@ export const pageContent = {
 				primaryLabel: "Parler à un expert",
 				primaryHref: "https://calendly.com/steven-germain-gl",
 				secondaryLabel: "Explorer nos services",
-				secondaryHref: "#services"
+				secondaryHref: "/services"
 			},
 			badge: { headline: "+10 ans", subline: "d'expérience en financement d'initiatives communautaires" },
 			mediaAlt: "Optimisation des subventions pour maximiser les financements des projets innovants.",
@@ -204,7 +204,7 @@ export const pageContent = {
 		navLinks: [
 			{ label: "Home", href: "/en#home" },
 			{ label: "About", href: "/en/about" },
-			{ label: "Services", href: "/en#services" },
+			{ label: "Services", href: "/en/services" },
 			{ label: "Values", href: "/en#values" },
 			{ label: "Contact", href: "/en#contact" },
 			{ label: "FAQ", href: "/en/faq" }
@@ -225,7 +225,7 @@ export const pageContent = {
 				primaryLabel: "Talk to an expert",
 				primaryHref: "https://calendly.com/steven-germain-gl",
 				secondaryLabel: "Browse our services",
-				secondaryHref: "#services"
+				secondaryHref: "/en/services"
 			},
 		badge: { headline: "10+ years", subline: "supporting funding for community initiatives" },
 		mediaAlt: "Grant optimization to maximize funding for innovative projects.",

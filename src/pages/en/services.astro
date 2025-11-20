@@ -1,0 +1,312 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { pageContent } from '../../content/siteContent';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+
+const content = pageContent.en;
+const { navLinks, topCtas, footer } = content;
+
+const meta = {
+	title: 'Services & Packages – Aiionwatha',
+	description: 'Explore Aiionwatha services: funding, strategy, digital, AI, Indigenous relations, and governance.',
+	url: 'https://www.aiionwatha.com/en/services',
+	image: '/images/wp-uploads/2025/01/subventions-autochtones-wendake.webp',
+	imageAlt: 'Aiionwatha services and packages list',
+	locale: 'en_CA'
+};
+
+const alternates = [
+	{ href: 'https://www.aiionwatha.com/services', hreflang: 'fr-CA' },
+	{ href: 'https://www.aiionwatha.com/services', hreflang: 'x-default' }
+];
+
+const services = [
+  { name: "Grant Optimization", value: "Program scouting, dossier prep, impact evidence, funder liaison.", price: "$0 upfront + 10% success / $1,200–$4,500" },
+  { name: "Strategic Advisory & Light PMO", value: "Vision/budget alignment, roadmap, milestones, governance updates.", price: "$85–$150/hr or $1,500–$6,000/month" },
+  { name: "Training & Grant SOPs", value: "Workshops, templates, checklists, internal processes.", price: "$500–$2,000 workshop / $1,200–$4,000 SOP" },
+  { name: "Web Security & Performance", value: "Core Web Vitals audit, security hardening, remediation plan.", price: "$400–$1,500" },
+  { name: "Web Design & Light Graphics", value: "Landing pages, UX writing, visuals.", price: "$350–$2,500" },
+  { name: "Key Document Production", value: "Business plans, budgets, pitch decks, impact proofs.", price: "$750–$4,500" },
+  { name: "Media Relations & PR", value: "Press releases, key messages, interview prep.", price: "$350–$1,500" },
+  { name: "Partnership Development", value: "Institutional/private partners, agreements, co-funding leverage.", price: "$85–$150/hr or $1,500–$5,000" },
+  { name: "Tourism Product / Attraction Development", value: "Concept, positioning, experience design.", price: "$1,500–$10,000" },
+  { name: "Event Organization", value: "Programming, logistics, sponsorships, on-site operations.", price: "$600–$10,000" },
+  { name: "Management / Operations Coaching", value: "HR, finance, marketing alignment; risk reduction.", price: "$120–$180/hr" },
+  { name: "Museum / Attraction Management", value: "Operations, visitor experience, marketing.", price: "$1,200–$6,000/month" },
+  { name: "AI Adoption & Productivity", value: "Automation, workflow redesign, secure implementation.", price: "$500–$5,000" },
+  { name: "AI Training & Enablement", value: "Prompt craft, SOPs, governance frameworks.", price: "$400–$2,000" },
+  { name: "Speech-to-Text Workflows", value: "Meeting capture automation, templates, pipelines.", price: "$200–$1,200" },
+  { name: "Translation & Localization (FR/EN/ES)", value: "Accurate translation with glossary QA.", price: "$0.15–$0.30/word or $50–$150/page" },
+  { name: "Fintech/Crypto Education", value: "Web3 vulgarization, risk analyses, adoption policies.", price: "$250–$1,000" },
+  { name: "Digital Policy & Governance", value: "Privacy, AI, IT acceptable use, cookie/consent flows.", price: "$300–$2,000" },
+  { name: "Market Research & Competitive Scans", value: "Opportunity briefs, risk mapping, industry analysis.", price: "$300–$2,500" },
+  { name: "Templates & Playbooks", value: "Pre-built kits for grants, HR, PR, projects.", price: "$150–$900" },
+  { name: "Canadian/Québec Policy Localization", value: "Law 25 compliance and Indigenous adaptation.", price: "$250–$1,800" },
+  { name: "Rapid Landing Pages", value: "Bilingual landers with analytics + UTM tracking.", price: "$250–$1,500" },
+  { name: "Document Doctoring", value: "Language tightening, structure, visuals.", price: "$150–$600" },
+  { name: "Indigenous Relations & Government Negotiation", value: "Briefs, consultations, ministerial notes.", price: "$120–$200/hr or $1,500–$8,000" },
+  { name: "Community Consultation Programs", value: "Workshops, synthesis, recommendation reports.", price: "$1,500–$12,000" },
+  { name: "Data Sovereignty & Privacy Compliance", value: "Law 25, federal privacy, Indigenous sovereignty.", price: "$600–$3,500" },
+  { name: "Policy Briefs & Executive Communication", value: "Decision-ready notes, talking points.", price: "$150–$900" },
+  { name: "Cloud Modernization (Azure/AWS)", value: "Hybrid setups, migration, identity hardening.", price: "$1,000–$8,000" },
+  { name: "Cybersecurity Posture Review", value: "MFA, identity, DLP, IR readiness.", price: "$400–$2,500" },
+  { name: "O365/SharePoint/Teams Rollout", value: "Governance, structure, change management.", price: "$500–$3,500" },
+  { name: "IT Operations & Service Desk Streamlining", value: "ITIL flow redesign, SLA improvements.", price: "$300–$2,000" },
+  { name: "DevOps CI/CD Enablement", value: "GitHub/GitLab pipelines, safe deployments.", price: "$600–$4,000" },
+  { name: "Data/AI & GIS Insights", value: "Analytics, spatial analysis, NLP, dashboards.", price: "$400–$4,000" },
+  { name: "Procurement & Vendor Risk (GC/Enterprise)", value: "RFP alignment, continuity planning, DR.", price: "$350–$2,500" },
+  { name: "Technical Field Support", value: "Windows/macOS/Linux, VPN, network basics.", price: "$85–$150/hr" },
+  { name: "Bilingual/Trilingual Communications", value: "FR/EN/ES outreach and cultural adaptation.", price: "$150–$900" }
+];
+
+const currency = "CAD";
+
+const packages = [
+  {
+    name: "Starter",
+    tagline: "Get your first projects funded and visible.",
+    priceRange: `From $750–$2,500 ${currency}`,
+    idealFor: "Small organizations, entrepreneurs, first-time applicants.",
+    highlight: "Focus on one key initiative (grant, document, or landing page).",
+    features: [
+      "1 priority project (grant, key document, or landing page)",
+      "Program fit check + dossier review",
+      "1 key document (business plan / pitch / budget) – concise format",
+      "Basic media kit: 1-page overview + short bio/org profile",
+      "1 hour of coaching (strategy or operations)",
+      "Email support during the mandate (limited volume)"
+    ]
+  },
+  {
+    name: "Professional",
+    tagline: "Structure your growth and improve win rates.",
+    priceRange: `From $3,000–$8,000 ${currency}`,
+    idealFor: "Established organizations with multiple projects in pipeline.",
+    highlight: "Bundle of funding, strategy, and digital presence for 2–3 key projects.",
+    features: [
+      "Up to 3 active projects (grants, products, or campaigns)",
+      "Full grant optimization: scouting, drafting, impact framing",
+      "Business plan or strategic roadmap (10–20 pages)",
+      "Press release + key messages + basic media outreach",
+      "1 optimized landing page (bilingual possible) with analytics",
+      "Light web security & performance audit (Core Web Vitals + risks)",
+      "Monthly check-in (2 × 60 minutes) for 3 months",
+      "Templates: grant checklist, partner pitch email, follow-up script"
+    ]
+  },
+  {
+    name: "Enterprise",
+    tagline: "Multi-project support, governance, and long-term capacity building.",
+    priceRange: `From $9,000–$25,000+ ${currency}`,
+    idealFor: "Cultural institutions, Indigenous organizations, complex portfolios.",
+    highlight: "Ongoing advisory + light PMO across funding, governance, and digital.",
+    features: [
+      "Dedicated support for a project portfolio over 6–12 months",
+      "Strategic advisory & light PMO (roadmaps, milestones, risk tracking)",
+      "Multiple grant dossiers (major funders / multi-year projects)",
+      "Tourism product / museum / attraction development support",
+      "Indigenous relations & government negotiation (briefs, notes, prep)",
+      "Community consultation programs: design, facilitation, synthesis report",
+      "AI & digital modernization roadmap (process, policy, tooling)",
+      "Governance & policy support (Law 25 / privacy / data sovereignty alignment)",
+      "Quarterly strategy review with leadership (2–3h working session)"
+    ],
+    badge: "Most comprehensive"
+  }
+];
+---
+
+<Layout title={meta.title} description={meta.description} url={meta.url} image={meta.image} ogImageAlt={meta.imageAlt} locale={meta.locale} alternates={alternates}>
+	<SiteHeader
+		navLinks={navLinks}
+		brandingSmall={footer.brandingSmall}
+		calendlyUrl={topCtas.calendly}
+		primaryCtaLabel="Book a call"
+		langToggle={{ label: 'Français', href: '/services', ariaLabel: 'Voir les services en français', lang: 'fr' }}
+		anchorId="services-top"
+	/>
+
+	<section class="page-hero">
+		<div class="container">
+			<p class="section-title">Services & packages</p>
+			<h1>Modular services to fund, deliver, and secure your projects</h1>
+			<p class="intro">
+				Pick à la carte or choose a bundled package. Every mandate is adjusted after a discovery call.
+			</p>
+		</div>
+	</section>
+
+	<section class="table-section">
+		<div class="container">
+			<h2>À la carte services</h2>
+			<div class="table-wrap">
+				<table class="services-table">
+					<thead>
+						<tr>
+							<th>Service</th>
+							<th>Client value</th>
+							<th>Typical cost</th>
+						</tr>
+					</thead>
+					<tbody>
+						{services.map((s) => (
+							<tr>
+								<td>{s.name}</td>
+								<td>{s.value}</td>
+								<td>{s.price}</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+
+	<section class="table-section">
+		<div class="container">
+			<h2>Packages</h2>
+			<p class="muted">Indicative in Canadian dollars; finalized after needs assessment.</p>
+			<div class="cards-grid">
+				{packages.map((pkg) => (
+					<article class={`card ${pkg.badge ? 'card-highlight' : ''}`}>
+						<div class="card-header">
+							<h3>{pkg.name}</h3>
+							{pkg.badge && <span class="badge">{pkg.badge}</span>}
+						</div>
+						<p class="tagline">{pkg.tagline}</p>
+						<p class="price">{pkg.priceRange}</p>
+						<p class="meta">Ideal for: {pkg.idealFor}</p>
+						<p class="highlight">{pkg.highlight}</p>
+						<ul>
+							{pkg.features.map((f) => (
+								<li>{f}</li>
+							))}
+						</ul>
+						<div class="card-actions">
+							<a class="button primary" href={topCtas.calendly} target="_blank" rel="noreferrer">Discuss this package</a>
+						</div>
+					</article>
+				))}
+			</div>
+			<p class="meta center">Approximate amounts in CAD. Custom mandates and mix-and-match options available.</p>
+		</div>
+	</section>
+
+	<SiteFooter footer={footer} navLinks={navLinks} topCtas={topCtas} />
+
+	<style>
+		.page-hero {
+			background: #fff;
+			padding: 3rem 1.5rem 2rem;
+		}
+		.page-hero h1 {
+			max-width: 760px;
+		}
+		.intro {
+			max-width: 780px;
+			color: var(--color-muted);
+			font-size: 1.05rem;
+		}
+		.table-section {
+			padding: 3rem 1.5rem;
+		}
+		.table-wrap {
+			overflow-x: auto;
+			border-radius: 1.25rem;
+			box-shadow: 0 20px 45px rgba(6, 24, 12, 0.08);
+			background: #fff;
+			margin-top: 1rem;
+		}
+		.services-table {
+			width: 100%;
+			border-collapse: collapse;
+			min-width: 360px;
+		}
+		.services-table th,
+		.services-table td {
+			text-align: left;
+			padding: 1rem 1.1rem;
+			vertical-align: top;
+		}
+		.services-table thead {
+			background: rgba(20, 108, 67, 0.08);
+			color: var(--color-deep-green);
+		}
+		.services-table tbody tr:nth-child(odd) {
+			background: rgba(0, 0, 0, 0.01);
+		}
+		.services-table th:first-child,
+		.services-table td:first-child {
+			min-width: 200px;
+			font-weight: 700;
+		}
+		.cards-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 1.5rem;
+			margin-top: 1.5rem;
+		}
+		.card {
+			background: #fff;
+			border-radius: 1.5rem;
+			padding: 1.5rem;
+			border: 1px solid rgba(6, 24, 12, 0.07);
+			box-shadow: 0 20px 45px rgba(6, 24, 12, 0.08);
+			display: flex;
+			flex-direction: column;
+			gap: 0.65rem;
+		}
+		.card-highlight {
+			border-color: var(--color-forest);
+			box-shadow: 0 25px 60px rgba(20, 108, 67, 0.12);
+		}
+		.card-header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+		.badge {
+			background: rgba(20, 108, 67, 0.12);
+			color: var(--color-forest);
+			border-radius: 999px;
+			padding: 0.25rem 0.75rem;
+			font-size: 0.75rem;
+			font-weight: 700;
+		}
+		.tagline {
+			color: var(--color-muted);
+			font-size: 0.95rem;
+		}
+		.price {
+			font-weight: 700;
+			font-size: 1.05rem;
+		}
+		.meta {
+			color: var(--color-muted);
+			font-size: 0.92rem;
+		}
+		.meta.center {
+			text-align: center;
+			margin-top: 1rem;
+		}
+		.highlight {
+			font-weight: 600;
+		}
+		.card ul {
+			padding-left: 1.1rem;
+			margin: 0.5rem 0 0;
+			display: flex;
+			flex-direction: column;
+			gap: 0.4rem;
+			color: var(--color-dark);
+		}
+		.card-actions {
+			margin-top: auto;
+		}
+		.button.primary {
+			width: 100%;
+			justify-content: center;
+		}
+	</style>
+</Layout>
