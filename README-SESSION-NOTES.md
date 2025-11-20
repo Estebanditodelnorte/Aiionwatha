@@ -9,6 +9,7 @@ Work session summary
 - GA4 ready via `PUBLIC_GA_ID` env.
 - Commit created: `feat: service tables, self-host fonts, security headers, 404s`.
 - Added bilingual services page with full services table and packages (`/services`, `/en/services`); nav links and hero CTAs updated to point to the new pages.
+- Clarified service descriptions (FR/EN) with plain language, including auxiliary/tech/privacy items; OG image set to hero.webp with absolute URL for social sharing.
 
 Next steps (suggested)
 - Set `PUBLIC_GA_ID` in deploy environment.
