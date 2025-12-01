@@ -1,0 +1,319 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import { pageContent } from '../../content/siteContent';
+
+const meta = {
+	title: 'Servicios y paquetes | Aiionwatha',
+	description: 'Descubre los servicios y paquetes de Aiionwatha: financiación, estrategia, digital, IA, relaciones indígenas y gobernanza.',
+	url: 'https://www.aiionwatha.com/es/services',
+	image: '/images/wp-uploads/2025/01/subventions-autochtones-wendake.webp',
+	imageAlt: 'Lista de servicios y paquetes Aiionwatha',
+	locale: 'es_ES'
+};
+
+const alternates = [
+	{ href: 'https://www.aiionwatha.com/es/services', hreflang: 'es-ES' },
+	{ href: 'https://www.aiionwatha.com/services', hreflang: 'fr-CA' },
+	{ href: 'https://www.aiionwatha.com/en/services', hreflang: 'en-CA' },
+	{ href: 'https://www.aiionwatha.com/services', hreflang: 'x-default' }
+];
+
+const services = [
+	{ name: "Optimización de subvenciones", value: "Búsqueda de programas, montaje de expedientes, pruebas de impacto, coordinación completa con financiadores.", price: "10 % del financiamiento" },
+	{ name: "Supervisión de SLA", value: "Seguimiento y reporte de indicadores para organismos, socios y financiadores.", price: "150–250 $ por auditoría" },
+	{ name: "Consultoría estratégica", value: "Clarificación de la visión, prioridades, gobernanza y riesgos, con plan de cambio medible.", price: "150–300 $/h (con tope)" },
+	{ name: "PMO ágil / Gestión de proyecto", value: "Seguimiento de hitos, coordinación de socios y reportes ejecutivos.", price: "250–750 $/semana" },
+	{ name: "Arquitectura tecnológica", value: "Blueprint de sistemas, flujos de datos, seguridad y presupuesto de implementación.", price: "1 500–3 500 $" },
+	{ name: "Optimización SEO", value: "Auditoría técnica, palabras clave, arquitectura de información, plan de contenido.", price: "480–1 500 $" },
+	{ name: "Optimización legal + riesgos", value: "Dossier de conformidad, evaluación de riesgos, políticas y cláusulas clave.", price: "600–1 500 $" },
+	{ name: "Diseño digital (DX)", value: "UX, microcopy, diseño de landing pages y flows de conversión.", price: "350–1 200 $" },
+	{ name: "Visualización y dashboards", value: "Diseño de cuadros de mando para decisiones y seguimiento de KPIs.", price: "550–2 500 $" },
+	{ name: "Optimización de centros de servicio", value: "Mejora de procesos de soporte para reducir tiempos y errores.", price: "300–2 000 $" }
+];
+
+const packages = [
+	{
+		name: 'Paquete Grant+',
+		tagline: 'Maximizar financiación y velocidad de aprobación',
+		priceRange: '1 500–3 800 $',
+		idealFor: 'Organizaciones que buscan asegurar subvenciones con rapidez total',
+		highlight: 'Modelo sin riesgo posible: 10 % de comisión si se aprueba (según programa)',
+		features: [
+			'Calificación de programas, scoring de elegibilidad, plan de ruta',
+			'Preparación o revisión completa del expediente + evidencia (impacto, presupuesto, cronograma)',
+			'Calendario de hitos, gobernanza y SLA de entrega',
+			'Entrega exprés opcional de 48h (según volumen)'
+		],
+		badge: 'Más popular'
+	},
+	{
+		name: 'Paquete Gestión clave en mano',
+		tagline: 'Ritmo de trabajo mensual para equipos reducidos',
+		priceRange: '1 600–2 800 $/mes',
+		idealFor: 'Pymes y organizaciones que necesitan acompañamiento continuo',
+		highlight: 'Ritmo semanal, plan de hitos, reportes de progreso y riesgos',
+		features: [
+			'PMO ágil: seguimiento de tareas, riesgos, decisiones y dependencias',
+			'Dashboards y correos ejecutivos para mantener a la dirección alineada',
+			'Soporte estratégico/budgeting + preparación de documentos clave',
+			'Soporte de cumplimiento (Ley 25, seguridad) según necesidad'
+		]
+	},
+	{
+		name: 'Paquete Web listo para subvenciones',
+		tagline: 'Sitio rápido, seguro y listo para evaluación',
+		priceRange: '1 200–3 300 $',
+		idealFor: 'Organismos con plazos cortos que necesitan credibilidad online',
+		highlight: 'Auditoría Core Web Vitals, hardening, UX y SEO listos para difusión',
+		features: [
+			'Auditoría UX + Core Web Vitals con plan de mejora y ejecución priorizada',
+			'Diseño o rediseño de 3–6 páginas clave (historia, servicios, prueba social)',
+			'Implementación técnica (seguridad, rendimiento, accesibilidad)',
+			'Soporte de lanzamiento y monitoreo inicial (hasta 30 días)'
+		]
+	}
+];
+
+const { footer, navLinks, topCtas } = pageContent.es;
+---
+
+<Layout title={meta.title} description={meta.description} url={meta.url} image={meta.image} ogImageAlt={meta.imageAlt} locale={meta.locale} alternates={alternates}>
+	<SiteHeader
+		navLinks={navLinks}
+		brandingSmall={footer.brandingSmall}
+		calendlyUrl={topCtas.calendly}
+		primaryCtaLabel="Agendar una llamada"
+		langToggle={{ label: 'Français', href: '/services', ariaLabel: 'Voir les services en français', lang: 'fr' }}
+		extraLangToggle={{ label: 'English', href: '/en/services', ariaLabel: 'View services in English', lang: 'en' }}
+		anchorId="services-top"
+	/>
+
+	<section class="page-hero">
+		<div class="container">
+			<p class="section-title">Servicios y paquetes</p>
+			<h1>Servicios modulares para financiar, ejecutar y asegurar tus proyectos</h1>
+			<p class="intro">
+				Elige servicios a la carta o un paquete llave en mano. Cada mandato se ajusta tras una llamada de descubrimiento.
+			</p>
+		</div>
+	</section>
+
+	<section class="table-section">
+		<div class="container">
+			<h2>Servicios a la carta</h2>
+			<div class="table-wrap">
+				<table class="services-table">
+					<thead>
+						<tr>
+							<th>Servicio</th>
+							<th>Valor para el cliente</th>
+							<th>Tarifa indicativa</th>
+						</tr>
+					</thead>
+					<tbody>
+						{services.map((s) => (
+							<tr>
+								<td data-label="Servicio">{s.name}</td>
+								<td data-label="Valor para el cliente">{s.value}</td>
+								<td data-label="Tarifa indicativa">{s.price}</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+
+	<section class="table-section">
+		<div class="container">
+			<h2>Paquetes</h2>
+			<p class="muted">Referencias en dólares canadienses; se ajustan tras el diagnóstico.</p>
+			<div class="cards-grid">
+				{packages.map((pkg) => (
+					<article class={`card ${pkg.badge ? 'card-highlight' : ''}`}>
+						<div class="card-header">
+							<h3>{pkg.name}</h3>
+							{pkg.badge && <span class="badge">{pkg.badge}</span>}
+						</div>
+						<p class="tagline">{pkg.tagline}</p>
+						<p class="price">{pkg.priceRange}</p>
+						<p class="meta">Ideal para: {pkg.idealFor}</p>
+						<p class="highlight">{pkg.highlight}</p>
+						<ul>
+							{pkg.features.map((f) => (
+								<li>{f}</li>
+							))}
+						</ul>
+						<div class="card-actions">
+							<a class="button primary" href={topCtas.calendly} target="_blank" rel="noreferrer">Hablar sobre este paquete</a>
+						</div>
+					</article>
+				))}
+			</div>
+			<p class="meta center">Montos de referencia en CAD. Mandatos a medida y combinaciones disponibles.</p>
+		</div>
+	</section>
+
+	<SiteFooter footer={footer} navLinks={navLinks} topCtas={topCtas} />
+
+	<style>
+		.page-hero {
+			background: #fff;
+			padding: 3rem 1.5rem 2rem;
+		}
+		.page-hero h1 {
+			max-width: 760px;
+		}
+		.intro {
+			max-width: 780px;
+			color: var(--color-muted);
+			font-size: 1.05rem;
+		}
+		.table-section {
+			padding: 3rem 1.5rem;
+		}
+		.table-wrap {
+			overflow-x: auto;
+			border-radius: 1.25rem;
+			box-shadow: 0 20px 45px rgba(6, 24, 12, 0.08);
+			background: #fff;
+			margin-top: 1rem;
+		}
+		.services-table {
+			width: 100%;
+			border-collapse: collapse;
+			min-width: 360px;
+		}
+		.services-table th,
+		.services-table td {
+			text-align: left;
+			padding: 1rem 1.1rem;
+			vertical-align: top;
+		}
+		.services-table thead {
+			background: rgba(20, 108, 67, 0.08);
+			color: var(--color-deep-green);
+		}
+		.services-table tbody tr:nth-child(odd) {
+			background: rgba(0, 0, 0, 0.01);
+		}
+		.services-table th:first-child,
+		.services-table td:first-child {
+			min-width: 200px;
+			font-weight: 700;
+		}
+		@media (max-width: 720px) {
+			.table-wrap {
+				overflow: visible;
+				background: transparent;
+				box-shadow: none;
+			}
+			.services-table {
+				min-width: 0;
+			}
+			.services-table thead {
+				border: 0;
+				clip: rect(0 0 0 0);
+				height: 1px;
+				margin: -1px;
+				overflow: hidden;
+				padding: 0;
+				position: absolute;
+				width: 1px;
+			}
+			.services-table tbody tr {
+				display: block;
+				margin-bottom: 1rem;
+				border: 1px solid rgba(6, 24, 12, 0.07);
+				border-radius: 1rem;
+				box-shadow: 0 16px 32px rgba(6, 24, 12, 0.08);
+				background: #fff;
+			}
+			.services-table td {
+				display: grid;
+				grid-template-columns: 130px 1fr;
+				gap: 0.5rem;
+				padding: 0.65rem 0.9rem;
+			}
+			.services-table td::before {
+				content: attr(data-label);
+				font-weight: 700;
+				color: var(--color-deep-green);
+				text-transform: none;
+			}
+			.services-table th:first-child,
+			.services-table td:first-child {
+				min-width: 0;
+			}
+		}
+		.cards-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 1.5rem;
+			margin-top: 1.5rem;
+		}
+		.card {
+			background: #fff;
+			border-radius: 1.5rem;
+			padding: 1.5rem;
+			border: 1px solid rgba(6, 24, 12, 0.07);
+			box-shadow: 0 20px 45px rgba(6, 24, 12, 0.08);
+			display: flex;
+			flex-direction: column;
+			gap: 0.65rem;
+		}
+		.card-highlight {
+			border-color: var(--color-forest);
+			box-shadow: 0 25px 60px rgba(20, 108, 67, 0.12);
+		}
+		.card-header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+		.badge {
+			background: rgba(20, 108, 67, 0.12);
+			color: var(--color-forest);
+			border-radius: 999px;
+			padding: 0.25rem 0.75rem;
+			font-size: 0.75rem;
+			font-weight: 700;
+		}
+		.tagline {
+			color: var(--color-muted);
+			font-size: 0.95rem;
+		}
+		.price {
+			font-weight: 700;
+			font-size: 1.05rem;
+		}
+		.meta {
+			color: var(--color-muted);
+			font-size: 0.92rem;
+		}
+		.meta.center {
+			text-align: center;
+			margin-top: 1rem;
+		}
+		.highlight {
+			font-weight: 600;
+		}
+		.card ul {
+			padding-left: 1.1rem;
+			margin: 0.5rem 0 0;
+			display: flex;
+			flex-direction: column;
+			gap: 0.4rem;
+			color: var(--color-dark);
+		}
+		.card-actions {
+			margin-top: auto;
+		}
+		.button.primary {
+			width: 100%;
+			justify-content: center;
+		}
+	</style>
+</Layout>

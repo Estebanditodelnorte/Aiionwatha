@@ -13,8 +13,10 @@ const metadata = {
 };
 
 const alternates = [
+	{ href: 'https://www.aiionwatha.com/en/privacy-policy', hreflang: 'en-CA' },
 	{ href: 'https://www.aiionwatha.com/politique-de-confidentialite', hreflang: 'fr-CA' },
-	{ href: metadata.url, hreflang: 'x-default' }
+	{ href: 'https://www.aiionwatha.com/es/privacy-policy', hreflang: 'es-ES' },
+	{ href: 'https://www.aiionwatha.com/politique-de-confidentialite', hreflang: 'x-default' }
 ];
 
 const lastUpdated = 'January 5, 2025';
@@ -97,6 +99,7 @@ const sections = [
 		calendlyUrl={topCtas.calendly}
 		primaryCtaLabel="Book a call"
 		langToggle={{ label: 'Français', href: '/politique-de-confidentialite', ariaLabel: 'Voir la version française', lang: 'fr' }}
+		extraLangToggle={{ label: 'Español', href: '/es/privacy-policy', ariaLabel: 'Ver la política de privacidad en español', lang: 'es' }}
 		anchorId="policy-top"
 	/>
 
@@ -115,6 +118,9 @@ const sections = [
 				<div class="policy-lang-switch">
 					<a class="lang-toggle" href="/politique-de-confidentialite" lang="fr" aria-label="Voir la version française de cette politique">
 						Français
+					</a>
+					<a class="lang-toggle" href="/es/privacy-policy" lang="es" aria-label="Ver la versión en español de esta política">
+						Español
 					</a>
 				</div>
 				{introParagraphs.map((paragraph) => (
@@ -180,6 +186,8 @@ const sections = [
 		.policy-lang-switch {
 			display: flex;
 			justify-content: flex-end;
+			flex-wrap: wrap;
+			gap: 0.5rem;
 			margin-bottom: 0.35rem;
 		}
 

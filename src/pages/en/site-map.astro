@@ -1,0 +1,92 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { pageContent } from '../../content/siteContent';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+
+const content = pageContent.en;
+const { meta, alternates, navLinks, topCtas, footer } = content;
+
+const pages = [
+	{ label: 'Home', href: '/en/' },
+	{ label: 'About', href: '/en/about' },
+	{ label: 'Services', href: '/en/services' },
+	{ label: 'Values', href: '/en#values' },
+	{ label: 'Contact', href: '/en#contact' },
+	{ label: 'FAQ', href: '/en/faq' },
+	{ label: 'Privacy Policy', href: '/en/privacy-policy' },
+	{ label: 'XML sitemap', href: '/sitemap-index.xml' }
+];
+
+const metaData = {
+	title: 'Site Map | Aiionwatha',
+	description: 'Find every section and page of Aiionwatha: services, FAQ, privacy policy, and contact links.',
+	url: 'https://www.aiionwatha.com/en/site-map',
+	image: meta.image,
+	locale: 'en_CA'
+};
+
+const pageAlternates = [
+	{ href: 'https://www.aiionwatha.com/plan-du-site', hreflang: 'fr-CA' },
+	{ href: metaData.url, hreflang: 'en-CA' },
+	{ href: 'https://www.aiionwatha.com/es/mapa-del-sitio', hreflang: 'es-ES' },
+	{ href: metaData.url, hreflang: 'x-default' }
+];
+---
+
+<Layout title={metaData.title} description={metaData.description} url={metaData.url} image={metaData.image} locale={metaData.locale} alternates={pageAlternates}>
+	<SiteHeader
+		navLinks={navLinks}
+		brandingSmall={footer.brandingSmall}
+		calendlyUrl={topCtas.calendly}
+		primaryCtaLabel="Book a call"
+		langToggle={{ label: 'Français', href: '/plan-du-site', ariaLabel: 'Voir le plan du site en français', lang: 'fr' }}
+		extraLangToggle={{ label: 'Español', href: '/es/mapa-del-sitio', ariaLabel: 'Ver el mapa del sitio en español', lang: 'es' }}
+		anchorId="site-map-top"
+	/>
+
+	<main class="sitemap">
+		<div class="container">
+			<p class="section-title">Site map</p>
+			<h1>Find any page quickly</h1>
+			<ul class="sitemap-list">
+				{pages.map((page) => (
+					<li>
+						<a href={page.href}>{page.label}</a>
+					</li>
+				))}
+			</ul>
+		</div>
+	</main>
+
+	<SiteFooter footer={footer} navLinks={navLinks} topCtas={topCtas} />
+
+	<style>
+		.sitemap {
+			padding: 3rem 1.5rem 4rem;
+			background: #fff;
+		}
+
+		.sitemap h1 {
+			margin-bottom: 1rem;
+		}
+
+		.sitemap-list {
+			list-style: none;
+			padding: 0;
+			margin: 1rem 0 0;
+			display: grid;
+			gap: 0.75rem;
+		}
+
+		.sitemap-list a {
+			color: var(--color-deep-green);
+			font-weight: 600;
+			text-decoration: none;
+		}
+
+		.sitemap-list a:hover {
+			text-decoration: underline;
+		}
+	</style>
+</Layout>

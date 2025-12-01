@@ -1,0 +1,165 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { pageContent } from '../../content/siteContent';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+
+const metadata = {
+	title: 'FAQ – Aiionwatha',
+	description:
+		'Preguntas frecuentes sobre la optimización de subvenciones, consultoría, apoyo a la Ley 25 y colaboración con organizaciones indígenas y pymes.',
+	url: 'https://www.aiionwatha.com/es/faq',
+	image: '/images/wp-uploads/2025/01/subventions-autochtones-wendake.webp',
+	locale: 'es_ES'
+};
+
+const alternates = [
+	{ href: 'https://www.aiionwatha.com/es/faq', hreflang: 'es-ES' },
+	{ href: 'https://www.aiionwatha.com/faq', hreflang: 'fr-CA' },
+	{ href: 'https://www.aiionwatha.com/en/faq', hreflang: 'en-CA' },
+	{ href: 'https://www.aiionwatha.com/faq', hreflang: 'x-default' }
+];
+
+const { navLinks, topCtas, footer } = pageContent.es;
+
+const faqs = [
+	{
+		question: '¿Qué tipo de proyectos apoya Aiionwatha?',
+		answer:
+			'Trabajamos con pymes innovadoras, organizaciones indígenas y proyectos comunitarios orientados a financiar iniciativas culturales, económicas o tecnológicas. Evaluamos la alineación entre tus objetivos y los programas disponibles, luego coordinamos los envíos y seguimientos.'
+	},
+	{
+		question: '¿Cómo analizan las oportunidades de financiamiento?',
+		answer:
+			'Empezamos con un diagnóstico breve, identificamos programas activos y definimos la evidencia de impacto requerida. Recibes una hoja de ruta priorizada para saber qué solicitudes abordar primero.'
+	},
+	{
+		question: '¿Qué significa “modelo sin riesgo”?',
+		answer:
+			'No cobramos honorarios iniciales; nuestra remuneración se activa cuando se asegura el financiamiento. Este modelo alinea nuestros incentivos con los tuyos y reduce la presión de caja.'
+	},
+	{
+		question: '¿Pueden colaborar con nuestro equipo interno?',
+		answer:
+			'Totalmente. Podemos liderar el proyecto o trabajar junto a tus analistas, entregando plantillas, retroalimentación y control de calidad mientras transferimos metodología.'
+	},
+	{
+		question: '¿Cómo ayudan con el cumplimiento de la Ley 25?',
+		answer:
+			'Mapeamos flujos de datos personales, clarificamos los avisos necesarios y diseñamos calendarios de retención. Si se requiere asesoría legal adicional, coordinamos socios de confianza para formalizar políticas y mecanismos de consentimiento.'
+	},
+	{
+		question: '¿Operan solo en Quebec?',
+		answer:
+			'La mayoría de los mandatos son en Quebec, pero colaboramos en todo Canadá cuando los proyectos involucran realidades indígenas o programas federales relevantes.'
+	},
+	{
+		question: '¿Cómo miden el impacto de los proyectos?',
+		answer:
+			'Definimos KPIs claros desde el inicio—resultados económicos, participación comunitaria, transmisión cultural, alineación ESG—y los integramos en los entregables para fortalecer la aplicación.'
+	},
+	{
+		question: '¿Ofrecen talleres o capacitación?',
+		answer:
+			'Sí, impartimos talleres sobre búsqueda de programas, evaluación de necesidades, recolección de evidencia y gestión de proyectos de subvenciones. El contenido se adapta a tus equipos internos.'
+	},
+	{
+		question: '¿Cuánto tiempo toma preparar un expediente de subvención?',
+		answer:
+			'Según la complejidad, se requieren de 2 a 6 semanas para reunir datos, presupuestos y cartas. Programamos checkpoints semanales para mantener a los decisores alineados.'
+	},
+	{
+		question: '¿Cómo empezamos?',
+		answer:
+			'Agenda una llamada de descubrimiento. Revisaremos tus objetivos, activos actuales y cronograma, luego presentaremos una hoja de ruta adaptada para avanzar.'
+	}
+];
+---
+
+<Layout
+	title={metadata.title}
+	description={metadata.description}
+	url={metadata.url}
+	image={metadata.image}
+	ogImageAlt="Optimización de subvenciones para maximizar el financiamiento de proyectos innovadores."
+	locale={metadata.locale}
+	alternates={alternates}
+	faqItems={faqs}
+>
+	<SiteHeader
+		navLinks={navLinks}
+		brandingSmall={footer.brandingSmall}
+		calendlyUrl={topCtas.calendly}
+		primaryCtaLabel="Agendar una llamada"
+		langToggle={{ label: 'Français', href: '/faq', ariaLabel: 'Voir la FAQ en français', lang: 'fr' }}
+		extraLangToggle={{ label: 'English', href: '/en/faq', ariaLabel: 'View the FAQ in English', lang: 'en' }}
+		anchorId="faq-top"
+	/>
+
+	<main class="faq-page">
+		<header class="faq-hero">
+			<div class="container">
+				<p class="tag">Preguntas frecuentes</p>
+				<h1>FAQ Aiionwatha</h1>
+				<p>
+					Descubre cómo simplificamos solicitudes de subvención, consultoría estratégica y cumplimiento de la Ley 25 para organizaciones indígenas y pymes.
+				</p>
+			</div>
+		</header>
+
+		<section class="faq-container">
+			<div class="container">
+				{faqs.map((faq) => (
+					<article class="faq-item">
+						<h2>{faq.question}</h2>
+						<p>{faq.answer}</p>
+					</article>
+				))}
+			</div>
+		</section>
+	</main>
+
+	<SiteFooter footer={footer} navLinks={navLinks} topCtas={topCtas} />
+
+	<style>
+		.faq-hero {
+			background: linear-gradient(135deg, rgba(20, 108, 67, 0.12), rgba(48, 162, 58, 0.18));
+			padding: 3rem 1.5rem;
+		}
+
+		.faq-page h1 {
+			margin-bottom: 1rem;
+		}
+
+		.faq-container {
+			padding: 2.5rem 1.5rem 4rem;
+		}
+
+		.faq-container .container {
+			max-width: 900px;
+			margin: 0 auto;
+			background: #fff;
+			border-radius: 1.5rem;
+			box-shadow: 0 30px 70px rgba(6, 24, 12, 0.08);
+			padding: 1.5rem;
+			display: grid;
+			gap: 1.25rem;
+		}
+
+		.faq-item {
+			display: grid;
+			gap: 0.35rem;
+		}
+
+		.faq-item h2 {
+			font-size: 1.1rem;
+			margin: 0;
+		}
+
+		.faq-item p {
+			margin: 0;
+			color: var(--color-muted);
+			line-height: 1.5;
+		}
+	</style>
+</Layout>

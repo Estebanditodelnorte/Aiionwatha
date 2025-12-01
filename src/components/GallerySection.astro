@@ -5,14 +5,17 @@ export interface Props {
 		heading: string;
 		paragraphs: string[];
 		button: string;
-		testimonial: string;
-		testimonialAuthor: string;
-		testimonialRole: string;
+		testimonial?: string;
+		testimonialAuthor?: string;
+		testimonialRole?: string;
+		recommendationsTitle?: string;
+		recommendations?: { quote: string; author: string; role: string }[];
 	};
 	calendlyUrl: string;
+	showRecommendations?: boolean;
 }
 
-const { story, calendlyUrl } = Astro.props;
+const { story, calendlyUrl, showRecommendations = true } = Astro.props;
 ---
 
 <section class="story">
@@ -25,16 +28,22 @@ const { story, calendlyUrl } = Astro.props;
 			))}
 			<a class="button primary" href={calendlyUrl} target="_blank" rel="noreferrer">{story.button}</a>
 		</div>
-		<div class="accent-box">
-			<figure>
-				<img src="/images/testimonial.png" alt="Illustration sur la planification stratégique" loading="lazy" />
-			</figure>
-			<p class="testimonial">{story.testimonial}</p>
-			<p class="testimonial-author">
-				<strong>{story.testimonialAuthor}</strong><br />
-				{story.testimonialRole}
-			</p>
-		</div>
+		{showRecommendations && story.recommendations && story.recommendations.length ? (
+			<div class="accent-box rec-banner" aria-label={story.recommendationsTitle ?? 'Recommendations'}>
+				<p class="banner-title">{story.recommendationsTitle ?? 'Recommendations'}</p>
+				<div class="rec-list">
+					{story.recommendations.map((rec) => (
+						<article class="rec-pill">
+							<p class="testimonial">{rec.quote}</p>
+							<p class="testimonial-author">
+								<strong>{rec.author}</strong><br />
+								{rec.role}
+							</p>
+						</article>
+					))}
+				</div>
+			</div>
+		) : null}
 	</div>
 </section>
 
@@ -45,8 +54,8 @@ const { story, calendlyUrl } = Astro.props;
 
 	.story-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 2.5rem;
+		grid-template-columns: 1fr;
+		gap: 1.75rem;
 		align-items: start;
 	}
 
@@ -55,6 +64,37 @@ const { story, calendlyUrl } = Astro.props;
 		border-radius: 2rem;
 		padding: clamp(2rem, 4vw, 3.5rem);
 		box-shadow: 0 40px 80px rgba(11, 49, 34, 0.08);
+	}
+
+	.rec-banner {
+		display: grid;
+		gap: 1rem;
+		background: linear-gradient(135deg, #e4f6e4 0%, #f8fff8 100%);
+	}
+
+	.banner-title {
+		margin: 0;
+		font-weight: 700;
+		color: var(--color-deep-green);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		font-size: 0.95rem;
+	}
+
+	.rec-list {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 1rem;
+	}
+
+	.rec-pill {
+		border: 1px solid rgba(6, 24, 12, 0.08);
+		border-radius: 1rem;
+		background: #fff;
+		padding: 1rem;
+		box-shadow: 0 14px 32px rgba(6, 24, 12, 0.08);
+		display: grid;
+		gap: 0.6rem;
 	}
 
 	.testimonial {

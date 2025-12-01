@@ -14,8 +14,10 @@ const metadata = {
 };
 
 const alternates = [
+	{ href: 'https://www.aiionwatha.com/en/faq', hreflang: 'en-CA' },
 	{ href: 'https://www.aiionwatha.com/faq', hreflang: 'fr-CA' },
-	{ href: metadata.url, hreflang: 'x-default' }
+	{ href: 'https://www.aiionwatha.com/es/faq', hreflang: 'es-ES' },
+	{ href: 'https://www.aiionwatha.com/faq', hreflang: 'x-default' }
 ];
 
 const { navLinks, topCtas, footer } = pageContent.en;
@@ -90,6 +92,7 @@ const faqs = [
 		calendlyUrl={topCtas.calendly}
 		primaryCtaLabel="Book a call"
 		langToggle={{ label: 'Français', href: '/faq', ariaLabel: 'Voir la FAQ en français', lang: 'fr' }}
+		extraLangToggle={{ label: 'Español', href: '/es/faq', ariaLabel: 'View the FAQ in Spanish', lang: 'es' }}
 		anchorId="faq-top"
 	/>
 

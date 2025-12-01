@@ -17,10 +17,11 @@ export interface Props {
 	calendlyUrl: string;
 	primaryCtaLabel: string;
 	langToggle: LangToggle;
+	extraLangToggle?: LangToggle;
 	anchorId: string;
 }
 
-const { navLinks, brandingSmall, calendlyUrl, primaryCtaLabel, langToggle, anchorId } = Astro.props;
+const { navLinks, brandingSmall, calendlyUrl, primaryCtaLabel, langToggle, extraLangToggle, anchorId } = Astro.props;
 ---
 
 <header class="site-header" id={anchorId}>
@@ -38,9 +39,16 @@ const { navLinks, brandingSmall, calendlyUrl, primaryCtaLabel, langToggle, ancho
 			))}
 		</nav>
 		<div class="header-actions">
-			<a class="lang-toggle" href={langToggle.href} lang={langToggle.lang} aria-label={langToggle.ariaLabel}>
-				{langToggle.label}
-			</a>
+			<div class="lang-group">
+				<a class="lang-toggle" href={langToggle.href} lang={langToggle.lang} aria-label={langToggle.ariaLabel}>
+					{langToggle.label}
+				</a>
+				{extraLangToggle && (
+					<a class="lang-toggle" href={extraLangToggle.href} lang={extraLangToggle.lang} aria-label={extraLangToggle.ariaLabel}>
+						{extraLangToggle.label}
+					</a>
+				)}
+			</div>
 			<a class="button primary small" href={calendlyUrl} target="_blank" rel="noreferrer">
 				{primaryCtaLabel}
 			</a>
@@ -64,6 +72,8 @@ const { navLinks, brandingSmall, calendlyUrl, primaryCtaLabel, langToggle, ancho
 		align-items: center;
 		justify-content: space-between;
 		gap: 1rem;
+		flex-wrap: wrap;
+		row-gap: 0.75rem;
 	}
 
 	.header-branding {
@@ -92,7 +102,8 @@ const { navLinks, brandingSmall, calendlyUrl, primaryCtaLabel, langToggle, ancho
 	.nav-links {
 		display: flex;
 		align-items: center;
-		gap: 1.25rem;
+		gap: 1.1rem;
+		flex-wrap: wrap;
 		font-weight: 500;
 	}
 
@@ -119,7 +130,15 @@ const { navLinks, brandingSmall, calendlyUrl, primaryCtaLabel, langToggle, ancho
 	.header-actions {
 		display: flex;
 		align-items: center;
+		flex-wrap: wrap;
 		gap: 0.75rem;
+		margin-left: auto;
+	}
+
+	.lang-group {
+		display: inline-flex;
+		flex-wrap: wrap;
+		gap: 0.55rem;
 	}
 
 	.lang-toggle {

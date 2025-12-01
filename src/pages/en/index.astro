@@ -7,6 +7,58 @@ import SiteFooter from '../../components/SiteFooter.astro';
 
 const content = pageContent.en;
 const { meta, alternates, navLinks, hero, about, reasons, founder, services, story, values, topCtas, cta, footer } = content;
+
+const recommendations = [
+	{
+		title: 'Isa Gros-Louis — Espace Max Oné Onti Gros-Louis',
+		logo: '/images/emgl-logo.png',
+		logoAlt: 'Espace Max Oné Onti Gros-Louis logo',
+		text: '“Working with Steven was pivotal: solid expertise, clear strategic vision, and precise on-the-ground advice.”'
+	},
+	{
+		title: 'Diane Andicha Picard — Rendez-vous des artisans et artistes de Wendake',
+		logo: '/images/rvaaw-logo.png',
+		logoAlt: 'Rendez-vous des artisans et artistes de Wendake logo',
+		text: '“We highly recommend Steven for his flexibility, commitment, integrity, and rigor in managing timelines. He played a significant role in planning our project, drafting complex documents, financial records, advice, and recommendations that greatly improved the reach of our event.”'
+	},
+	{
+		title: 'Dominic LeBlanc — Minister of Fisheries, Oceans and the Canadian Coast Guard',
+		logo: '/images/sig-blk-en.svg',
+		logoAlt: 'Government of Canada',
+		text:
+			'“This accomplishment is the result of the extraordinary and tireless dedication of public servants like you. Thanks to you and your colleagues, Canada once again plays a leading role internationally, and we are on track to make a strong contribution to global ocean stewardship—a legacy for future generations.”'
+	},
+	{
+		title: 'Emmanuel Morin — Projets Autochtones du Québec',
+		logo: '/images/projets-autochtones-header.png',
+		logoAlt: 'Projets Autochtones du Québec',
+		text:
+			'“Steven has been devoted to the First Peoples community since his time at the McCord Museum. He volunteered in numerous fundraisers and joined the administrative council to follow the Organization’s progress. He has given all the support he could and remains a precious asset to Projets Autochtones du Québec.”'
+	},
+	{
+		title: 'Camil Picard — Commission des droits de la personne et des droits de la jeunesse',
+		logo: '/images/cdpdj-blue.svg',
+		logoAlt: 'Commission des droits de la personne et des droits de la jeunesse',
+		text:
+			'“We thank you warmly for helping make the Table de concertation jeunesse a success. Thank you for your testimony and your commitment.”'
+	},
+	{
+		title: 'Annabelle Laliberté & Dolorès Contré Migwans — McCord Museum',
+		logo: '/images/McCord.webp',
+		logoAlt: 'McCord Museum',
+		text:
+			'“On behalf of the Jardin des Premières Nations de Montréal and the McCord Museum, we warmly thank you for the help on Huron-Wendat history and culture. We highlight Steven Germain’s work as researcher and oral history documentalist to sensitize school audiences to First Nations and their relationship with the environment. He showed initiative, curiosity, sensitivity, and ease with respected Elders, compiling key information to build a new program. His work and presence were greatly appreciated.”'
+	},
+	{
+		title: 'Carl Simard — First Nations of Quebec and Labrador Health and Social Services Commission',
+		logo: '/images/Logo_CSSSPNQL.svg',
+		logoAlt: 'First Nations of Quebec and Labrador Health and Social Services Commission',
+		text:
+			'“Steven works very hard and adapts to any situation. He organizes his work, respects deadlines, and surfaces local risks and challenges. He is creative, supportive of others, and has the will to get things done.”'
+	}
+];
+
+const marqueeItems = recommendations;
 ---
 
 <Layout title={meta.title} description={meta.description} url={meta.url} image={meta.image} ogImageAlt={meta.imageAlt} locale={meta.locale} alternates={alternates}>
@@ -25,9 +77,14 @@ const { meta, alternates, navLinks, hero, about, reasons, founder, services, sto
 				))}
 			</nav>
 			<div class="header-actions">
-				<a class="lang-toggle" href="/" lang="fr" aria-label="View the French version of the site">
-					Français
-				</a>
+				<div class="lang-group">
+					<a class="lang-toggle" href="/" lang="fr" aria-label="View the French version of the site">
+						Français
+					</a>
+					<a class="lang-toggle" href="/es" lang="es" aria-label="View the Spanish version of the site">
+						Español
+					</a>
+				</div>
 				<a class="button primary small" href={topCtas.calendly} target="_blank" rel="noreferrer">
 					Book a call
 				</a>
@@ -104,7 +161,7 @@ const { meta, alternates, navLinks, hero, about, reasons, founder, services, sto
 		</div>
 	</section>
 
-	<GallerySection story={story} calendlyUrl={topCtas.calendly} />
+	<GallerySection story={story} calendlyUrl={topCtas.calendly} showRecommendations={false} />
 
 	<section class="values" id="values">
 		<div class="container">
@@ -118,6 +175,29 @@ const { meta, alternates, navLinks, hero, about, reasons, founder, services, sto
 						<p>{value.text}</p>
 					</div>
 				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="recommendations" aria-label="Rotating recommendations">
+		<div class="container">
+			<div class="rec-header">
+				<p class="section-title">Recommendations</p>
+				<h2>What partners say</h2>
+				<p class="intro">Two flagship references that show the impact of our collaborations.</p>
+			</div>
+			<div class="ticker">
+				<div class="ticker-track">
+					{marqueeItems.map((rec, index) => (
+						<article class="rec-card" aria-hidden={index >= recommendations.length}>
+							<div class="rec-head">
+								{rec.logo ? <img class="rec-logo" src={rec.logo} alt={rec.logoAlt ?? rec.title} loading="lazy" /> : null}
+								<h3>{rec.title}</h3>
+							</div>
+							<p class="rec-quote">{rec.text}</p>
+						</article>
+					))}
+				</div>
 			</div>
 		</div>
 	</section>
@@ -154,12 +234,22 @@ const { meta, alternates, navLinks, hero, about, reasons, founder, services, sto
 			align-items: center;
 			justify-content: space-between;
 			gap: 1rem;
+			flex-wrap: wrap;
+			row-gap: 0.75rem;
 		}
 
 		.header-actions {
 			display: flex;
 			align-items: center;
 			gap: 0.75rem;
+			flex-wrap: wrap;
+			margin-left: auto;
+		}
+
+		.lang-group {
+			display: inline-flex;
+			flex-wrap: wrap;
+			gap: 0.55rem;
 		}
 
 		.header-branding {
@@ -281,6 +371,74 @@ const { meta, alternates, navLinks, hero, about, reasons, founder, services, sto
 		.services-table td:first-child {
 			min-width: 180px;
 			font-weight: 700;
+		}
+
+		.recommendations {
+			padding: 3rem 1.5rem;
+			background: linear-gradient(135deg, #f5f8f5 0%, #ffffff 100%);
+			border-top: 1px solid rgba(6, 24, 12, 0.06);
+			border-bottom: 1px solid rgba(6, 24, 12, 0.06);
+		}
+
+		.rec-header {
+			display: grid;
+			gap: 0.4rem;
+			margin-bottom: 1rem;
+		}
+
+		.ticker {
+			overflow: hidden;
+			border-radius: 1rem;
+			border: 1px solid rgba(6, 24, 12, 0.08);
+			background: #fff;
+			box-shadow: 0 16px 44px rgba(6, 24, 12, 0.08);
+			position: relative;
+		}
+
+		.ticker-track {
+			display: grid;
+			gap: 1rem;
+			padding: 1rem;
+		}
+
+		.rec-card {
+			width: 100%;
+			background: #f7faf7;
+			border: 1px solid rgba(6, 24, 12, 0.06);
+			border-radius: 0.9rem;
+			padding: 1rem 1.1rem;
+			box-shadow: 0 6px 14px rgba(6, 24, 12, 0.05);
+			display: grid;
+			gap: 0.6rem;
+		}
+
+		.rec-head {
+			display: grid;
+			grid-template-columns: auto 1fr;
+			align-items: center;
+			gap: 0.65rem;
+		}
+
+		.rec-logo {
+			height: 52px;
+			width: 52px;
+			object-fit: contain;
+			background: #fff;
+			border-radius: 0.6rem;
+			border: 1px solid rgba(6, 24, 12, 0.08);
+			padding: 0.25rem;
+		}
+
+		.rec-card h3 {
+			margin: 0;
+			color: var(--color-deep-green);
+			font-size: 1.02rem;
+		}
+
+		.rec-quote {
+			margin: 0;
+			color: var(--color-muted);
+			line-height: 1.5;
 		}
 
 		.cta {

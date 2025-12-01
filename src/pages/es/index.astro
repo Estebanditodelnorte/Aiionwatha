@@ -1,62 +1,61 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { pageContent } from '../content/siteContent';
-import HeroSection from '../components/HeroSection.astro';
-import GallerySection from '../components/GallerySection.astro';
-import SiteFooter from '../components/SiteFooter.astro';
-import SiteHeader from '../components/SiteHeader.astro';
+import Layout from '../../layouts/Layout.astro';
+import { pageContent } from '../../content/siteContent';
+import HeroSection from '../../components/HeroSection.astro';
+import GallerySection from '../../components/GallerySection.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
 
-const content = pageContent.fr;
+const content = pageContent.es;
 const { meta, alternates, navLinks, hero, about, reasons, founder, services, story, values, topCtas, cta, footer } = content;
 
 const recommendations = [
 	{
-		title: 'Isa Gros-Louis – Espace Max Oné Onti Gros-Louis',
+		title: 'Isa Gros-Louis — Espace Max Oné Onti Gros-Louis',
 		logo: '/images/emgl-logo.png',
 		logoAlt: 'Logo Espace Max Oné Onti Gros-Louis',
-		text:
-			'« Travailler avec Steven Gros-Louis Germain d’Aiionwatha a été une expérience profondément enrichissante et déterminante pour mon projet. Son accompagnement professionnel se distingue par une expertise solide, une vision stratégique claire et une capacité exceptionnelle à apporter des conseils précis, pertinents et adaptés à la réalité du terrain. Steven possède un sens aigu de l’analyse et une compréhension remarquable des enjeux organisationnels et culturels. Grâce à ses recommandations éclairées, j’ai pu avancer avec confiance, structurer mes étapes et prendre des décisions alignées sur mes objectifs à long terme. Son écoute, sa disponibilité et son engagement authentique font de lui un partenaire de confiance. Je recommande chaleureusement les services d’Aiionwatha à toute personne ou organisation en quête d’un accompagnement fondé sur l’expertise, l’intégrité et le succès de ses clients. »'
+		text: '«Trabajar con Steven fue decisivo: experiencia sólida, visión estratégica clara y consejos precisos adaptados al terreno.»'
 	},
 	{
-		title: 'Diane Andicha Picard – Rendez-vous des artisans et artistes de Wendake',
+		title: 'Diane Andicha Picard — Rendez-vous des artisans et artistes de Wendake',
 		logo: '/images/rvaaw-logo.png',
 		logoAlt: 'Logo Rendez-vous des artisans et artistes de Wendake',
-		text: '« Nous recommandons grandement Steven pour sa flexibilité, son engagement, son intégrité et sa rigueur dans la gestion des délais. Il a joué un rôle significatif dans la planification de notre projet, la rédaction de documents complexes, registres financiers, conseils, recommandations qui ont grandement amélioré la portée de notre événement. »'
+		text: '«Recomendamos ampliamente a Steven por su flexibilidad, compromiso, integridad y rigor en la gestión de plazos. Desempeñó un papel significativo en la planificación de nuestro proyecto, la redacción de documentos complejos, registros financieros, asesorías y recomendaciones que mejoraron enormemente el alcance de nuestro evento.»'
 	},
 	{
-		title: 'Dominic LeBlanc – Ministre des Pêches, des Océans et de la Garde côtière canadienne',
+		title: 'Dominic LeBlanc — Ministro de Pesca, Océanos y Guardia Costera de Canadá',
 		logo: '/images/sig-blk-en.svg',
-		logoAlt: 'Gouvernement du Canada',
+		logoAlt: 'Gobierno de Canadá',
 		text:
-			'« Cet accomplissement est le résultat de l’engagement extraordinaire et acharné des fonctionnaires comme vous. Grâce à vous et à vos collègues, le Canada joue une fois encore un rôle de chef de file à l’échelle internationale, et nous sommes sur la bonne voie pour contribuer fortement à l’intendance mondiale des océans, un héritage important pour les générations à venir. »'
+			'«Este logro es el resultado del compromiso extraordinario e incansable de servidores públicos como usted. Gracias a usted y a sus colegas, Canadá vuelve a desempeñar un papel de liderazgo internacional y estamos en camino de contribuir de manera sólida a la gestión mundial de los océanos, un legado importante para las generaciones futuras.»'
 	},
 	{
-		title: 'Emmanuel Morin – Projets Autochtones du Québec',
+		title: 'Emmanuel Morin — Projets Autochtones du Québec',
 		logo: '/images/projets-autochtones-header.png',
 		logoAlt: 'Projets Autochtones du Québec',
 		text:
-			'« Steven a été dévoué à la communauté des Premiers Peuples dès son passage au Musée McCord. Il s’est engagé dans les collectes de fonds puis au conseil administratif pour suivre les progrès de l’Organisation. Il a donné tout le soutien possible et demeure un atout précieux pour Projets Autochtones du Québec. »'
+			'«Steven ha estado dedicado a la comunidad de los Primeros Pueblos desde su trabajo en el Museo McCord. Se ofreció como voluntario en numerosas recaudaciones de fondos y se unió al consejo administrativo para seguir el progreso de la Organización. Ha brindado todo el apoyo posible y sigue siendo un recurso valioso para Projets Autochtones du Québec.»'
 	},
 	{
-		title: 'Camil Picard – Commission des droits de la personne et des droits de la jeunesse',
+		title: 'Camil Picard — Commission des droits de la personne et des droits de la jeunesse',
 		logo: '/images/cdpdj-blue.svg',
 		logoAlt: 'Commission des droits de la personne et des droits de la jeunesse',
 		text:
-			'« Nous tenons à te remercier chaleureusement d’avoir contribué à la réussite de la Table de concertation jeunesse. Merci pour ton témoignage et ton implication. »'
+			'«Te agradecemos calurosamente por haber contribuido al éxito de la Table de concertation jeunesse. Gracias por tu testimonio y tu implicación.»'
 	},
 	{
-		title: 'Annabelle Laliberté et Dolorès Contré Migwans – Musée McCord',
+		title: 'Annabelle Laliberté y Dolorès Contré Migwans — Museo McCord',
 		logo: '/images/McCord.webp',
-		logoAlt: 'Musée McCord',
+		logoAlt: 'Museo McCord',
 		text:
-			'« Au nom du Jardin des Premières Nations de Montréal et du Musée McCord, nous te remercions chaleureusement pour l’aide apportée sur l’histoire et la culture huronne-wendat. Nous soulignons particulièrement le travail de Steven Germain comme recherchiste et documentaliste de tradition orale pour sensibiliser la clientèle scolaire aux Premières Nations et à leur rapport avec l’environnement. Son initiative, sa curiosité, sa sensibilité et son entregent auprès des aînés ont permis de bâtir un nouveau programme très apprécié. »'
+			'«En nombre del Jardin des Premières Nations de Montreal y del Museo McCord, te agradecemos calurosamente por la ayuda sobre la historia y la cultura hurona-wendat. Destacamos el trabajo de Steven Germain como investigador y documentalista de tradición oral para sensibilizar al público escolar sobre las Primeras Naciones y su relación con el medio ambiente. Demostró iniciativa, curiosidad, sensibilidad y empatía con los ancianos respetados, compilando información clave para construir un nuevo programa muy apreciado.»'
 	},
 	{
-		title: 'Carl Simard – CSSSPNQL',
+		title: 'Carl Simard — Comisión de Salud y Servicios Sociales de las Primeras Naciones de Quebec y Labrador',
 		logo: '/images/Logo_CSSSPNQL.svg',
-		logoAlt: 'Commission de la santé et des services sociaux des Premières Nations du Québec et du Labrador',
+		logoAlt: 'Comisión de Salud y Servicios Sociales de las Primeras Naciones de Quebec y Labrador',
 		text:
-			'« Steven travaille très fort et sait adapter ses comportements selon la situation. Il organise son travail, respecte les délais et sait mettre en lumière les enjeux locaux. Il est créatif, soutenant pour les autres et possède la volonté d’aboutir. »'
+			'«Steven trabaja muy duro y se adapta a cualquier situación. Organiza su trabajo, respeta los plazos y sabe destacar los riesgos y retos locales. Es creativo, solidario con los demás y tiene la voluntad de lograr los objetivos.»'
 	}
 ];
 
@@ -68,15 +67,15 @@ const marqueeItems = recommendations;
 		navLinks={navLinks}
 		brandingSmall={footer.brandingSmall}
 		calendlyUrl={topCtas.calendly}
-		primaryCtaLabel="Prendre rendez-vous"
-		langToggle={{ label: 'English', href: '/en', ariaLabel: 'Voir la version anglaise du site', lang: 'en' }}
-		extraLangToggle={{ label: 'Español', href: '/es', ariaLabel: 'Ver el sitio en español', lang: 'es' }}
-		anchorId="accueil"
+		primaryCtaLabel="Agendar una llamada"
+		langToggle={{ label: 'Français', href: '/', ariaLabel: 'Voir la version française du site', lang: 'fr' }}
+		extraLangToggle={{ label: 'English', href: '/en', ariaLabel: 'View the English version of the site', lang: 'en' }}
+		anchorId="home"
 	/>
 
 	<HeroSection hero={hero} />
 
-	<section class="about" id="apropos">
+	<section class="about" id="about">
 		<div class="container about-grid">
 			<div>
 				<p class="section-title">{about.sectionTitle}</p>
@@ -111,7 +110,7 @@ const marqueeItems = recommendations;
 				</div>
 			</div>
 			<div class="founder-media">
-				<img src="/images/start-up-weekend-2018.webp" alt="Steven Germain Gros-Louis lors du Start-up Weekend 2018" loading="lazy" />
+				<img src="/images/start-up-weekend-2018.webp" alt="Steven Germain Gros-Louis en el Start-up Weekend 2018" loading="lazy" />
 			</div>
 		</div>
 	</section>
@@ -124,9 +123,9 @@ const marqueeItems = recommendations;
 				<table class="services-table">
 					<thead>
 						<tr>
-							<th>Service</th>
-							<th>Livrable</th>
-							<th>Pourquoi maintenant</th>
+							<th>Servicio</th>
+							<th>Entregable</th>
+							<th>Por qué ahora</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -145,7 +144,7 @@ const marqueeItems = recommendations;
 
 	<GallerySection story={story} calendlyUrl={topCtas.calendly} showRecommendations={false} />
 
-	<section class="values" id="valeurs">
+	<section class="values" id="values">
 		<div class="container">
 			<p class="section-title">{values.sectionTitle}</p>
 			<h2>{values.heading}</h2>
@@ -161,17 +160,17 @@ const marqueeItems = recommendations;
 		</div>
 	</section>
 
-	<section class="recommendations" aria-label="Recommandations">
+	<section class="recommendations" aria-label="Recomendaciones en rotación">
 		<div class="container">
 			<div class="rec-header">
-				<p class="section-title">Recommandations</p>
-				<h2>Ce que disent nos partenaires</h2>
-				<p class="intro">Deux références phares qui illustrent l’impact de nos collaborations.</p>
+				<p class="section-title">Recomendaciones</p>
+				<h2>Lo que dicen nuestros socios</h2>
+				<p class="intro">Dos referencias clave que muestran el impacto de nuestras colaboraciones.</p>
 			</div>
 			<div class="ticker">
 				<div class="ticker-track">
-					{marqueeItems.map((rec) => (
-						<article class="rec-card">
+					{marqueeItems.map((rec, index) => (
+						<article class="rec-card" aria-hidden={index >= recommendations.length}>
 							<div class="rec-head">
 								{rec.logo ? <img class="rec-logo" src={rec.logo} alt={rec.logoAlt ?? rec.title} loading="lazy" /> : null}
 								<h3>{rec.title}</h3>
@@ -362,6 +361,5 @@ const marqueeItems = recommendations;
 			gap: 0.75rem;
 			align-items: flex-start;
 		}
-
 	</style>
 </Layout>

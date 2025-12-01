@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { pageContent } from '../content/siteContent';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const content = pageContent.fr;
+const { meta, alternates, navLinks, topCtas, footer } = content;
+
+const pages = [
+	{ label: 'Accueil', href: '/' },
+	{ label: 'À propos', href: '/a-propos' },
+	{ label: 'Services', href: '/services' },
+	{ label: 'Valeurs', href: '/#valeurs' },
+	{ label: 'Contact', href: '/#contact' },
+	{ label: 'FAQ', href: '/faq' },
+	{ label: 'Politique de confidentialité (Loi 25)', href: '/politique-de-confidentialite' },
+	{ label: 'Plan du site (XML)', href: '/sitemap-index.xml' }
+];
+
+const metaData = {
+	title: 'Plan du site | Aiionwatha',
+	description: 'Trouvez rapidement les sections et pages d’Aiionwatha : services, FAQ, politique de confidentialité et coordonnées.',
+	url: 'https://www.aiionwatha.com/plan-du-site',
+	image: meta.image,
+	locale: 'fr_CA'
+};
+
+const pageAlternates = [
+	{ href: 'https://www.aiionwatha.com/plan-du-site', hreflang: 'fr-CA' },
+	{ href: 'https://www.aiionwatha.com/en/site-map', hreflang: 'en-CA' },
+	{ href: 'https://www.aiionwatha.com/es/mapa-del-sitio', hreflang: 'es-ES' },
+	{ href: 'https://www.aiionwatha.com/plan-du-site', hreflang: 'x-default' }
+];
+---
+
+<Layout title={metaData.title} description={metaData.description} url={metaData.url} image={metaData.image} locale={metaData.locale} alternates={pageAlternates}>
+	<SiteHeader
+		navLinks={navLinks}
+		brandingSmall={footer.brandingSmall}
+		calendlyUrl={topCtas.calendly}
+		primaryCtaLabel="Prendre rendez-vous"
+		langToggle={{ label: 'English', href: '/en/site-map', ariaLabel: 'View the English site map', lang: 'en' }}
+		extraLangToggle={{ label: 'Español', href: '/es/mapa-del-sitio', ariaLabel: 'Ver el mapa del sitio en español', lang: 'es' }}
+		anchorId="plan-site-top"
+	/>
+
+	<main class="sitemap">
+		<div class="container">
+			<p class="section-title">Plan du site</p>
+			<h1>Retrouvez facilement nos pages</h1>
+			<ul class="sitemap-list">
+				{pages.map((page) => (
+					<li>
+						<a href={page.href}>{page.label}</a>
+					</li>
+				))}
+			</ul>
+		</div>
+	</main>
+
+	<SiteFooter footer={footer} navLinks={navLinks} topCtas={topCtas} />
+
+	<style>
+		.sitemap {
+			padding: 3rem 1.5rem 4rem;
+			background: #fff;
+		}
+
+		.sitemap h1 {
+			margin-bottom: 1rem;
+		}
+
+		.sitemap-list {
+			list-style: none;
+			padding: 0;
+			margin: 1rem 0 0;
+			display: grid;
+			gap: 0.75rem;
+		}
+
+		.sitemap-list a {
+			color: var(--color-deep-green);
+			font-weight: 600;
+			text-decoration: none;
+		}
+
+		.sitemap-list a:hover {
+			text-decoration: underline;
+		}
+	</style>
+</Layout>

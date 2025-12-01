@@ -16,8 +16,10 @@ const metadata = {
 };
 
 const alternates = [
+	{ href: 'https://www.aiionwatha.com/en/about', hreflang: 'en-CA' },
 	{ href: 'https://www.aiionwatha.com/a-propos', hreflang: 'fr-CA' },
-	{ href: metadata.url, hreflang: 'x-default' }
+	{ href: 'https://www.aiionwatha.com/es/about', hreflang: 'es-ES' },
+	{ href: 'https://www.aiionwatha.com/a-propos', hreflang: 'x-default' }
 ];
 
 const highlights = [
@@ -49,6 +51,7 @@ const pillars = [
 		calendlyUrl={topCtas.calendly}
 		primaryCtaLabel="Book a call"
 		langToggle={{ label: 'Français', href: '/a-propos', ariaLabel: 'Voir la version française', lang: 'fr' }}
+		extraLangToggle={{ label: 'Español', href: '/es/about', ariaLabel: 'View the About page in Spanish', lang: 'es' }}
 		anchorId="top"
 	/>
 
@@ -109,6 +112,32 @@ const pillars = [
 			</div>
 		</section>
 
+		<section class="bio">
+			<div class="container bio-grid">
+				<div>
+					<p class="section-title">Background</p>
+					<h2>Who is Steven Germain Gros-Louis?</h2>
+					<p>
+						Indigenous management consultant with 15+ years bridging governments, private sector, and First Nations. Led a $1.1B funding reform for Indigenous schools in Québec, advised SMEs/NGOs on ESG and grants, and negotiated conservation agreements recognized by Fisheries & Oceans Canada.
+					</p>
+					<p>
+						As founder of Aiionwatha, he links governance, funding, and digital delivery for cultural, economic, and tourism initiatives. Fluent FR/EN (advanced ES), focused on respectful partnerships with First Nations.
+					</p>
+				</div>
+				<div class="bio-card">
+					<h3>Qualifications & recognition</h3>
+					<ul>
+						<li>B.A. Industrial Relations & Economics — McGill</li>
+						<li>CRIA (ORHRI) • Compensation/Benefits Certificate (Canada School of Public Service)</li>
+						<li>ASP “Starting a Business” (Fierbourg)</li>
+						<li>Ministerial Letter of Excellence (Fisheries & Oceans Canada)</li>
+						<li>Start-up Weekend 3rd prize; works in FR/EN/ES</li>
+					</ul>
+					<p class="bio-highlight">Focus: funding strategy, government relations, ESG, governance, cultural tourism, data & security.</p>
+				</div>
+			</div>
+		</section>
+
 		<section class="cta">
 			<div class="container cta-box">
 				<div>
@@ -132,6 +161,41 @@ const pillars = [
 		.about-hero {
 			background: linear-gradient(120deg, rgba(20, 108, 67, 0.08), rgba(48, 162, 58, 0.15)), var(--color-cream);
 			padding: 3.5rem 1.5rem;
+		}
+
+		.bio {
+			padding: 2.5rem 1.5rem 3.5rem;
+			background: #fff;
+		}
+
+		.bio-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 1.5rem;
+			align-items: start;
+		}
+
+		.bio-card {
+			background: #fff;
+			border-radius: 1rem;
+			border: 1px solid rgba(6, 24, 12, 0.08);
+			box-shadow: 0 18px 40px rgba(6, 24, 12, 0.08);
+			padding: 1.2rem 1.4rem;
+			display: grid;
+			gap: 0.65rem;
+		}
+
+		.bio-card ul {
+			margin: 0;
+			padding-left: 1rem;
+			display: grid;
+			gap: 0.4rem;
+		}
+
+		.bio-highlight {
+			margin: 0;
+			color: var(--color-deep-green);
+			font-weight: 600;
 		}
 
 		.hero-grid {

@@ -1,0 +1,348 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { pageContent } from '../content/siteContent';
+
+const content = pageContent.fr;
+const { navLinks, topCtas, footer } = content;
+
+const meta = {
+	title: 'Outils et guides | Aiionwatha',
+	description: 'Guides SEO, modèles de plans d’affaires, gabarits web et outils pratiques pour structurer vos projets.',
+	url: 'https://www.aiionwatha.com/outils',
+	image: '/images/hero.webp',
+	locale: 'fr_CA'
+};
+
+const alternates = [
+	{ href: meta.url, hreflang: 'fr-CA' },
+	{ href: 'https://www.aiionwatha.com/en/tools', hreflang: 'en-CA' },
+	{ href: 'https://www.aiionwatha.com/es/herramientas', hreflang: 'es-ES' },
+	{ href: meta.url, hreflang: 'x-default' }
+];
+
+const categories = [
+	{
+		title: 'Guides SEO',
+		items: [
+			{ label: 'Guide SEO local (PDF)', href: '#' },
+			{ label: 'Checklist Core Web Vitals', href: '#' }
+		]
+	},
+	{
+		title: 'Guides web',
+		items: [
+			{ label: 'Checklist de lancement de site', href: '#' },
+			{ label: 'Guide accessibilité et performance', href: '#' }
+		]
+	},
+	{
+		title: "Plans d'affaires et modèles",
+		items: [
+			{ label: 'Modèle de plan d’affaires (Google Docs)', href: '#' },
+			{ label: 'Budget prévisionnel (Excel)', href: '#' }
+		]
+	},
+	{
+		title: 'Autres outils',
+		items: [
+			{ label: 'Template de pitch deck', href: '#' },
+			{ label: 'Checklist conformité Loi 25', href: '#' }
+		]
+	}
+];
+---
+
+<Layout title={meta.title} description={meta.description} url={meta.url} image={meta.image} locale={meta.locale} alternates={alternates}>
+	<SiteHeader
+		navLinks={navLinks}
+		brandingSmall={footer.brandingSmall}
+		calendlyUrl={topCtas.calendly}
+		primaryCtaLabel="Prendre rendez-vous"
+		langToggle={{ label: 'English', href: '/en/tools', ariaLabel: 'View tools in English', lang: 'en' }}
+		extraLangToggle={{ label: 'Español', href: '/es/herramientas', ariaLabel: 'Ver herramientas en español', lang: 'es' }}
+		anchorId="outils-top"
+	/>
+
+	<main class="tools">
+		<div class="container">
+			<p class="section-title">Ressources</p>
+			<h1>Outils, guides et modèles</h1>
+			<p class="intro">Une sélection de liens et gabarits pour vous aider à planifier, exécuter et mesurer vos projets.</p>
+			<div class="cards">
+				{categories.map((cat) => (
+					<section class="card">
+						<h2>{cat.title}</h2>
+						<ul>
+							{cat.items.map((item) => (
+								<li>
+									<a href={item.href}>{item.label}</a>
+								</li>
+							))}
+						</ul>
+					</section>
+				))}
+			</div>
+
+			<section class="blog">
+				<p class="section-title">Blog</p>
+				<h2>Subventions au Québec : questions fréquentes</h2>
+				<p class="intro">Un survol pratique des subventions, de l’admissibilité aux démarches comptables, pour les entrepreneurs et les associations.</p>
+				<div class="qa-grid">
+					<article class="qa-card">
+						<h3>1. Quel subvention pour création d'entreprise ?</h3>
+						<p>Au Québec, les entrepreneurs peuvent obtenir des subventions comme :</p>
+						<ul>
+							<li>Soutien au démarrage (MRC, SADC/CAE)</li>
+							<li>Mesure STA – Soutien au travail autonome</li>
+							<li>Programme d’aide à l’entrepreneuriat</li>
+							<li>Fonds d’initiative autochtone (si applicable)</li>
+							<li>Subventions sectorielles (tourisme, technologies, culture, construction)</li>
+						</ul>
+						<p>L’admissibilité dépend du stade de développement et du secteur d’activité.</p>
+					</article>
+
+					<article class="qa-card">
+						<h3>2. Une subvention, c’est quoi ?</h3>
+						<p>Une subvention est un montant accordé par un gouvernement ou un organisme pour soutenir un projet, sans obligation de remboursement. Elle sert à financer l’achat d’équipement, le démarrage, la formation, l’innovation ou la croissance.</p>
+					</article>
+
+					<article class="qa-card">
+						<h3>3. C’est quoi une subvention ?</h3>
+						<p>Une subvention est une aide financière non remboursable destinée à soutenir un projet spécifique lié à l’emploi, au développement économique ou à l’innovation.</p>
+					</article>
+
+					<article class="qa-card">
+						<h3>4. Quelle subvention pour changer les fenêtres ?</h3>
+						<p>Plusieurs programmes couvrent l’efficacité énergétique :</p>
+						<ul>
+							<li>Rénoclimat (gouvernement du Québec)</li>
+							<li>Chauffez vert</li>
+							<li>Programme fédéral Écoénergie</li>
+						</ul>
+						<p>Ils donnent des montants selon le type de fenêtres, l’isolation et le rendement énergétique.</p>
+					</article>
+
+					<article class="qa-card">
+						<h3>5. Quelle subvention pour une association ?</h3>
+						<p>Les associations peuvent demander :</p>
+						<ul>
+							<li>Programme d’aide aux organismes communautaires (PAOC)</li>
+							<li>Soutien au milieu culturel</li>
+							<li>Fonds de développement régional (FDR)</li>
+							<li>Soutien aux initiatives locales via MRC ou municipalité</li>
+						</ul>
+					</article>
+
+					<article class="qa-card">
+						<h3>6. Comment obtenir une subvention pour une association ?</h3>
+						<ul>
+							<li>Définir le projet et les besoins financiers.</li>
+							<li>Choisir un programme de financement adapté.</li>
+							<li>Préparer un dossier complet (plan d’action, budget, impacts).</li>
+							<li>Déposer la demande dans les délais.</li>
+							<li>Assurer un suivi et fournir les rapports requis.</li>
+						</ul>
+					</article>
+
+					<article class="qa-card">
+						<h3>7. Comment demander une subvention pour une association ?</h3>
+						<p>L’association doit rédiger une demande structurée, incluant :</p>
+						<ul>
+							<li>Objectifs du projet</li>
+							<li>Résultats attendus</li>
+							<li>Budget détaillé</li>
+							<li>Preuves de capacité opérationnelle</li>
+						</ul>
+						<p>Certaines subventions exigent des lettres d’appui ou un plan stratégique.</p>
+					</article>
+
+					<article class="qa-card">
+						<h3>8. Comment comptabiliser une subvention d’investissement ?</h3>
+						<p>En comptabilité québécoise :</p>
+						<ul>
+							<li>La subvention d’investissement est inscrite comme revenu différé, puis amortie au même rythme que l’actif financé.</li>
+							<li>Elle ne va pas directement dans les revenus de l’année, sauf exception.</li>
+						</ul>
+					</article>
+
+					<article class="qa-card">
+						<h3>9. Comment obtenir une subvention ?</h3>
+						<ul>
+							<li>Évaluer les besoins financiers du projet.</li>
+							<li>Identifier les programmes applicables.</li>
+							<li>Préparer un plan solide avec preuves et indicateurs.</li>
+							<li>Soumettre la demande complète.</li>
+							<li>Effectuer le suivi post-soumission.</li>
+						</ul>
+					</article>
+
+					<article class="qa-card">
+						<h3>10. Comment obtenir une subvention pour une entreprise ?</h3>
+						<ul>
+							<li>Prouver le besoin économique ou innovant.</li>
+							<li>Présenter un budget détaillé.</li>
+							<li>Montrer des retombées économiques ou sociales.</li>
+							<li>Déposer la demande dans les délais et selon les critères.</li>
+						</ul>
+					</article>
+
+					<article class="qa-card">
+						<h3>11. Comment demander la subvention pour borne de recharge ?</h3>
+						<p>Les programmes actuels incluent :</p>
+						<ul>
+							<li>Transportez vert (Québec)</li>
+							<li>Incitatif pour véhicules zéro émission (IVZE) (fédéral)</li>
+						</ul>
+						<p>Pour en faire la demande : fournir une preuve d’achat, une facture, l’adresse d’installation et un formulaire officiel.</p>
+					</article>
+
+					<article class="qa-card">
+						<h3>12. Qui subventionne au Québec ?</h3>
+						<p>Les subventions proviennent principalement de :</p>
+						<ul>
+							<li>Gouvernement du Québec (ministères)</li>
+							<li>Gouvernement du Canada</li>
+							<li>Municipalités et MRC</li>
+							<li>Organisations régionales (SADC, CAE, PME MTL, FRCN)</li>
+							<li>Fondations privées ou sectorielles</li>
+						</ul>
+					</article>
+
+					<article class="qa-card">
+						<h3>13. Quel subvention pour une association ?</h3>
+						<p>Les subventions courantes pour les associations incluent :</p>
+						<ul>
+							<li>Aide financière au fonctionnement</li>
+							<li>Financement pour projets communautaires</li>
+							<li>Aide à la culture, arts, jeunesse, sport</li>
+							<li>Programmes municipaux et régionaux</li>
+						</ul>
+					</article>
+
+					<article class="qa-card">
+						<h3>14. Subvention : quel compte comptable ?</h3>
+						<p>En comptabilité :</p>
+						<ul>
+							<li>Subvention d’exploitation → Compte de revenus</li>
+							<li>Subvention d’investissement → Revenu différé ou amortisation du coût de l’actif</li>
+							<li>Subvention salariale → Réduction des charges de main-d’œuvre</li>
+						</ul>
+					</article>
+
+					<article class="qa-card">
+						<h3>15. C’est quoi une subvention (version simple) ?</h3>
+						<p>Une subvention, c’est une aide financière gratuite pour réaliser un projet économique, communautaire ou énergétique.</p>
+					</article>
+
+					<article class="qa-card">
+						<h3>16. Comment comptabiliser une subvention ?</h3>
+						<p>Cela dépend de la nature :</p>
+						<ul>
+							<li>D’exploitation : revenu immédiatement</li>
+							<li>D’investissement : revenu amorti</li>
+							<li>Salariale : réduction des charges</li>
+						</ul>
+						<p>Se réfère aux normes NCECF et aux directives de Revenu Québec.</p>
+					</article>
+				</div>
+			</section>
+		</div>
+	</main>
+
+	<SiteFooter footer={footer} navLinks={navLinks} topCtas={topCtas} />
+
+	<style>
+		.tools {
+			padding: 3rem 1.5rem 4rem;
+			background: #fff;
+		}
+
+		.intro {
+			color: var(--color-muted);
+			max-width: 820px;
+		}
+
+		.cards {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+			gap: 1rem;
+			margin-top: 1.5rem;
+		}
+
+		.card {
+			background: #fff;
+			border-radius: 1rem;
+			border: 1px solid rgba(6, 24, 12, 0.08);
+			box-shadow: 0 18px 40px rgba(6, 24, 12, 0.08);
+			padding: 1.2rem 1.4rem;
+			display: grid;
+			gap: 0.5rem;
+		}
+
+		.card h2 {
+			margin: 0;
+		}
+
+		.card ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			display: grid;
+			gap: 0.4rem;
+		}
+
+		.card a {
+			color: var(--color-deep-green);
+			font-weight: 600;
+			text-decoration: none;
+		}
+
+		.card a:hover {
+			text-decoration: underline;
+		}
+
+		.blog {
+			margin-top: 3rem;
+			background: #f4f7f4;
+			border: 1px solid rgba(6, 24, 12, 0.08);
+			border-radius: 1.2rem;
+			padding: 2rem 1.5rem;
+			display: grid;
+			gap: 0.75rem;
+		}
+
+		.blog h2 {
+			margin: 0;
+		}
+
+		.qa-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+			gap: 1rem;
+		}
+
+		.qa-card {
+			background: #fff;
+			border-radius: 1rem;
+			border: 1px solid rgba(6, 24, 12, 0.08);
+			box-shadow: 0 8px 22px rgba(6, 24, 12, 0.06);
+			padding: 1rem 1.1rem;
+			display: grid;
+			gap: 0.5rem;
+		}
+
+		.qa-card h3 {
+			margin: 0;
+			color: var(--color-deep-green);
+		}
+
+		.qa-card ul {
+			margin: 0;
+			padding-left: 1.2rem;
+			display: grid;
+			gap: 0.25rem;
+		}
+	</style>
+</Layout>

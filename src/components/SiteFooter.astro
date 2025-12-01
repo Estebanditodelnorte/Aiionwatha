@@ -4,6 +4,7 @@ export interface Props {
 		brandingSmall: string;
 		ratingHtml: string;
 		policyLink?: { label: string; href: string };
+		sitemapLink?: { label: string; href: string };
 		legal: string;
 		legalSuffix: string;
 		credits?: string;
@@ -31,13 +32,17 @@ const { footer, navLinks, topCtas } = Astro.props;
 				<a href={link.href}>{link.label}</a>
 			))}
 		</div>
-		{footer.policyLink && (
-			<p class="policy-link">
-				<a href={footer.policyLink.href}>{footer.policyLink.label}</a>
-			</p>
-		)}
-		<p>
-			{footer.legal}
+		<div class="footer-links">
+			{footer.policyLink && (
+				<a class="policy-link" href={footer.policyLink.href}>{footer.policyLink.label}</a>
+			)}
+			{footer.sitemapLink ? (
+				<a class="policy-link" href={footer.sitemapLink.href}>{footer.sitemapLink.label}</a>
+			) : (
+				<a class="policy-link" href="/sitemap-index.xml">Sitemap</a>
+			)}
+		</div>
+		<p class="legal">
 			{new Date().getFullYear()}
 			{footer.legalSuffix}
 		</p>
@@ -74,15 +79,22 @@ const { footer, navLinks, topCtas } = Astro.props;
 		margin: 1rem 0 2rem;
 	}
 
-	.policy-link {
-		margin: 1rem 0;
+	.footer-links {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+		margin: 0.5rem 0 1rem;
 		font-size: 0.95rem;
 		color: rgba(255, 255, 255, 0.85);
 	}
 
-	.policy-link a {
+	.policy-link {
 		color: inherit;
 		text-decoration: underline;
+	}
+
+	.legal {
+		margin: 0.25rem 0 0.75rem;
 	}
 
 	.credits {

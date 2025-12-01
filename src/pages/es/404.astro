@@ -1,0 +1,45 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const meta = {
+	title: 'Página no encontrada – Aiionwatha',
+	description: 'No pudimos encontrar esta página. Regresa al inicio o ponte en contacto.',
+	url: 'https://www.aiionwatha.com/es/404',
+	image: '/images/hero.webp',
+	locale: 'es_ES'
+};
+
+const alternates = [
+	{ href: 'https://www.aiionwatha.com/es/404', hreflang: 'es-ES' },
+	{ href: 'https://www.aiionwatha.com/404', hreflang: 'fr-CA' },
+	{ href: 'https://www.aiionwatha.com/en/404', hreflang: 'en-CA' },
+	{ href: 'https://www.aiionwatha.com/404', hreflang: 'x-default' }
+];
+---
+
+<Layout title={meta.title} description={meta.description} url={meta.url} image={meta.image} locale={meta.locale} alternates={alternates}>
+	<section class="not-found">
+		<div class="container">
+			<p class="section-title">404</p>
+			<h1>Página no encontrada</h1>
+			<p>La página solicitada no existe o fue movida.</p>
+			<div class="actions">
+				<a class="button primary" href="/es/">Volver al inicio</a>
+				<a class="button secondary" href="/es#contact">Contactar</a>
+			</div>
+		</div>
+	</section>
+	<style>
+		.not-found {
+			padding: 3rem 1.5rem 4rem;
+			text-align: center;
+		}
+		.actions {
+			display: inline-flex;
+			gap: 0.75rem;
+			margin-top: 1rem;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+	</style>
+</Layout>

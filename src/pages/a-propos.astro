@@ -16,7 +16,9 @@ const metadata = {
 };
 
 const alternates = [
+	{ href: metadata.url, hreflang: 'fr-CA' },
 	{ href: 'https://www.aiionwatha.com/en/about', hreflang: 'en-CA' },
+	{ href: 'https://www.aiionwatha.com/es/about', hreflang: 'es-ES' },
 	{ href: metadata.url, hreflang: 'x-default' }
 ];
 
@@ -49,6 +51,7 @@ const pillars = [
 		calendlyUrl={topCtas.calendly}
 		primaryCtaLabel="Prendre rendez-vous"
 		langToggle={{ label: 'English', href: '/en/about', ariaLabel: 'View the English about page', lang: 'en' }}
+		extraLangToggle={{ label: 'Español', href: '/es/about', ariaLabel: 'Ver la página Acerca de en español', lang: 'es' }}
 		anchorId="top"
 	/>
 
@@ -109,6 +112,32 @@ const pillars = [
 			</div>
 		</section>
 
+		<section class="bio">
+			<div class="container bio-grid">
+				<div>
+					<p class="section-title">Parcours</p>
+					<h2>Qui est Steven Germain Gros-Louis ?</h2>
+					<p>
+						Consultant autochtone en gestion avec 15+ ans d’expérience, Steven a piloté une réforme de 1,1 G$ pour les écoles autochtones du Québec, conseillé des PME/OBNL sur l’ESG et les subventions, et négocié des ententes de conservation reconnues par le ministère des Pêches.
+					</p>
+					<p>
+						Fondateur d’Aiionwatha, il relie gouvernance, financement et numérique pour des initiatives culturelles, économiques et touristiques. Bilingue FR/EN (espagnol avancé), il mise sur des partenariats respectueux avec les Premières Nations.
+					</p>
+				</div>
+				<div class="bio-card">
+					<h3>Qualifications et distinctions</h3>
+					<ul>
+						<li>B.A. Relations industrielles & économie — McGill</li>
+						<li>CRIA (ORHRI) • Certificat rémunération/avantages (EFPC)</li>
+						<li>ASP Lancement d’entreprise (Fierbourg)</li>
+						<li>Lettre ministérielle d’excellence (Pêches et Océans Canada)</li>
+						<li>3e prix Start-up Weekend; interventions en FR/EN/ES</li>
+					</ul>
+					<p class="bio-highlight">Spécialités : stratégie de financement, relations gouvernementales, ESG, gouvernance, tourisme culturel, données et sécurité.</p>
+				</div>
+			</div>
+		</section>
+
 		<section class="cta">
 			<div class="container cta-box">
 				<div>
@@ -132,6 +161,41 @@ const pillars = [
 		.about-hero {
 			background: linear-gradient(120deg, rgba(20, 108, 67, 0.08), rgba(48, 162, 58, 0.15)), var(--color-cream);
 			padding: 3.5rem 1.5rem;
+		}
+
+		.bio {
+			padding: 2.5rem 1.5rem 3.5rem;
+			background: #fff;
+		}
+
+		.bio-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 1.5rem;
+			align-items: start;
+		}
+
+		.bio-card {
+			background: #fff;
+			border-radius: 1rem;
+			border: 1px solid rgba(6, 24, 12, 0.08);
+			box-shadow: 0 18px 40px rgba(6, 24, 12, 0.08);
+			padding: 1.2rem 1.4rem;
+			display: grid;
+			gap: 0.65rem;
+		}
+
+		.bio-card ul {
+			margin: 0;
+			padding-left: 1rem;
+			display: grid;
+			gap: 0.4rem;
+		}
+
+		.bio-highlight {
+			margin: 0;
+			color: var(--color-deep-green);
+			font-weight: 600;
 		}
 
 		.hero-grid {

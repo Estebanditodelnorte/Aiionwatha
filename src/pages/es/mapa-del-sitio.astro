@@ -1,0 +1,92 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { pageContent } from '../../content/siteContent';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+
+const content = pageContent.es;
+const { meta, alternates, navLinks, topCtas, footer } = content;
+
+const pages = [
+	{ label: 'Inicio', href: '/es/' },
+	{ label: 'Acerca de', href: '/es/about' },
+	{ label: 'Servicios', href: '/es/services' },
+	{ label: 'Valores', href: '/es#values' },
+	{ label: 'Contacto', href: '/es#contact' },
+	{ label: 'FAQ', href: '/es/faq' },
+	{ label: 'Política de privacidad', href: '/es/privacy-policy' },
+	{ label: 'Mapa del sitio (XML)', href: '/sitemap-index.xml' }
+];
+
+const metaData = {
+	title: 'Mapa del sitio | Aiionwatha',
+	description: 'Encuentra rápidamente todas las páginas y secciones de Aiionwatha: servicios, FAQ, política de privacidad y contacto.',
+	url: 'https://www.aiionwatha.com/es/mapa-del-sitio',
+	image: meta.image,
+	locale: 'es_ES'
+};
+
+const pageAlternates = [
+	{ href: 'https://www.aiionwatha.com/plan-du-site', hreflang: 'fr-CA' },
+	{ href: 'https://www.aiionwatha.com/en/site-map', hreflang: 'en-CA' },
+	{ href: metaData.url, hreflang: 'es-ES' },
+	{ href: metaData.url, hreflang: 'x-default' }
+];
+---
+
+<Layout title={metaData.title} description={metaData.description} url={metaData.url} image={metaData.image} locale={metaData.locale} alternates={pageAlternates}>
+	<SiteHeader
+		navLinks={navLinks}
+		brandingSmall={footer.brandingSmall}
+		calendlyUrl={topCtas.calendly}
+		primaryCtaLabel="Agendar una llamada"
+		langToggle={{ label: 'Français', href: '/plan-du-site', ariaLabel: 'Voir le plan du site en français', lang: 'fr' }}
+		extraLangToggle={{ label: 'English', href: '/en/site-map', ariaLabel: 'View the English site map', lang: 'en' }}
+		anchorId="mapa-sitio-top"
+	/>
+
+	<main class="sitemap">
+		<div class="container">
+			<p class="section-title">Mapa del sitio</p>
+			<h1>Encuentra cualquier página</h1>
+			<ul class="sitemap-list">
+				{pages.map((page) => (
+					<li>
+						<a href={page.href}>{page.label}</a>
+					</li>
+				))}
+			</ul>
+		</div>
+	</main>
+
+	<SiteFooter footer={footer} navLinks={navLinks} topCtas={topCtas} />
+
+	<style>
+		.sitemap {
+			padding: 3rem 1.5rem 4rem;
+			background: #fff;
+		}
+
+		.sitemap h1 {
+			margin-bottom: 1rem;
+		}
+
+		.sitemap-list {
+			list-style: none;
+			padding: 0;
+			margin: 1rem 0 0;
+			display: grid;
+			gap: 0.75rem;
+		}
+
+		.sitemap-list a {
+			color: var(--color-deep-green);
+			font-weight: 600;
+			text-decoration: none;
+		}
+
+		.sitemap-list a:hover {
+			text-decoration: underline;
+		}
+	</style>
+</Layout>
