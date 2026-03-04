@@ -1,0 +1,446 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Prompt Builder</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				max-width: 900px;
+				margin: 20px auto;
+				padding: 20px;
+				background: #f9f9f9;
+			}
+
+			form {
+				background: #fff;
+				padding: 20px;
+				border-radius: 8px;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+				display: grid;
+				gap: 12px;
+			}
+
+			label {
+				display: block;
+				font-weight: bold;
+				margin-bottom: 4px;
+			}
+
+			input,
+			select,
+			textarea {
+				width: 100%;
+				padding: 8px;
+				border: 1px solid #ddd;
+				border-radius: 4px;
+				box-sizing: border-box;
+			}
+
+			button {
+				background: #0b6b3a;
+				color: #fff;
+				padding: 10px 16px;
+				border: none;
+				border-radius: 4px;
+				cursor: pointer;
+				font-weight: 600;
+			}
+
+			button:hover {
+				background: #09562f;
+			}
+
+			.actions {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 10px;
+			}
+
+			#output {
+				margin-top: 20px;
+				padding: 15px;
+				background: #e8f4fd;
+				border-radius: 4px;
+				white-space: pre-wrap;
+				display: none;
+			}
+
+			#data-text {
+				background: #fff;
+				border: 1px solid #ddd;
+				padding: 10px;
+				border-radius: 4px;
+				font-family: monospace;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Prompt Builder</h1>
+		<form id="promptForm">
+			<label for="persona">Persona:</label>
+			<select id="persona" name="persona">
+				<option value="">Select Persona</option>
+				<option value="Archivist (30 years experience)">Archivist (30 years experience)</option>
+				<option value="Book Editor (30 years experience)">Book Editor (30 years experience)</option>
+				<option value="Business Consultant (30 years experience)">Business Consultant (30 years experience)</option>
+				<option value="Executive Secretary (30 years experience)">Executive Secretary (30 years experience)</option>
+				<option value="HR Consultant (30 years experience)">HR Consultant (30 years experience)</option>
+				<option value="IT Consultant (30 years experience)">IT Consultant (30 years experience)</option>
+				<option value="Judge (30 years experience)">Judge (30 years experience)</option>
+				<option value="Lawyer (30 years experience)">Lawyer (30 years experience)</option>
+				<option value="Marketing Expert (30 years experience)">Marketing Expert (30 years experience)</option>
+				<option value="Psychologist (30 years experience)">Psychologist (30 years experience)</option>
+				<option value="Teacher (30 years experience)">Teacher (30 years experience)</option>
+			</select>
+
+			<label for="persona2">Persona2:</label>
+			<select id="persona2" name="persona2">
+				<option value="">Select Persona2</option>
+				<option value="Archivist (30 years experience)">Archivist (30 years experience)</option>
+				<option value="Book Editor (30 years experience)">Book Editor (30 years experience)</option>
+				<option value="Business Consultant (30 years experience)">Business Consultant (30 years experience)</option>
+				<option value="Executive Secretary (30 years experience)">Executive Secretary (30 years experience)</option>
+				<option value="HR Consultant (30 years experience)">HR Consultant (30 years experience)</option>
+				<option value="IT Consultant (30 years experience)">IT Consultant (30 years experience)</option>
+				<option value="Judge (30 years experience)">Judge (30 years experience)</option>
+				<option value="Lawyer (30 years experience)">Lawyer (30 years experience)</option>
+				<option value="Marketing Expert (30 years experience)">Marketing Expert (30 years experience)</option>
+				<option value="Psychologist (30 years experience)">Psychologist (30 years experience)</option>
+				<option value="Teacher (30 years experience)">Teacher (30 years experience)</option>
+			</select>
+
+			<label for="persona3">Persona3:</label>
+			<select id="persona3" name="persona3">
+				<option value="">Select Persona3</option>
+				<option value="Archivist (30 years experience)">Archivist (30 years experience)</option>
+				<option value="Book Editor (30 years experience)">Book Editor (30 years experience)</option>
+				<option value="Business Consultant (30 years experience)">Business Consultant (30 years experience)</option>
+				<option value="Executive Secretary (30 years experience)">Executive Secretary (30 years experience)</option>
+				<option value="HR Consultant (30 years experience)">HR Consultant (30 years experience)</option>
+				<option value="IT Consultant (30 years experience)">IT Consultant (30 years experience)</option>
+				<option value="Judge (30 years experience)">Judge (30 years experience)</option>
+				<option value="Lawyer (30 years experience)">Lawyer (30 years experience)</option>
+				<option value="Marketing Expert (30 years experience)">Marketing Expert (30 years experience)</option>
+				<option value="Psychologist (30 years experience)">Psychologist (30 years experience)</option>
+				<option value="Teacher (30 years experience)">Teacher (30 years experience)</option>
+			</select>
+
+			<label for="task">Task:</label>
+			<select id="task" name="task">
+				<option value="">Select Task</option>
+				<option value="Analyse">Analyse</option>
+				<option value="Create a plan">Create a plan</option>
+				<option value="Give recommendations">Give recommendations</option>
+				<option value="Resume">Resume</option>
+				<option value="Respond to email">Respond to email</option>
+				<option value="Write an essay">Write an essay</option>
+			</select>
+
+			<label for="format">Format:</label>
+			<select id="format" name="format">
+				<option value="">Select Format</option>
+				<option value="Bullets">Bullets</option>
+				<option value="Code">Code</option>
+				<option value="Email">Email</option>
+				<option value="Essay">Essay</option>
+				<option value="Paragraph">Paragraph</option>
+				<option value="Table">Table</option>
+				<option value="Top 20 phrases">Top 20 phrases</option>
+			</select>
+
+			<label for="tone">Tone:</label>
+			<select id="tone" name="tone">
+				<option value="">Select Tone</option>
+				<option value="Academic">Academic</option>
+				<option value="Aggressive">Aggressive</option>
+				<option value="Assertive">Assertive</option>
+				<option value="Concise">Concise</option>
+				<option value="Confident">Confident</option>
+				<option value="Direct">Direct</option>
+				<option value="Elaborate">Elaborate</option>
+				<option value="Empathetic">Empathetic</option>
+				<option value="Formal">Formal</option>
+				<option value="Friendly">Friendly</option>
+				<option value="Humorous">Humorous</option>
+				<option value="Indirect">Indirect</option>
+				<option value="Legalistic">Legalistic</option>
+				<option value="Motivational">Motivational</option>
+				<option value="Neutral">Neutral</option>
+				<option value="Optimistic">Optimistic</option>
+				<option value="Pessimistic">Pessimistic</option>
+				<option value="Persuasive">Persuasive</option>
+				<option value="Professional">Professional</option>
+				<option value="Simple">Simple</option>
+				<option value="Technical">Technical</option>
+			</select>
+
+			<label for="tone2">Tone2:</label>
+			<select id="tone2" name="tone2">
+				<option value="">Select Tone2</option>
+				<option value="Academic">Academic</option>
+				<option value="Aggressive">Aggressive</option>
+				<option value="Assertive">Assertive</option>
+				<option value="Concise">Concise</option>
+				<option value="Confident">Confident</option>
+				<option value="Direct">Direct</option>
+				<option value="Elaborate">Elaborate</option>
+				<option value="Empathetic">Empathetic</option>
+				<option value="Formal">Formal</option>
+				<option value="Friendly">Friendly</option>
+				<option value="Humorous">Humorous</option>
+				<option value="Indirect">Indirect</option>
+				<option value="Legalistic">Legalistic</option>
+				<option value="Motivational">Motivational</option>
+				<option value="Neutral">Neutral</option>
+				<option value="Optimistic">Optimistic</option>
+				<option value="Pessimistic">Pessimistic</option>
+				<option value="Persuasive">Persuasive</option>
+				<option value="Professional">Professional</option>
+				<option value="Simple">Simple</option>
+				<option value="Technical">Technical</option>
+			</select>
+
+			<label for="tone3">Tone3:</label>
+			<select id="tone3" name="tone3">
+				<option value="">Select Tone3</option>
+				<option value="Academic">Academic</option>
+				<option value="Aggressive">Aggressive</option>
+				<option value="Assertive">Assertive</option>
+				<option value="Concise">Concise</option>
+				<option value="Confident">Confident</option>
+				<option value="Direct">Direct</option>
+				<option value="Elaborate">Elaborate</option>
+				<option value="Empathetic">Empathetic</option>
+				<option value="Formal">Formal</option>
+				<option value="Friendly">Friendly</option>
+				<option value="Humorous">Humorous</option>
+				<option value="Indirect">Indirect</option>
+				<option value="Legalistic">Legalistic</option>
+				<option value="Motivational">Motivational</option>
+				<option value="Neutral">Neutral</option>
+				<option value="Optimistic">Optimistic</option>
+				<option value="Pessimistic">Pessimistic</option>
+				<option value="Persuasive">Persuasive</option>
+				<option value="Professional">Professional</option>
+				<option value="Simple">Simple</option>
+				<option value="Technical">Technical</option>
+			</select>
+
+			<label for="language">Language:</label>
+			<select id="language" name="language">
+				<option value="">Select Language</option>
+				<option value="French">French</option>
+				<option value="English">English</option>
+				<option value="Spanish">Spanish</option>
+			</select>
+
+			<label for="length">Length:</label>
+			<select id="length" name="length">
+				<option value="">Select Length</option>
+				<option value="1000 words">1000 words</option>
+				<option value="200 characters">200 characters</option>
+				<option value="200 words">200 words</option>
+				<option value="3000 words">3000 words</option>
+				<option value="500 words">500 words</option>
+				<option value="any length">any length</option>
+			</select>
+
+			<label for="reasoning">reasoning:</label>
+			<select id="reasoning" name="reasoning">
+				<option value="">Select reasoning</option>
+				<option value="Prioritize strongest arguments">Prioritize strongest arguments</option>
+				<option value="Think step-by-step">Think step-by-step</option>
+				<option value="Be explicit about assumptions">Be explicit about assumptions</option>
+				<option value="Ask for missing information">Ask for missing information</option>
+				<option value="Break down the logic clearly">Break down the logic clearly</option>
+				<option value="Evaluate assumptions">Evaluate assumptions</option>
+				<option value="Follow a legal framework">Follow a legal framework</option>
+				<option value="Identify key facts first">Identify key facts first</option>
+				<option value="List pros and cons">List pros and cons</option>
+				<option value="Provide 3 options + recommendation">Provide 3 options + recommendation</option>
+				<option value="Use evidence-based reasoning">Use evidence-based reasoning</option>
+				<option value="If insufficient context, say 'I don’t know'">If insufficient context, say "I don’t know"</option>
+			</select>
+
+			<label for="reasoning2">reasoning2:</label>
+			<select id="reasoning2" name="reasoning2">
+				<option value="">Select reasoning2</option>
+				<option value="Prioritize strongest arguments">Prioritize strongest arguments</option>
+				<option value="Think step-by-step">Think step-by-step</option>
+				<option value="Be explicit about assumptions">Be explicit about assumptions</option>
+				<option value="Ask for missing information">Ask for missing information</option>
+				<option value="Break down the logic clearly">Break down the logic clearly</option>
+				<option value="Evaluate assumptions">Evaluate assumptions</option>
+				<option value="Follow a legal framework">Follow a legal framework</option>
+				<option value="Identify key facts first">Identify key facts first</option>
+				<option value="List pros and cons">List pros and cons</option>
+				<option value="Provide 3 options + recommendation">Provide 3 options + recommendation</option>
+				<option value="Use evidence-based reasoning">Use evidence-based reasoning</option>
+				<option value="If insufficient context, say 'I don’t know'">If insufficient context, say "I don’t know"</option>
+			</select>
+
+			<label for="reasoning3">reasoning3:</label>
+			<select id="reasoning3" name="reasoning3">
+				<option value="">Select reasoning3</option>
+				<option value="Prioritize strongest arguments">Prioritize strongest arguments</option>
+				<option value="Think step-by-step">Think step-by-step</option>
+				<option value="Be explicit about assumptions">Be explicit about assumptions</option>
+				<option value="Ask for missing information">Ask for missing information</option>
+				<option value="Break down the logic clearly">Break down the logic clearly</option>
+				<option value="Evaluate assumptions">Evaluate assumptions</option>
+				<option value="Follow a legal framework">Follow a legal framework</option>
+				<option value="Identify key facts first">Identify key facts first</option>
+				<option value="List pros and cons">List pros and cons</option>
+				<option value="Provide 3 options + recommendation">Provide 3 options + recommendation</option>
+				<option value="Use evidence-based reasoning">Use evidence-based reasoning</option>
+				<option value="If insufficient context, say 'I don’t know'">If insufficient context, say "I don’t know"</option>
+			</select>
+
+			<label for="objective">objective:</label>
+			<select id="objective" name="objective">
+				<option value="">Select objective</option>
+				<option value="Convincing">Convincing</option>
+				<option value="Arguing">Arguing</option>
+				<option value="Clarifying">Clarifying</option>
+				<option value="Coaching">Coaching</option>
+				<option value="Documenting">Documenting</option>
+				<option value="Encouraging">Encouraging</option>
+				<option value="Evaluating">Evaluating</option>
+				<option value="Explaining">Explaining</option>
+				<option value="Guiding">Guiding</option>
+				<option value="Informing">Informing</option>
+				<option value="Investigating">Investigating</option>
+				<option value="Justifying">Justifying</option>
+				<option value="Promoting">Promoting</option>
+				<option value="Recommending">Recommending</option>
+				<option value="Selling">Selling</option>
+				<option value="Summarizing">Summarizing</option>
+				<option value="Teaching">Teaching</option>
+				<option value="Warning">Warning</option>
+			</select>
+
+			<label for="objective2">objective2:</label>
+			<select id="objective2" name="objective2">
+				<option value="">Select objective2</option>
+				<option value="Convincing">Convincing</option>
+				<option value="Arguing">Arguing</option>
+				<option value="Clarifying">Clarifying</option>
+				<option value="Coaching">Coaching</option>
+				<option value="Documenting">Documenting</option>
+				<option value="Encouraging">Encouraging</option>
+				<option value="Evaluating">Evaluating</option>
+				<option value="Explaining">Explaining</option>
+				<option value="Guiding">Guiding</option>
+				<option value="Informing">Informing</option>
+				<option value="Investigating">Investigating</option>
+				<option value="Justifying">Justifying</option>
+				<option value="Promoting">Promoting</option>
+				<option value="Recommending">Recommending</option>
+				<option value="Selling">Selling</option>
+				<option value="Summarizing">Summarizing</option>
+				<option value="Teaching">Teaching</option>
+				<option value="Warning">Warning</option>
+			</select>
+
+			<label for="objective3">objective3:</label>
+			<select id="objective3" name="objective3">
+				<option value="">Select objective3</option>
+				<option value="Convincing">Convincing</option>
+				<option value="Arguing">Arguing</option>
+				<option value="Clarifying">Clarifying</option>
+				<option value="Coaching">Coaching</option>
+				<option value="Documenting">Documenting</option>
+				<option value="Encouraging">Encouraging</option>
+				<option value="Evaluating">Evaluating</option>
+				<option value="Explaining">Explaining</option>
+				<option value="Guiding">Guiding</option>
+				<option value="Informing">Informing</option>
+				<option value="Investigating">Investigating</option>
+				<option value="Justifying">Justifying</option>
+				<option value="Promoting">Promoting</option>
+				<option value="Recommending">Recommending</option>
+				<option value="Selling">Selling</option>
+				<option value="Summarizing">Summarizing</option>
+				<option value="Teaching">Teaching</option>
+				<option value="Warning">Warning</option>
+			</select>
+
+			<label for="context">Context (legal facts, conditions, details):</label>
+			<textarea id="context" name="context" rows="5" placeholder="Enter details here...">I want to respond to ... [paste your example text]</textarea>
+
+			<div class="actions">
+				<button type="button" onclick="generateOutput()">Generate Prompt Summary</button>
+				<button type="button" onclick="copyAll()">Select All & Copy</button>
+				<button type="button" onclick="exportPDF()">Export as PDF</button>
+			</div>
+		</form>
+
+		<div id="output">
+			<h3>Generated Prompt:</h3>
+			<div id="data-text"></div>
+		</div>
+
+		<script>
+			function generateOutput() {
+				const form = document.getElementById('promptForm');
+				const formData = new FormData(form);
+				let output = '';
+
+				output += 'Act as: ' + (formData.get('persona') || 'Not selected') + '\n';
+				output += 'with also experience as: ' + (formData.get('persona2') || 'Not selected') + '\n';
+				output += 'with also experience as: ' + (formData.get('persona3') || 'Not selected') + '\n';
+				output += 'to perform task: ' + (formData.get('task') || 'Not selected') + '\n';
+				output += 'Format: ' + (formData.get('format') || 'Not selected') + '\n';
+				output += 'using tone: ' + (formData.get('tone') || 'Not selected') + '\n';
+				output += 'and tone: ' + (formData.get('tone2') || 'Not selected') + '\n';
+				output += 'and tone: ' + (formData.get('tone3') || 'Not selected') + '\n';
+				output += 'In: ' + (formData.get('language') || 'Not selected') + '\n';
+				output += 'Length: ' + (formData.get('length') || 'Not selected') + '\n';
+				output += 'reasoning: ' + (formData.get('reasoning') || 'Not selected') + '\n';
+				output += 'and: ' + (formData.get('reasoning2') || 'Not selected') + '\n';
+				output += 'and: ' + (formData.get('reasoning3') || 'Not selected') + '\n';
+				output += 'be: ' + (formData.get('objective') || 'Not selected') + '\n';
+				output += 'and: ' + (formData.get('objective2') || 'Not selected') + '\n';
+				output += 'and: ' + (formData.get('objective3') || 'Not selected') + '\n';
+
+				output += 'Context: ' + (formData.get('context') || 'Not provided') + '\n';
+
+				document.getElementById('data-text').textContent = output;
+				document.getElementById('output').style.display = 'block';
+			}
+
+			function copyAll() {
+				generateOutput();
+				const output = document.getElementById('data-text');
+				const range = document.createRange();
+				range.selectNodeContents(output);
+				const selection = window.getSelection();
+				selection.removeAllRanges();
+				selection.addRange(range);
+				document.execCommand('copy');
+				selection.removeAllRanges();
+				alert('All data copied to clipboard!');
+			}
+
+			function exportPDF() {
+				generateOutput();
+				const { jsPDF } = window.jspdf;
+				const doc = new jsPDF();
+				const text = document.getElementById('data-text').textContent;
+				doc.text(text, 10, 10);
+				doc.save('legal-prompt.pdf');
+			}
+
+			window.onload = function () {
+				document.getElementById('length').value = '1000 words';
+				generateOutput();
+			};
+		</script>
+	</body>
+</html>

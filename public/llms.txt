@@ -1,0 +1,8 @@
+# aiionwatha.com llms.txt
+
+site: https://aiionwatha.com
+name: Aiionwatha
+summary: Aiionwatha supports Indigenous organizations and SMBs with grant strategy, project structuring, and AI-enabled operational support.
+languages: fr, en, es
+contact: mailto:steven.germain.gl@gmail.com
+sitemap: https://aiionwatha.com/sitemap-index.xml

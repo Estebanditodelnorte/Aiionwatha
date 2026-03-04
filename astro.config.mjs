@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://www.aiionwatha.com',
+	site: 'https://aiionwatha.com',
 	integrations: [
 		sitemap({
 			filter: (page) => {

@@ -22,6 +22,7 @@ export interface Props {
 }
 
 const { navLinks, brandingSmall, calendlyUrl, primaryCtaLabel, langToggle, extraLangToggle, anchorId } = Astro.props;
+const navToggleId = `nav-toggle-${anchorId}`;
 ---
 
 <header class="site-header" id={anchorId}>
@@ -33,25 +34,29 @@ const { navLinks, brandingSmall, calendlyUrl, primaryCtaLabel, langToggle, extra
 				<small>{brandingSmall}</small>
 			</div>
 		</div>
-		<nav class="nav-links">
-			{navLinks.map((link) => (
-				<a href={link.href}>{link.label}</a>
-			))}
-		</nav>
-		<div class="header-actions">
-			<div class="lang-group">
-				<a class="lang-toggle" href={langToggle.href} lang={langToggle.lang} aria-label={langToggle.ariaLabel}>
-					{langToggle.label}
-				</a>
-				{extraLangToggle && (
-					<a class="lang-toggle" href={extraLangToggle.href} lang={extraLangToggle.lang} aria-label={extraLangToggle.ariaLabel}>
-						{extraLangToggle.label}
+		<input class="nav-toggle" type="checkbox" id={navToggleId} aria-label="Toggle navigation" />
+		<label class="nav-toggle-button" for={navToggleId}>Menu</label>
+		<div class="nav-panel">
+			<nav class="nav-links">
+				{navLinks.map((link) => (
+					<a href={link.href}>{link.label}</a>
+				))}
+			</nav>
+			<div class="header-actions">
+				<div class="lang-group">
+					<a class="lang-toggle" href={langToggle.href} lang={langToggle.lang} aria-label={langToggle.ariaLabel}>
+						{langToggle.label}
 					</a>
-				)}
+					{extraLangToggle && (
+						<a class="lang-toggle" href={extraLangToggle.href} lang={extraLangToggle.lang} aria-label={extraLangToggle.ariaLabel}>
+							{extraLangToggle.label}
+						</a>
+					)}
+				</div>
+				<a class="button primary small" href={calendlyUrl} target="_blank" rel="noreferrer">
+					{primaryCtaLabel}
+				</a>
 			</div>
-			<a class="button primary small" href={calendlyUrl} target="_blank" rel="noreferrer">
-				{primaryCtaLabel}
-			</a>
 		</div>
 	</div>
 </header>
@@ -132,7 +137,7 @@ const { navLinks, brandingSmall, calendlyUrl, primaryCtaLabel, langToggle, extra
 		align-items: center;
 		flex-wrap: wrap;
 		gap: 0.75rem;
-		margin-left: auto;
+		margin-left: 0;
 	}
 
 	.lang-group {
@@ -161,18 +166,74 @@ const { navLinks, brandingSmall, calendlyUrl, primaryCtaLabel, langToggle, extra
 		transform: translateY(-1px);
 	}
 
-	@media (max-width: 900px) {
-		.nav-links {
-			display: none;
-		}
+	.nav-toggle {
+		position: absolute;
+		opacity: 0;
+		pointer-events: none;
+	}
 
+	.nav-toggle-button {
+		display: none;
+		align-items: center;
+		justify-content: center;
+		font-size: 0.95rem;
+		font-weight: 600;
+		border-radius: 999px;
+		padding: 0.45rem 1rem;
+		border: 1px solid rgba(13, 59, 47, 0.25);
+		background: #fff;
+		color: var(--color-deep-green);
+		cursor: pointer;
+		transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+	}
+
+	.nav-toggle-button:hover {
+		background: var(--color-forest);
+		color: #fff;
+		transform: translateY(-1px);
+	}
+
+	.nav-panel {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		flex-wrap: wrap;
+		margin-left: auto;
+	}
+
+	@media (max-width: 900px) {
 		.site-header {
 			position: static;
+		}
+
+		.nav-toggle-button {
+			display: inline-flex;
+		}
+
+		.nav-panel {
+			display: none;
+			width: 100%;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.85rem;
+			padding-top: 0.75rem;
+			border-top: 1px solid rgba(13, 59, 47, 0.08);
+		}
+
+		.nav-links {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.65rem;
+			width: 100%;
 		}
 
 		.header-actions {
 			width: 100%;
 			justify-content: flex-start;
+		}
+
+		.nav-toggle:checked + .nav-toggle-button + .nav-panel {
+			display: flex;
 		}
 	}
 </style>

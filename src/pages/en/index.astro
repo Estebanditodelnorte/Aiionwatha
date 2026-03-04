@@ -55,6 +55,13 @@ const recommendations = [
 		logoAlt: 'First Nations of Quebec and Labrador Health and Social Services Commission',
 		text:
 			'“Steven works very hard and adapts to any situation. He organizes his work, respects deadlines, and surfaces local risks and challenges. He is creative, supportive of others, and has the will to get things done.”'
+	},
+	{
+		title: 'Carl D. Kaucher — CCSI / CompuCom / Getronics / Shell',
+		logo: '/images/CC-Logo-Tagline-Berry@300x.png',
+		logoAlt: 'Shell Canada',
+		text:
+			'“We really appreciated all your efforts at CCSI CompuCom/Getronics/Shell, both as Account Manager and on Keith’s PIMA team. You made excellent contributions to the teams, and I’m confident you’ll be successful in your next endeavors. Thanks again for everything—happy to provide a reference anytime.”'
 	}
 ];
 
@@ -71,23 +78,27 @@ const marqueeItems = recommendations;
 					<small>{footer.brandingSmall}</small>
 				</div>
 			</div>
-			<nav class="nav-links">
-				{navLinks.map((link) => (
-					<a href={link.href}>{link.label}</a>
-				))}
-			</nav>
-			<div class="header-actions">
-				<div class="lang-group">
-					<a class="lang-toggle" href="/" lang="fr" aria-label="View the French version of the site">
-						Français
-					</a>
-					<a class="lang-toggle" href="/es" lang="es" aria-label="View the Spanish version of the site">
-						Español
+			<input class="nav-toggle" type="checkbox" id="nav-toggle-en" aria-label="Toggle navigation" />
+			<label class="nav-toggle-button" for="nav-toggle-en">Menu</label>
+			<div class="nav-panel">
+				<nav class="nav-links">
+					{navLinks.map((link) => (
+						<a href={link.href}>{link.label}</a>
+					))}
+				</nav>
+				<div class="header-actions">
+					<div class="lang-group">
+						<a class="lang-toggle" href="/" lang="fr" aria-label="View the French version of the site">
+							Français
+						</a>
+						<a class="lang-toggle" href="/es" lang="es" aria-label="View the Spanish version of the site">
+							Español
+						</a>
+					</div>
+					<a class="button primary small" href={topCtas.calendly} target="_blank" rel="noreferrer">
+						Book a call
 					</a>
 				</div>
-				<a class="button primary small" href={topCtas.calendly} target="_blank" rel="noreferrer">
-					Book a call
-				</a>
 			</div>
 		</div>
 	</header>
@@ -243,7 +254,7 @@ const marqueeItems = recommendations;
 			align-items: center;
 			gap: 0.75rem;
 			flex-wrap: wrap;
-			margin-left: auto;
+			margin-left: 0;
 		}
 
 		.lang-group {
@@ -300,6 +311,77 @@ const marqueeItems = recommendations;
 
 		.nav-links a:hover::after {
 			width: 100%;
+		}
+
+		.nav-toggle {
+			position: absolute;
+			opacity: 0;
+			pointer-events: none;
+		}
+
+		.nav-toggle-button {
+			display: none;
+			align-items: center;
+			justify-content: center;
+			font-size: 0.95rem;
+			font-weight: 600;
+			border-radius: 999px;
+			padding: 0.45rem 1rem;
+			border: 1px solid rgba(13, 59, 47, 0.25);
+			background: #fff;
+			color: var(--color-deep-green);
+			cursor: pointer;
+			transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+		}
+
+		.nav-toggle-button:hover {
+			background: var(--color-forest);
+			color: #fff;
+			transform: translateY(-1px);
+		}
+
+		.nav-panel {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			flex-wrap: wrap;
+			margin-left: auto;
+		}
+
+		@media (max-width: 900px) {
+			.site-header {
+				position: static;
+			}
+
+			.nav-toggle-button {
+				display: inline-flex;
+			}
+
+			.nav-panel {
+				display: none;
+				width: 100%;
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 0.85rem;
+				padding-top: 0.75rem;
+				border-top: 1px solid rgba(13, 59, 47, 0.08);
+			}
+
+			.nav-links {
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 0.65rem;
+				width: 100%;
+			}
+
+			.header-actions {
+				width: 100%;
+				justify-content: flex-start;
+			}
+
+			.nav-toggle:checked + .nav-toggle-button + .nav-panel {
+				display: flex;
+			}
 		}
 
 		.about {

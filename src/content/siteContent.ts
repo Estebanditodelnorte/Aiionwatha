@@ -1,19 +1,19 @@
 export const pageContent = {
 	fr: {
 		meta: {
-			title: "Aiionwatha - Optimisez vos subventions",
+			title: "Aiionwatha - Optimisez vos subventions | Aiionwatha",
 			description:
-				"Aiionwatha accompagne les organisations autochtones et les PME à décrocher des subventions et à structurer leurs projets grâce à l'IA et à une expertise terrain.",
-			url: "https://www.aiionwatha.com/",
+				"Aiionwatha aide les organisations autochtones et les PME à décrocher des subventions et à structurer leurs projets grâce à l'IA et à une expertise terrain.",
+			url: "https://aiionwatha.com/",
 			image: "/images/hero.webp",
 			imageAlt: "Optimisation des subventions pour maximiser les financements des projets innovants.",
 			locale: "fr_CA"
 		},
 		alternates: [
-			{ href: "https://www.aiionwatha.com/", hreflang: "fr-CA" },
-			{ href: "https://www.aiionwatha.com/en/", hreflang: "en-CA" },
-			{ href: "https://www.aiionwatha.com/es/", hreflang: "es-ES" },
-			{ href: "https://www.aiionwatha.com/", hreflang: "x-default" }
+			{ href: "https://aiionwatha.com/", hreflang: "fr-CA" },
+			{ href: "https://aiionwatha.com/en", hreflang: "en-CA" },
+			{ href: "https://aiionwatha.com/es", hreflang: "es-ES" },
+			{ href: "https://aiionwatha.com/", hreflang: "x-default" }
 		],
 		navLinks: [
 			{ label: "Accueil", href: "/#accueil" },
@@ -191,6 +191,12 @@ export const pageContent = {
 						"« Steven travaille très fort et sait adapter ses comportements selon la situation. Il organise son travail, respecte les délais et sait mettre en lumière les enjeux locaux. Il est créatif, soutenant pour les autres et possède la volonté d’aboutir. »",
 					author: "Carl Simard",
 					role: "Commission de la santé et des services sociaux des Premières Nations du Québec et du Labrador (CSSSPNQL)"
+				},
+				{
+					quote:
+						"« Nous avons énormément apprécié vos efforts chez CCSI CompuCom/Getronics/Shell, autant comme gestionnaire de comptes que dans vos rôles précédents. Vos contributions aux équipes ont été excellentes; je suis confiant que vous réussirez dans vos projets futurs et vous souhaite le meilleur. Merci encore pour tout et comptez sur moi comme référence au besoin. »",
+					author: "Carl D. Kaucher",
+					role: "CCSI / CompuCom / Getronics / Shell Canada"
 				}
 			]
 		},
@@ -235,18 +241,18 @@ export const pageContent = {
 	},
 	en: {
 		meta: {
-			title: "Aiionwatha - Optimize your funding",
+			title: "Aiionwatha - Optimize your funding | Aiionwatha",
 			description: "Aiionwatha helps Indigenous organizations and SMBs secure grants and structure projects with AI-enabled expertise.",
-			url: "https://www.aiionwatha.com/en/",
+			url: "https://aiionwatha.com/en",
 			image: "/images/hero.webp",
 			imageAlt: "Grant optimization to maximize funding for innovative projects.",
 			locale: "en_CA"
 		},
 		alternates: [
-			{ href: "https://www.aiionwatha.com/en/", hreflang: "en-CA" },
-			{ href: "https://www.aiionwatha.com/", hreflang: "fr-CA" },
-			{ href: "https://www.aiionwatha.com/es/", hreflang: "es-ES" },
-			{ href: "https://www.aiionwatha.com/", hreflang: "x-default" }
+			{ href: "https://aiionwatha.com/en", hreflang: "en-CA" },
+			{ href: "https://aiionwatha.com/", hreflang: "fr-CA" },
+			{ href: "https://aiionwatha.com/es", hreflang: "es-ES" },
+			{ href: "https://aiionwatha.com/", hreflang: "x-default" }
 		],
 		navLinks: [
 			{ label: "Home", href: "/en#home" },
@@ -424,6 +430,12 @@ export const pageContent = {
 						"“Steven works very hard and adapts to any situation. He organizes his work, respects deadlines, and brings local risks and challenges to light. He is creative, supportive of others, and committed to getting things done.”",
 					author: "Carl Simard",
 					role: "First Nations of Quebec and Labrador Health and Social Services Commission (CSSSPNQL)"
+				},
+				{
+					quote:
+						"“We really appreciated all your efforts at CCSI CompuCom/Getronics/Shell, both as Account Manager and on Keith’s PIMA team. You made excellent contributions to the teams, and I’m confident you’ll be successful in your next endeavors. Thanks again for everything—happy to provide a reference anytime.”",
+					author: "Carl D. Kaucher",
+					role: "CCSI / CompuCom / Getronics / Shell Canada"
 				}
 			]
 		},
@@ -468,18 +480,18 @@ export const pageContent = {
 	},
 	es: {
 		meta: {
-			title: "Aiionwatha - Optimiza tus subvenciones",
+			title: "Aiionwatha - Optimiza tus subvenciones | Aiionwatha",
 			description: "Aiionwatha ayuda a organizaciones indígenas y pymes a conseguir subvenciones y estructurar proyectos con experiencia potenciada por IA.",
-			url: "https://www.aiionwatha.com/es/",
+			url: "https://aiionwatha.com/es",
 			image: "/images/hero.webp",
 			imageAlt: "Optimización de subvenciones para maximizar el financiamiento de proyectos innovadores.",
 			locale: "es_ES"
 		},
 		alternates: [
-			{ href: "https://www.aiionwatha.com/es/", hreflang: "es-ES" },
-			{ href: "https://www.aiionwatha.com/", hreflang: "fr-CA" },
-			{ href: "https://www.aiionwatha.com/en/", hreflang: "en-CA" },
-			{ href: "https://www.aiionwatha.com/", hreflang: "x-default" }
+			{ href: "https://aiionwatha.com/es", hreflang: "es-ES" },
+			{ href: "https://aiionwatha.com/", hreflang: "fr-CA" },
+			{ href: "https://aiionwatha.com/en", hreflang: "en-CA" },
+			{ href: "https://aiionwatha.com/", hreflang: "x-default" }
 		],
 		navLinks: [
 			{ label: "Inicio", href: "/es#home" },
@@ -657,6 +669,12 @@ export const pageContent = {
 						"«Steven trabaja muy duro y se adapta a cualquier situación. Organiza su trabajo, respeta los plazos y sabe destacar los riesgos y retos locales. Es creativo, solidario con los demás y tiene la voluntad de lograr los objetivos.»",
 					author: "Carl Simard",
 					role: "Comisión de Salud y Servicios Sociales de las Primeras Naciones de Quebec y Labrador (CSSSPNQL)"
+				},
+				{
+					quote:
+						"«Apreciamos mucho todos tus esfuerzos en CCSI CompuCom/Getronics/Shell, tanto como gerente de cuentas como en el equipo PIMA. Hiciste excelentes aportes y estoy seguro de que tendrás éxito en tus próximos proyectos. Gracias de nuevo por todo; con gusto seré referencia cuando lo necesites.»",
+					author: "Carl D. Kaucher",
+					role: "CCSI / CompuCom / Getronics / Shell Canada"
 				}
 			]
 		},
