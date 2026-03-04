@@ -6,7 +6,8 @@ const meta = {
 	description: 'No pudimos encontrar esta página. Regresa al inicio o ponte en contacto.',
 	url: 'https://aiionwatha.com/es/404',
 	image: '/images/hero.webp',
-	locale: 'es_ES'
+	locale: 'es_ES',
+	robots: 'noindex,follow'
 };
 
 const alternates = [
@@ -17,12 +18,16 @@ const alternates = [
 ];
 ---
 
-<Layout title={meta.title} description={meta.description} url={meta.url} image={meta.image} locale={meta.locale} alternates={alternates}>
+<Layout title={meta.title} description={meta.description} url={meta.url} image={meta.image} locale={meta.locale} robots={meta.robots} alternates={alternates}>
 	<section class="not-found">
 		<div class="container">
 			<p class="section-title">404</p>
 			<h1>Página no encontrada</h1>
 			<p>La página solicitada no existe o fue movida.</p>
+			<p>
+				Puedes volver al inicio, revisar la sección de servicios o escribirnos para encontrar el contenido correcto.
+				Si este enlace venía de un marcador guardado, actualízalo porque algunas rutas cambiaron durante la última actualización del sitio.
+			</p>
 			<div class="actions">
 				<a class="button primary" href="/es/">Volver al inicio</a>
 				<a class="button secondary" href="/es#contact">Contactar</a>

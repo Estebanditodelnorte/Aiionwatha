@@ -2,11 +2,12 @@
 import Layout from '../../layouts/Layout.astro';
 
 const meta = {
-	title: 'Page not found – Aiionwatha',
+	title: 'Page not found and navigation help | Aiionwatha',
 	description: 'The page you’re looking for can’t be found. Return to the homepage or contact us.',
 	url: 'https://aiionwatha.com/en/404',
 	image: '/images/hero.webp',
-	locale: 'en_CA'
+	locale: 'en_CA',
+	robots: 'noindex,follow'
 };
 
 const alternates = [
@@ -17,12 +18,16 @@ const alternates = [
 ];
 ---
 
-<Layout title={meta.title} description={meta.description} url={meta.url} image={meta.image} locale={meta.locale} alternates={alternates}>
+<Layout title={meta.title} description={meta.description} url={meta.url} image={meta.image} locale={meta.locale} robots={meta.robots} alternates={alternates}>
 	<section class="not-found">
 		<div class="container">
 			<p class="section-title">404</p>
 			<h1>Page not found</h1>
 			<p>The resource you’re looking for doesn’t exist or has moved.</p>
+			<p>
+				You can continue from the homepage, open the services page to see current offers, or reach out directly for support.
+				If this URL came from a bookmark, please update it because page paths may have changed during the latest site migration.
+			</p>
 			<div class="actions">
 				<a class="button primary" href="/en/">Return home</a>
 				<a class="button secondary" href="/en#contact">Contact us</a>

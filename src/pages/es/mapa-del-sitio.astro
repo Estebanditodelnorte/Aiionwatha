@@ -49,6 +49,11 @@ const pageAlternates = [
 		<div class="container">
 			<p class="section-title">Mapa del sitio</p>
 			<h1>Encuentra cualquier página</h1>
+			<p class="intro">
+				Este índice reúne las páginas principales de la versión en español: presentación, servicios, preguntas frecuentes,
+				privacidad y enlaces de contacto. Si necesitas cambiar de idioma, usa los botones del encabezado para abrir la misma
+				sección en francés o inglés. Actualizamos esta lista cada vez que publicamos nuevas páginas.
+			</p>
 			<ul class="sitemap-list">
 				{pages.map((page) => (
 					<li>
@@ -69,6 +74,12 @@ const pageAlternates = [
 
 		.sitemap h1 {
 			margin-bottom: 1rem;
+		}
+
+		.intro {
+			max-width: 760px;
+			margin-bottom: 1rem;
+			color: var(--color-muted);
 		}
 
 		.sitemap-list {

@@ -49,6 +49,11 @@ const pageAlternates = [
 		<div class="container">
 			<p class="section-title">Site map</p>
 			<h1>Find any page quickly</h1>
+			<p class="intro">
+				Use this page to navigate all main sections of the English website: company overview, services, FAQ, privacy policy, and
+				direct contact links. If you are comparing language versions, use the language switch in the header to open the equivalent
+				page in French or Spanish. This directory is updated as new pages are published.
+			</p>
 			<ul class="sitemap-list">
 				{pages.map((page) => (
 					<li>
@@ -69,6 +74,12 @@ const pageAlternates = [
 
 		.sitemap h1 {
 			margin-bottom: 1rem;
+		}
+
+		.intro {
+			max-width: 760px;
+			margin-bottom: 1rem;
+			color: var(--color-muted);
 		}
 
 		.sitemap-list {
