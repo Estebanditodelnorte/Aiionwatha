@@ -3,12 +3,13 @@ import Layout from '../../layouts/Layout.astro';
 import { pageContent } from '../../content/siteContent';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
+import { normalizeHref } from '../../utils/site';
 
 const metadata = {
 	title: 'Política de privacidad | Aiionwatha',
 	description: 'Aiionwatha protege la información personal conforme a la Ley 25 de Quebec y prácticas transparentes de gobernanza de datos.',
 	url: 'https://aiionwatha.com/es/privacy-policy',
-	image: '/images/wp-uploads/2025/01/subventions-autochtones-wendake.webp',
+	image: '/images/hero.webp',
 	locale: 'es_ES'
 };
 
@@ -76,7 +77,7 @@ const sections = [
 	{
 		title: '6. Sus derechos',
 		paragraphs: [
-			'Puede solicitar acceso, rectificación, eliminación o portabilidad de su información personal. También puede retirar su consentimiento cuando el tratamiento se base en este. Para ejercer estos derechos, escriba a <a href="mailto:steven.germain.gl@gmail.com">steven.germain.gl@gmail.com</a>.'
+			'Puede solicitar acceso, rectificación, eliminación o portabilidad de su información personal. También puede retirar su consentimiento cuando el tratamiento se base en este. Para ejercer estos derechos, escriba a <a href="mailto:info@aiionwatha.com">info@aiionwatha.com</a>.'
 		]
 	},
 	{
@@ -85,7 +86,7 @@ const sections = [
 	},
 	{
 		title: '8. Contacto',
-		paragraphs: ['Para preguntas sobre privacidad o la Ley 25, comuníquese a <a href="mailto:steven.germain.gl@gmail.com">steven.germain.gl@gmail.com</a>.']
+		paragraphs: ['Para preguntas sobre privacidad o la Ley 25, comuníquese a <a href="mailto:info@aiionwatha.com">info@aiionwatha.com</a>.']
 	}
 ];
 ---
@@ -114,10 +115,10 @@ const sections = [
 		<section class="policy-content">
 			<div class="container">
 				<div class="policy-lang-switch">
-					<a class="lang-toggle" href="/politique-de-confidentialite" lang="fr" aria-label="Voir la version française de cette politique">
+					<a class="lang-toggle" href={normalizeHref('/politique-de-confidentialite')} lang="fr" aria-label="Voir la version française de cette politique">
 						Français
 					</a>
-					<a class="lang-toggle" href="/en/privacy-policy" lang="en" aria-label="View the English version of this policy">
+					<a class="lang-toggle" href={normalizeHref('/en/privacy-policy')} lang="en" aria-label="View the English version of this policy">
 						English
 					</a>
 				</div>

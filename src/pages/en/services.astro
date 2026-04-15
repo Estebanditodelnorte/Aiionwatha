@@ -16,11 +16,18 @@ const meta = {
 	locale: 'en_CA'
 };
 
+const modified = '2026-04-12T12:00:00-04:00';
+
 const alternates = [
 	{ href: 'https://aiionwatha.com/en/services', hreflang: 'en-CA' },
 	{ href: 'https://aiionwatha.com/services', hreflang: 'fr-CA' },
 	{ href: 'https://aiionwatha.com/es/services', hreflang: 'es-ES' },
 	{ href: 'https://aiionwatha.com/services', hreflang: 'x-default' }
+];
+
+const breadcrumbItems = [
+	{ name: 'Home', url: 'https://aiionwatha.com/en/' },
+	{ name: 'Services', url: meta.url }
 ];
 
 const services = [
@@ -117,9 +124,33 @@ const packages = [
     badge: "Most comprehensive"
   }
 ];
+
+const serviceItems = services.map((service) => ({
+	name: service.name,
+	description: `${service.value} Typical cost: ${service.price}.`
+}));
+
+const offerItems = packages.map((pkg) => ({
+	name: pkg.name,
+	description: `${pkg.tagline} ${pkg.highlight} Typical cost: ${pkg.priceRange}.`,
+	priceCurrency: currency,
+	category: 'Consulting package'
+}));
 ---
 
-<Layout title={meta.title} description={meta.description} url={meta.url} image={meta.image} ogImageAlt={meta.imageAlt} locale={meta.locale} alternates={alternates}>
+<Layout
+	title={meta.title}
+	description={meta.description}
+	url={meta.url}
+	image={meta.image}
+	ogImageAlt={meta.imageAlt}
+	locale={meta.locale}
+	alternates={alternates}
+	modified={modified}
+	breadcrumbItems={breadcrumbItems}
+	serviceItems={serviceItems}
+	offerItems={offerItems}
+>
 	<SiteHeader
 		navLinks={navLinks}
 		brandingSmall={footer.brandingSmall}

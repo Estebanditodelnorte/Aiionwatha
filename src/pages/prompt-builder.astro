@@ -1,4 +1,7 @@
 ---
+import { normalizePageUrl } from '../utils/site';
+
+const canonicalUrl = normalizePageUrl('https://aiionwatha.com/prompt-builder');
 ---
 
 <!DOCTYPE html>
@@ -11,7 +14,7 @@
 			name="description"
 			content="Build structured AI prompts with role, task, tone, format, and context fields, then copy or export your final prompt."
 		/>
-		<link rel="canonical" href="https://aiionwatha.com/prompt-builder" />
+		<link rel="canonical" href={canonicalUrl} />
 		<meta name="robots" content="index,follow" />
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 		<style>

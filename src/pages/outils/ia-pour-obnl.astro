@@ -1,12 +1,15 @@
 ---
 import { getNonprofitAiManualDocument } from '../../utils/nonprofitAiManual';
+import { normalizePageUrl, toAbsoluteUrl } from '../../utils/site';
 
 const meta = {
-	title: 'IA pour OBNL | Aiionwatha',
+	title: "Guide IA pour OBNL a Quebec | Aiionwatha",
 	description:
-		"Manuel d'IA pour les organismes à but non lucratif avec stratégies pratiques pour les directions, équipes programmes et opérations.",
+		"Guide pratique d'IA pour OBNL a Quebec et dans la Capitale-Nationale: subventions, collecte de fonds, operations, gouvernance et prompts prets a utiliser.",
 	url: 'https://aiionwatha.com/outils/ia-pour-obnl',
-	locale: 'fr_CA'
+	locale: 'fr_CA',
+	image: '/images/hero.webp',
+	imageAlt: "Guide d'IA pour OBNL a Quebec"
 };
 
 const alternates = [
@@ -17,6 +20,29 @@ const alternates = [
 ];
 
 const document = getNonprofitAiManualDocument();
+const canonicalUrl = normalizePageUrl(meta.url);
+const imageUrl = toAbsoluteUrl(meta.image, canonicalUrl);
+const schema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: meta.title,
+	description: meta.description,
+	inLanguage: 'fr-CA',
+	mainEntityOfPage: canonicalUrl,
+	image: [imageUrl],
+	author: {
+		'@type': 'Organization',
+		name: 'Aiionwatha Conseils en gestion',
+		url: 'https://aiionwatha.com/'
+	},
+	about: [
+		"OBNL a Quebec",
+		'IA pour organismes a but non lucratif',
+		'Subventions pour OBNL',
+		'Collecte de fonds',
+		'Capitale-Nationale'
+	]
+};
 ---
 
 <!doctype html>
@@ -26,8 +52,21 @@ const document = getNonprofitAiManualDocument();
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
 		<title>{meta.title}</title>
 		<meta name="description" content={meta.description} />
-		<link rel="canonical" href={meta.url} />
-		{alternates.map((alternate) => <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />)}
+		<meta name="robots" content="index,follow" />
+		<link rel="canonical" href={canonicalUrl} />
+		{alternates.map((alternate) => <link rel="alternate" hreflang={alternate.hreflang} href={normalizePageUrl(alternate.href)} />)}
+		<meta property="og:type" content="article" />
+		<meta property="og:locale" content={meta.locale} />
+		<meta property="og:title" content={meta.title} />
+		<meta property="og:description" content={meta.description} />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:image" content={imageUrl} />
+		<meta property="og:image:alt" content={meta.imageAlt} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={meta.title} />
+		<meta name="twitter:description" content={meta.description} />
+		<meta name="twitter:image" content={imageUrl} />
+		<script type="application/ld+json" set:html={JSON.stringify(schema)} />
 		<Fragment set:html={document.head} />
 	</head>
 	<body>

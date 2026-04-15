@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import { pageContent } from '../../content/siteContent';
+import { normalizeHref } from '../../utils/site';
 
 const content = pageContent.en;
 const { navLinks, topCtas, footer } = content;
@@ -15,6 +16,8 @@ const meta = {
 	locale: 'en_CA'
 };
 
+const modified = '2026-04-12T12:00:00-04:00';
+
 const alternates = [
 	{ href: 'https://aiionwatha.com/outils', hreflang: 'fr-CA' },
 	{ href: meta.url, hreflang: 'en-CA' },
@@ -22,33 +25,39 @@ const alternates = [
 	{ href: meta.url, hreflang: 'x-default' }
 ];
 
+const breadcrumbItems = [
+	{ name: 'Home', url: 'https://aiionwatha.com/en/' },
+	{ name: 'Tools', url: meta.url }
+];
+
 const categories = [
 	{
 		title: 'SEO guides',
 		items: [
-			{ label: 'Local SEO guide (PDF)', href: '#' },
-			{ label: 'Core Web Vitals checklist', href: '#' }
+			{ label: 'Local SEO guide', href: '/resources/guide-seo-local.md' },
+			{ label: 'Core Web Vitals checklist', href: '/resources/checklist-core-web-vitals.md' }
 		]
 	},
 	{
 		title: 'Website guides',
 		items: [
-			{ label: 'Website launch checklist', href: '#' },
-			{ label: 'Accessibility & performance guide', href: '#' }
+			{ label: 'Website launch checklist', href: '/resources/checklist-lancement-site.md' },
+			{ label: 'Accessibility & performance guide', href: '/resources/guide-accessibilite-performance.md' },
+			{ label: 'Website portfolio', href: '/en/tools/portfolio' }
 		]
 	},
 	{
 		title: 'Business plans & templates',
 		items: [
-			{ label: 'Business plan template (Google Docs)', href: '#' },
-			{ label: 'Budget forecast (Excel)', href: '#' }
+			{ label: 'Business plan template', href: '/resources/modele-plan-affaires.md' },
+			{ label: 'Budget forecast', href: '/resources/budget-previsionnel.md' }
 		]
 	},
 	{
 		title: 'Other tools',
 		items: [
-			{ label: 'Pitch deck template', href: '#' },
-			{ label: 'Law 25 compliance checklist', href: '#' },
+			{ label: 'Pitch deck template', href: '/resources/template-pitch-deck.md' },
+			{ label: 'Law 25 compliance checklist', href: '/resources/checklist-conformite-loi-25.md' },
 			{ label: 'Prompt Builder', href: '/prompt-builder' },
 			{ label: 'AI for Non-profits', href: '/en/tools/ai-for-non-profits' }
 		]
@@ -56,7 +65,16 @@ const categories = [
 ];
 ---
 
-<Layout title={meta.title} description={meta.description} url={meta.url} image={meta.image} locale={meta.locale} alternates={alternates}>
+<Layout
+	title={meta.title}
+	description={meta.description}
+	url={meta.url}
+	image={meta.image}
+	locale={meta.locale}
+	alternates={alternates}
+	modified={modified}
+	breadcrumbItems={breadcrumbItems}
+>
 	<SiteHeader
 		navLinks={navLinks}
 		brandingSmall={footer.brandingSmall}
@@ -79,7 +97,7 @@ const categories = [
 						<ul>
 							{cat.items.map((item) => (
 								<li>
-									<a href={item.href}>{item.label}</a>
+									<a href={normalizeHref(item.href)}>{item.label}</a>
 								</li>
 							))}
 						</ul>

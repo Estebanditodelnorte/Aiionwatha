@@ -8,16 +8,23 @@ const meta = {
 	title: 'Servicios y paquetes | Aiionwatha',
 	description: 'Descubre los servicios y paquetes de Aiionwatha: financiación, estrategia, digital, IA, relaciones indígenas y gobernanza.',
 	url: 'https://aiionwatha.com/es/services',
-	image: '/images/wp-uploads/2025/01/subventions-autochtones-wendake.webp',
+	image: '/images/hero.webp',
 	imageAlt: 'Lista de servicios y paquetes Aiionwatha',
 	locale: 'es_ES'
 };
+
+const modified = '2026-04-12T12:00:00-04:00';
 
 const alternates = [
 	{ href: 'https://aiionwatha.com/es/services', hreflang: 'es-ES' },
 	{ href: 'https://aiionwatha.com/services', hreflang: 'fr-CA' },
 	{ href: 'https://aiionwatha.com/en/services', hreflang: 'en-CA' },
 	{ href: 'https://aiionwatha.com/services', hreflang: 'x-default' }
+];
+
+const breadcrumbItems = [
+	{ name: 'Inicio', url: 'https://aiionwatha.com/es/' },
+	{ name: 'Servicios', url: meta.url }
 ];
 
 const services = [
@@ -76,10 +83,34 @@ const packages = [
 	}
 ];
 
+const serviceItems = services.map((service) => ({
+	name: service.name,
+	description: `${service.value} Tarifa indicativa: ${service.price}.`
+}));
+
+const offerItems = packages.map((pkg) => ({
+	name: pkg.name,
+	description: `${pkg.tagline} ${pkg.highlight} Tarifa indicativa: ${pkg.priceRange}.`,
+	priceCurrency: 'CAD',
+	category: 'Paquete de consultoria'
+}));
+
 const { footer, navLinks, topCtas } = pageContent.es;
 ---
 
-<Layout title={meta.title} description={meta.description} url={meta.url} image={meta.image} ogImageAlt={meta.imageAlt} locale={meta.locale} alternates={alternates}>
+<Layout
+	title={meta.title}
+	description={meta.description}
+	url={meta.url}
+	image={meta.image}
+	ogImageAlt={meta.imageAlt}
+	locale={meta.locale}
+	alternates={alternates}
+	modified={modified}
+	breadcrumbItems={breadcrumbItems}
+	serviceItems={serviceItems}
+	offerItems={offerItems}
+>
 	<SiteHeader
 		navLinks={navLinks}
 		brandingSmall={footer.brandingSmall}

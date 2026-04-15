@@ -1,0 +1,163 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import SiteHeader from '../../../components/SiteHeader.astro';
+import SiteFooter from '../../../components/SiteFooter.astro';
+import { pageContent } from '../../../content/siteContent';
+
+const content = pageContent.es;
+const { navLinks, topCtas, footer } = content;
+const meta = {
+	title: 'Portafolio web — Proyectos | Aiionwatha',
+	description: 'Descubre los sitios web diseñados y desarrollados por Aiionwatha para nuestros clientes.',
+	url: 'https://aiionwatha.com/es/herramientas/portafolio',
+	image: '/images/hero.webp',
+	locale: 'es_ES'
+};
+
+const alternates = [
+	{ href: 'https://aiionwatha.com/outils/portfolio', hreflang: 'fr-CA' },
+	{ href: 'https://aiionwatha.com/en/tools/portfolio', hreflang: 'en-CA' },
+	{ href: meta.url, hreflang: 'es-ES' }
+];
+---
+
+<Layout title={meta.title} description={meta.description} url={meta.url} image={meta.image} locale={meta.locale} alternates={alternates}>
+	<SiteHeader
+		navLinks={navLinks}
+		brandingSmall={footer.brandingSmall}
+		calendlyUrl={topCtas.calendly}
+		primaryCtaLabel="Agendar una llamada"
+		langToggle={{ label: 'Français', href: '/outils/portfolio', ariaLabel: 'Ver portafolio en francés', lang: 'fr' }}
+		extraLangToggle={{ label: 'English', href: '/en/tools/portfolio', ariaLabel: 'View portfolio in English', lang: 'en' }}
+		anchorId="portfolio-top"
+	/>
+
+	<main class="portfolio">
+		<div class="container">
+			<p class="section-title">Nuestro trabajo</p>
+			<h1>Portafolio web</h1>
+			<p class="intro">Descubre los sitios web que hemos diseñado para nuestros clientes. Cada proyecto se desarrolla con un enfoque estratégico centrado en resultados medibles.</p>
+
+			<div class="projects-grid">
+				<article class="project-card">
+					<div class="project-image">
+						<img src="/images/demosolutionhidef.png" alt="Demo Solution" />
+					</div>
+					<div class="project-content">
+						<h2>Demo Solution</h2>
+						<p class="project-description">
+							Sitio web corporativo que presenta servicios de soluciones empresariales. Diseño estratégico para maximizar conversión y mejorar la visibilidad en línea.
+						</p>
+						<a href="https://www.demosolution.ca/" target="_blank" rel="noopener noreferrer" class="project-link">
+							Visitar sitio →
+						</a>
+					</div>
+				</article>
+
+				<article class="project-card">
+					<div class="project-image">
+						<img src="https://www.cliniqueduvr.ca/clinique-du-vr-brand.jpg" alt="Clinique du VR" />
+					</div>
+					<div class="project-content">
+						<h2>Clinique du VR</h2>
+						<p class="project-description">
+							Sitio web de servicios enfocado en mantenimiento, reparacion y acompanamiento para propietarios de RV. Estructura clara, contenido localizado y enfoque orientado a la conversion.
+						</p>
+						<a href="https://cliniqueduvr.ca/" target="_blank" rel="noopener noreferrer" class="project-link">
+							Visitar sitio →
+						</a>
+					</div>
+				</article>
+			</div>
+		</div>
+	</main>
+
+	<SiteFooter footer={footer} navLinks={navLinks} topCtas={topCtas} />
+
+	<style>
+		.portfolio {
+			padding: 3rem 1.5rem 4rem;
+			background: #fff;
+		}
+
+		.intro {
+			color: var(--color-muted);
+			max-width: 820px;
+			margin-bottom: 2rem;
+		}
+
+		.projects-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+			gap: 2rem;
+			margin-top: 2.5rem;
+		}
+
+		.project-card {
+			background: #fff;
+			border: 1px solid rgba(6, 24, 12, 0.08);
+			border-radius: 1rem;
+			overflow: hidden;
+			box-shadow: 0 4px 12px rgba(6, 24, 12, 0.06);
+			transition: all 0.3s ease;
+			display: grid;
+			grid-template-rows: auto 1fr;
+		}
+
+		.project-card:hover {
+			box-shadow: 0 8px 24px rgba(6, 24, 12, 0.12);
+			border-color: rgba(6, 24, 12, 0.12);
+			transform: translateY(-4px);
+		}
+
+		.project-image {
+			width: 100%;
+			height: 200px;
+			overflow: hidden;
+			background: #fff;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 1rem;
+		}
+
+		.project-image img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			object-position: center center;
+		}
+
+		.project-content {
+			padding: 1.5rem;
+			display: flex;
+			flex-direction: column;
+			gap: 0.75rem;
+		}
+
+		.project-card h2 {
+			margin: 0;
+			font-size: 1.3rem;
+			color: var(--color-deep-green);
+		}
+
+		.project-description {
+			color: var(--color-muted);
+			line-height: 1.6;
+			margin: 0;
+			flex: 1;
+		}
+
+		.project-link {
+			color: var(--color-deep-green);
+			font-weight: 600;
+			text-decoration: none;
+			margin-top: auto;
+			display: inline-block;
+		}
+
+		.project-link:hover {
+			text-decoration: underline;
+		}
+	</style>
+</Layout>

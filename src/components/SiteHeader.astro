@@ -1,4 +1,6 @@
 ---
+import { normalizeHref } from '../utils/site';
+
 export interface NavLink {
 	label: string;
 	href: string;
@@ -39,16 +41,16 @@ const navToggleId = `nav-toggle-${anchorId}`;
 		<div class="nav-panel">
 			<nav class="nav-links">
 				{navLinks.map((link) => (
-					<a href={link.href}>{link.label}</a>
+					<a href={normalizeHref(link.href)}>{link.label}</a>
 				))}
 			</nav>
 			<div class="header-actions">
 				<div class="lang-group">
-					<a class="lang-toggle" href={langToggle.href} lang={langToggle.lang} aria-label={langToggle.ariaLabel}>
+					<a class="lang-toggle" href={normalizeHref(langToggle.href)} lang={langToggle.lang} aria-label={langToggle.ariaLabel}>
 						{langToggle.label}
 					</a>
 					{extraLangToggle && (
-						<a class="lang-toggle" href={extraLangToggle.href} lang={extraLangToggle.lang} aria-label={extraLangToggle.ariaLabel}>
+						<a class="lang-toggle" href={normalizeHref(extraLangToggle.href)} lang={extraLangToggle.lang} aria-label={extraLangToggle.ariaLabel}>
 							{extraLangToggle.label}
 						</a>
 					)}

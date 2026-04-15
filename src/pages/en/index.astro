@@ -4,60 +4,77 @@ import { pageContent } from '../../content/siteContent';
 import HeroSection from '../../components/HeroSection.astro';
 import GallerySection from '../../components/GallerySection.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
+import { normalizeHref } from '../../utils/site';
 
 const content = pageContent.en;
 const { meta, alternates, navLinks, hero, about, reasons, founder, services, story, values, topCtas, cta, footer } = content;
 
 const recommendations = [
 	{
-		title: 'Isa Gros-Louis — Espace Max Oné Onti Gros-Louis',
+		author: 'Isa Gros-Louis',
+		role: 'Espace Max Oné Onti Gros-Louis',
+		titleHref: 'https://maxgroslouis.com/',
 		logo: '/images/emgl-logo.png',
 		logoAlt: 'Espace Max Oné Onti Gros-Louis logo',
 		text: '“Working with Steven was pivotal: solid expertise, clear strategic vision, and precise on-the-ground advice.”'
 	},
 	{
-		title: 'Diane Andicha Picard — Rendez-vous des artisans et artistes de Wendake',
+		author: 'Diane Andicha Picard',
+		role: 'Rendez-vous des artisans et artistes de Wendake',
+		titleHref: 'https://rvaawendake.com/',
 		logo: '/images/rvaaw-logo.png',
 		logoAlt: 'Rendez-vous des artisans et artistes de Wendake logo',
 		text: '“We highly recommend Steven for his flexibility, commitment, integrity, and rigor in managing timelines. He played a significant role in planning our project, drafting complex documents, financial records, advice, and recommendations that greatly improved the reach of our event.”'
 	},
 	{
-		title: 'Dominic LeBlanc — Minister of Fisheries, Oceans and the Canadian Coast Guard',
+		author: 'Dominic LeBlanc',
+		role: 'Minister of Fisheries, Oceans and the Canadian Coast Guard',
+		titleHref: 'https://www.dfo-mpo.gc.ca/index-fra.html',
 		logo: '/images/sig-blk-en.svg',
 		logoAlt: 'Government of Canada',
 		text:
 			'“This accomplishment is the result of the extraordinary and tireless dedication of public servants like you. Thanks to you and your colleagues, Canada once again plays a leading role internationally, and we are on track to make a strong contribution to global ocean stewardship—a legacy for future generations.”'
 	},
 	{
-		title: 'Emmanuel Morin — Projets Autochtones du Québec',
+		author: 'Emmanuel Morin',
+		role: 'Projets Autochtones du Québec',
+		titleHref: 'https://www.paqc.org/fr/',
 		logo: '/images/projets-autochtones-header.png',
 		logoAlt: 'Projets Autochtones du Québec',
 		text:
 			'“Steven has been devoted to the First Peoples community since his time at the McCord Museum. He volunteered in numerous fundraisers and joined the administrative council to follow the Organization’s progress. He has given all the support he could and remains a precious asset to Projets Autochtones du Québec.”'
 	},
 	{
-		title: 'Camil Picard — Commission des droits de la personne et des droits de la jeunesse',
+		author: 'Camil Picard',
+		role: 'Commission des droits de la personne et des droits de la jeunesse',
+		titleHref: 'https://www.cdpdj.qc.ca/fr',
 		logo: '/images/cdpdj-blue.svg',
 		logoAlt: 'Commission des droits de la personne et des droits de la jeunesse',
 		text:
 			'“We thank you warmly for helping make the Table de concertation jeunesse a success. Thank you for your testimony and your commitment.”'
 	},
 	{
-		title: 'Annabelle Laliberté & Dolorès Contré Migwans — McCord Museum',
+		author: 'Annabelle Laliberté & Dolorès Contré Migwans',
+		role: 'McCord Museum',
+		titleHref: 'https://www.musee-mccord-stewart.ca/fr/',
 		logo: '/images/McCord.webp',
 		logoAlt: 'McCord Museum',
 		text:
 			'“On behalf of the Jardin des Premières Nations de Montréal and the McCord Museum, we warmly thank you for the help on Huron-Wendat history and culture. We highlight Steven Germain’s work as researcher and oral history documentalist to sensitize school audiences to First Nations and their relationship with the environment. He showed initiative, curiosity, sensitivity, and ease with respected Elders, compiling key information to build a new program. His work and presence were greatly appreciated.”'
 	},
 	{
-		title: 'Carl Simard — First Nations of Quebec and Labrador Health and Social Services Commission',
+		author: 'Carl Simard',
+		role: 'First Nations of Quebec and Labrador Health and Social Services Commission',
+		titleHref: 'https://cssspnql.com/',
 		logo: '/images/Logo_CSSSPNQL.svg',
 		logoAlt: 'First Nations of Quebec and Labrador Health and Social Services Commission',
 		text:
 			'“Steven works very hard and adapts to any situation. He organizes his work, respects deadlines, and surfaces local risks and challenges. He is creative, supportive of others, and has the will to get things done.”'
 	},
 	{
-		title: 'Carl D. Kaucher — CCSI / CompuCom / Getronics / Shell',
+		author: 'Carl D. Kaucher',
+		role: 'CCSI / CompuCom / Getronics / Shell',
+		titleHref: 'https://ccsi.quebec/en/',
 		logo: '/images/CC-Logo-Tagline-Berry@300x.png',
 		logoAlt: 'Shell Canada',
 		text:
@@ -81,19 +98,19 @@ const marqueeItems = recommendations;
 			<input class="nav-toggle" type="checkbox" id="nav-toggle-en" aria-label="Toggle navigation" />
 			<label class="nav-toggle-button" for="nav-toggle-en">Menu</label>
 			<div class="nav-panel">
-				<nav class="nav-links">
-					{navLinks.map((link) => (
-						<a href={link.href}>{link.label}</a>
-					))}
-				</nav>
-				<div class="header-actions">
-					<div class="lang-group">
-						<a class="lang-toggle" href="/" lang="fr" aria-label="View the French version of the site">
-							Français
-						</a>
-						<a class="lang-toggle" href="/es" lang="es" aria-label="View the Spanish version of the site">
-							Español
-						</a>
+					<nav class="nav-links">
+						{navLinks.map((link) => (
+							<a href={normalizeHref(link.href)}>{link.label}</a>
+						))}
+					</nav>
+					<div class="header-actions">
+						<div class="lang-group">
+							<a class="lang-toggle" href={normalizeHref('/')} lang="fr" aria-label="View the French version of the site">
+								Français
+							</a>
+							<a class="lang-toggle" href={normalizeHref('/es')} lang="es" aria-label="View the Spanish version of the site">
+								Español
+							</a>
 					</div>
 					<a class="button primary small" href={topCtas.calendly} target="_blank" rel="noreferrer">
 						Book a call
@@ -202,8 +219,17 @@ const marqueeItems = recommendations;
 					{marqueeItems.map((rec, index) => (
 						<article class="rec-card" aria-hidden={index >= recommendations.length}>
 							<div class="rec-head">
-								{rec.logo ? <img class="rec-logo" src={rec.logo} alt={rec.logoAlt ?? rec.title} loading="lazy" /> : null}
-								<h3>{rec.title}</h3>
+								{rec.logo ? <img class="rec-logo" src={rec.logo} alt={rec.logoAlt ?? rec.title ?? `${rec.author} — ${rec.role}`} loading="lazy" /> : null}
+								<h3>
+									{rec.title ? (
+										rec.title
+									) : (
+										<>
+											{rec.author} {' — '}
+											<a href={rec.titleHref} target="_blank" rel="noreferrer">{rec.role}</a>
+										</>
+									)}
+								</h3>
 							</div>
 							<p class="rec-quote">{rec.text}</p>
 						</article>

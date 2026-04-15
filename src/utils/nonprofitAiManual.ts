@@ -6,6 +6,9 @@ const sourcePath = resolve(process.cwd(), 'src/manuals/nonprofit-ai-manual.sourc
 const assetPrefixPattern =
 	/\.\/2026-03-16 clean Manuel d(?:&#39;|')IA pour les organismes à but non lucratif_files\//g;
 const bodyScriptPattern = /<script\b[^>]*>[\s\S]*?<\/script>/gi;
+const sourceMetaPattern =
+	/<meta[^>]+(?:name="description"|name="twitter:[^"]+"|property="og:[^"]+"|http-equiv="Content-Type")[^>]*>\s*/gi;
+const sourceViewportPattern = /<meta[^>]+content="width=device-width,initial-scale=1"[^>]*>\s*/gi;
 const embeddedChromePattern =
 	/<div class="pg-site-header">[\s\S]*?<\/div>\s*<div class="mob-progress-bar no-print"[\s\S]*?<\/div>\s*<div class="mob-scrim no-print"[\s\S]*?<\/div>\s*<div class="mob-anchor-sheet no-print"[\s\S]*?<\/div>/i;
 const inlineHandlerPattern =
@@ -17,7 +20,7 @@ const donorPortfolioPromptNew =
 const sharePromptLinkPattern =
 	/<a class="share-prompt-btn" href="file:\/\/wsl\.localhost\/Ubuntu-D\/home\/germa\/projects\/patro-%20ai%20playbook\/AI%20Playbook%20for%20Nonprofits\.final-fr\.html#">/;
 const sharePromptLinkReplacement =
-	'<a class="share-prompt-btn" href="mailto:steven.germain.gl@gmail.com?subject=Partager%20votre%20prompt">';
+	'<a class="share-prompt-btn" href="mailto:info@aiionwatha.com?subject=Partager%20votre%20prompt">';
 
 let cachedDocument: { head: string; body: string } | undefined;
 
@@ -36,7 +39,8 @@ export function getNonprofitAiManualDocument() {
 
 	const head = headMatch[1]
 		.replace(/<title>[\s\S]*?<\/title>/i, '')
-		.replace(/<meta[^>]+name="description"[^>]*>/i, '')
+		.replace(sourceMetaPattern, '')
+		.replace(sourceViewportPattern, '')
 		.replace(assetPrefixPattern, '/manual-ai-obnl-assets/');
 
 	const body = bodyMatch[1]

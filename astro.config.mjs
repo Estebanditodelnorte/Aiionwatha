@@ -8,10 +8,9 @@ export default defineConfig({
 	integrations: [
 		sitemap({
 			filter: (page) => {
-				// Include all localized pages; keep both / and /en/.
-				return true;
+				return !page.endsWith('/404/');
 			}
 		})
 	],
-	trailingSlash: 'never'
+	trailingSlash: 'always'
 });

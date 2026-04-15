@@ -1,12 +1,15 @@
 ---
 import { getNonprofitAiManualDocument } from '../../../utils/nonprofitAiManual';
+import { normalizePageUrl, toAbsoluteUrl } from '../../../utils/site';
 
 const meta = {
-	title: 'IA para OSFL | Aiionwatha',
+	title: 'Guia de IA para ONG en Quebec | Aiionwatha',
 	description:
-		'Manual práctico de IA para organizaciones sin fines de lucro con aplicaciones para estrategia, programas, recaudación y operaciones.',
+		'Guia practica de IA para organizaciones sin fines de lucro en Quebec con aplicaciones para subvenciones, recaudacion y operaciones.',
 	url: 'https://aiionwatha.com/es/herramientas/ia-para-osfl',
-	locale: 'es_ES'
+	locale: 'es_ES',
+	image: '/images/hero.webp',
+	imageAlt: 'Guia de IA para organizaciones sin fines de lucro en Quebec'
 };
 
 const alternates = [
@@ -17,6 +20,8 @@ const alternates = [
 ];
 
 const document = getNonprofitAiManualDocument();
+const canonicalUrl = normalizePageUrl(meta.url);
+const imageUrl = toAbsoluteUrl(meta.image, canonicalUrl);
 ---
 
 <!doctype html>
@@ -26,8 +31,20 @@ const document = getNonprofitAiManualDocument();
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
 		<title>{meta.title}</title>
 		<meta name="description" content={meta.description} />
-		<link rel="canonical" href={meta.url} />
-		{alternates.map((alternate) => <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />)}
+		<meta name="robots" content="index,follow" />
+		<link rel="canonical" href={canonicalUrl} />
+		{alternates.map((alternate) => <link rel="alternate" hreflang={alternate.hreflang} href={normalizePageUrl(alternate.href)} />)}
+		<meta property="og:type" content="article" />
+		<meta property="og:locale" content={meta.locale} />
+		<meta property="og:title" content={meta.title} />
+		<meta property="og:description" content={meta.description} />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:image" content={imageUrl} />
+		<meta property="og:image:alt" content={meta.imageAlt} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={meta.title} />
+		<meta name="twitter:description" content={meta.description} />
+		<meta name="twitter:image" content={imageUrl} />
 		<Fragment set:html={document.head} />
 	</head>
 	<body>

@@ -8,14 +8,14 @@
   "description": "Consultation en gestion et optimisation des subventions pour les organisations autochtones.",
   "icons": [
     {
-      "src": "/images/wp-uploads/2024/12/cropped-site-logo.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
     },
     {
-      "src": "/images/wp-uploads/2024/12/cropped-site-logo.png",
-      "sizes": "192x192",
-      "type": "image/png"
+      "src": "/images/logo-aiionwatha-conseils.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
     }
   ]
 }

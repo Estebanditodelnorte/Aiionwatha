@@ -11,54 +11,70 @@ const { meta, alternates, navLinks, hero, about, reasons, founder, services, sto
 
 const recommendations = [
 	{
-		title: 'Isa Gros-Louis — Espace Max Oné Onti Gros-Louis',
+		author: 'Isa Gros-Louis',
+		role: 'Espace Max Oné Onti Gros-Louis',
+		titleHref: 'https://maxgroslouis.com/',
 		logo: '/images/emgl-logo.png',
 		logoAlt: 'Logo Espace Max Oné Onti Gros-Louis',
 		text: '«Trabajar con Steven fue decisivo: experiencia sólida, visión estratégica clara y consejos precisos adaptados al terreno.»'
 	},
 	{
-		title: 'Diane Andicha Picard — Rendez-vous des artisans et artistes de Wendake',
+		author: 'Diane Andicha Picard',
+		role: 'Rendez-vous des artisans et artistes de Wendake',
+		titleHref: 'https://rvaawendake.com/',
 		logo: '/images/rvaaw-logo.png',
 		logoAlt: 'Logo Rendez-vous des artisans et artistes de Wendake',
 		text: '«Recomendamos ampliamente a Steven por su flexibilidad, compromiso, integridad y rigor en la gestión de plazos. Desempeñó un papel significativo en la planificación de nuestro proyecto, la redacción de documentos complejos, registros financieros, asesorías y recomendaciones que mejoraron enormemente el alcance de nuestro evento.»'
 	},
 	{
-		title: 'Dominic LeBlanc — Ministro de Pesca, Océanos y Guardia Costera de Canadá',
+		author: 'Dominic LeBlanc',
+		role: 'Ministro de Pesca, Océanos y Guardia Costera de Canadá',
+		titleHref: 'https://www.dfo-mpo.gc.ca/index-fra.html',
 		logo: '/images/sig-blk-en.svg',
 		logoAlt: 'Gobierno de Canadá',
 		text:
 			'«Este logro es el resultado del compromiso extraordinario e incansable de servidores públicos como usted. Gracias a usted y a sus colegas, Canadá vuelve a desempeñar un papel de liderazgo internacional y estamos en camino de contribuir de manera sólida a la gestión mundial de los océanos, un legado importante para las generaciones futuras.»'
 	},
 	{
-		title: 'Emmanuel Morin — Projets Autochtones du Québec',
+		author: 'Emmanuel Morin',
+		role: 'Projets Autochtones du Québec',
+		titleHref: 'https://www.paqc.org/fr/',
 		logo: '/images/projets-autochtones-header.png',
 		logoAlt: 'Projets Autochtones du Québec',
 		text:
 			'«Steven ha estado dedicado a la comunidad de los Primeros Pueblos desde su trabajo en el Museo McCord. Se ofreció como voluntario en numerosas recaudaciones de fondos y se unió al consejo administrativo para seguir el progreso de la Organización. Ha brindado todo el apoyo posible y sigue siendo un recurso valioso para Projets Autochtones du Québec.»'
 	},
 	{
-		title: 'Camil Picard — Commission des droits de la personne et des droits de la jeunesse',
+		author: 'Camil Picard',
+		role: 'Commission des droits de la personne et des droits de la jeunesse',
+		titleHref: 'https://www.cdpdj.qc.ca/fr',
 		logo: '/images/cdpdj-blue.svg',
 		logoAlt: 'Commission des droits de la personne et des droits de la jeunesse',
 		text:
 			'«Te agradecemos calurosamente por haber contribuido al éxito de la Table de concertation jeunesse. Gracias por tu testimonio y tu implicación.»'
 	},
 	{
-		title: 'Annabelle Laliberté y Dolorès Contré Migwans — Museo McCord',
+		author: 'Annabelle Laliberté y Dolorès Contré Migwans',
+		role: 'Museo McCord',
+		titleHref: 'https://www.musee-mccord-stewart.ca/fr/',
 		logo: '/images/McCord.webp',
 		logoAlt: 'Museo McCord',
 		text:
 			'«En nombre del Jardin des Premières Nations de Montreal y del Museo McCord, te agradecemos calurosamente por la ayuda sobre la historia y la cultura hurona-wendat. Destacamos el trabajo de Steven Germain como investigador y documentalista de tradición oral para sensibilizar al público escolar sobre las Primeras Naciones y su relación con el medio ambiente. Demostró iniciativa, curiosidad, sensibilidad y empatía con los ancianos respetados, compilando información clave para construir un nuevo programa muy apreciado.»'
 	},
 	{
-		title: 'Carl Simard — Comisión de Salud y Servicios Sociales de las Primeras Naciones de Quebec y Labrador',
+		author: 'Carl Simard',
+		role: 'Comisión de Salud y Servicios Sociales de las Primeras Naciones de Quebec y Labrador',
+		titleHref: 'https://cssspnql.com/',
 		logo: '/images/Logo_CSSSPNQL.svg',
 		logoAlt: 'Comisión de Salud y Servicios Sociales de las Primeras Naciones de Quebec y Labrador',
 		text:
 			'«Steven trabaja muy duro y se adapta a cualquier situación. Organiza su trabajo, respeta los plazos y sabe destacar los riesgos y retos locales. Es creativo, solidario con los demás y tiene la voluntad de lograr los objetivos.»'
 	},
 	{
-		title: 'Carl D. Kaucher — CCSI / CompuCom / Getronics / Shell',
+		author: 'Carl D. Kaucher',
+		role: 'CCSI / CompuCom / Getronics / Shell',
+		titleHref: 'https://ccsi.quebec/en/',
 		logo: '/images/CC-Logo-Tagline-Berry@300x.png',
 		logoAlt: 'Shell Canadá',
 		text:
@@ -179,8 +195,17 @@ const marqueeItems = recommendations;
 					{marqueeItems.map((rec, index) => (
 						<article class="rec-card" aria-hidden={index >= recommendations.length}>
 							<div class="rec-head">
-								{rec.logo ? <img class="rec-logo" src={rec.logo} alt={rec.logoAlt ?? rec.title} loading="lazy" /> : null}
-								<h3>{rec.title}</h3>
+								{rec.logo ? <img class="rec-logo" src={rec.logo} alt={rec.logoAlt ?? rec.title ?? `${rec.author} — ${rec.role}`} loading="lazy" /> : null}
+								<h3>
+									{rec.title ? (
+										rec.title
+									) : (
+										<>
+											{rec.author} {' — '}
+											<a href={rec.titleHref} target="_blank" rel="noreferrer">{rec.role}</a>
+										</>
+									)}
+								</h3>
 							</div>
 							<p class="rec-quote">{rec.text}</p>
 						</article>

@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { pageContent } from '../content/siteContent';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import { normalizeHref } from '../utils/site';
 
 const site = pageContent.fr;
 const { navLinks, topCtas, footer } = site;
@@ -11,7 +12,7 @@ const metadata = {
 	title: 'Politique de confidentialité | Aiionwatha',
 	description: 'Politique de confidentialité d\'Aiionwatha conforme à la Loi 25 du Québec et aux meilleures pratiques de protection des données.',
 	url: 'https://aiionwatha.com/politique-de-confidentialite',
-	image: '/images/wp-uploads/2025/01/subventions-autochtones-wendake.webp',
+	image: '/images/hero.webp',
 	locale: 'fr_CA'
 };
 
@@ -79,7 +80,7 @@ const sections = [
 	{
 		title: '6. Vos droits',
 		body: [
-			"Vous pouvez demander l'accès, la rectification, la suppression ou la portabilité de vos données personnelles. Vous pouvez également retirer votre consentement lorsque le traitement repose sur celui-ci. Pour exercer ces droits, écrivez à <a href=\"mailto:steven.germain.gl@gmail.com\">steven.germain.gl@gmail.com</a>."
+			"Vous pouvez demander l'accès, la rectification, la suppression ou la portabilité de vos données personnelles. Vous pouvez également retirer votre consentement lorsque le traitement repose sur celui-ci. Pour exercer ces droits, écrivez à <a href=\"mailto:info@aiionwatha.com\">info@aiionwatha.com</a>."
 		]
 	},
 	{
@@ -88,7 +89,7 @@ const sections = [
 	},
 	{
 		title: '8. Contact',
-		body: ['Pour toute question ou préoccupation concernant la confidentialité ou la Loi 25, veuillez communiquer avec nous à <a href="mailto:steven.germain.gl@gmail.com">steven.germain.gl@gmail.com</a>.']
+		body: ['Pour toute question ou préoccupation concernant la confidentialité ou la Loi 25, veuillez communiquer avec nous à <a href="mailto:info@aiionwatha.com">info@aiionwatha.com</a>.']
 	}
 ];
 ---
@@ -117,10 +118,10 @@ const sections = [
 		<section class="policy-content">
 			<div class="container">
 				<div class="policy-lang-switch">
-					<a class="lang-toggle" href="/en/privacy-policy" lang="en" aria-label="View the English version of this policy">
+					<a class="lang-toggle" href={normalizeHref('/en/privacy-policy')} lang="en" aria-label="View the English version of this policy">
 						English
 					</a>
-					<a class="lang-toggle" href="/es/privacy-policy" lang="es" aria-label="Ver la versión en español de esta política">
+					<a class="lang-toggle" href={normalizeHref('/es/privacy-policy')} lang="es" aria-label="Ver la versión en español de esta política">
 						Español
 					</a>
 				</div>

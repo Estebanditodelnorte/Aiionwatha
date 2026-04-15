@@ -9,7 +9,7 @@ export interface Props {
 		testimonialAuthor?: string;
 		testimonialRole?: string;
 		recommendationsTitle?: string;
-		recommendations?: { quote: string; author: string; role: string }[];
+		recommendations?: { quote: string; author: string; role: string; roleHref?: string }[];
 	};
 	calendlyUrl: string;
 	showRecommendations?: boolean;
@@ -37,7 +37,11 @@ const { story, calendlyUrl, showRecommendations = true } = Astro.props;
 							<p class="testimonial">{rec.quote}</p>
 							<p class="testimonial-author">
 								<strong>{rec.author}</strong><br />
-								{rec.role}
+								{rec.roleHref ? (
+									<a href={rec.roleHref} target="_blank" rel="noreferrer">{rec.role}</a>
+								) : (
+									rec.role
+								)}
 							</p>
 						</article>
 					))}

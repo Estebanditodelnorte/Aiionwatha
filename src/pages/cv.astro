@@ -1,0 +1,305 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { pageContent } from '../content/siteContent';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { resumeProfiles } from '../data/resumeProfile';
+
+const site = pageContent.fr;
+const { navLinks, topCtas, footer } = site;
+const pdfHref = '/documents/steven-germain-gros-louis-cv-2024.pdf';
+const profile = resumeProfiles.fr;
+
+const metadata = {
+	title: 'CV de Steven Germain Gros-Louis | Aiionwatha',
+	description: 'Consultez le CV détaillé de Steven Germain Gros-Louis, ses projets en cours, ses compétences et ses résultats.',
+	url: 'https://aiionwatha.com/cv',
+	image: '/images/1761612506932.webp',
+	locale: 'fr_CA'
+};
+
+const alternates = [
+	{ href: metadata.url, hreflang: 'fr-CA' },
+	{ href: 'https://aiionwatha.com/en/resume', hreflang: 'en-CA' },
+	{ href: 'https://aiionwatha.com/es/curriculum', hreflang: 'es-ES' },
+	{ href: metadata.url, hreflang: 'x-default' }
+];
+
+const modified = '2026-04-13T09:00:00-04:00';
+const breadcrumbItems = [
+	{ name: 'Accueil', url: 'https://aiionwatha.com/' },
+	{ name: 'CV', url: metadata.url }
+];
+---
+
+<Layout
+	title={metadata.title}
+	description={metadata.description}
+	url={metadata.url}
+	image={metadata.image}
+	locale={metadata.locale}
+	alternates={alternates}
+	modified={modified}
+	breadcrumbItems={breadcrumbItems}
+>
+	<SiteHeader
+		navLinks={navLinks}
+		brandingSmall={footer.brandingSmall}
+		calendlyUrl={topCtas.calendly}
+		primaryCtaLabel="Prendre rendez-vous"
+		langToggle={{ label: 'English', href: '/en/resume', ariaLabel: 'View the English resume page', lang: 'en' }}
+		extraLangToggle={{ label: 'Español', href: '/es/curriculum', ariaLabel: 'Ver la página del currículum en español', lang: 'es' }}
+		anchorId="top"
+	/>
+
+	<section class="resume-hero">
+		<div class="container resume-hero-grid">
+			<div>
+				<p class="tag">{profile.tag}</p>
+				<h1>{profile.heroTitle}</h1>
+				<p class="lead">{profile.heroLead}</p>
+				<div class="hero-actions">
+					<a class="button primary" href={pdfHref} target="_blank" rel="noreferrer">{profile.openPdfLabel}</a>
+					<a class="button secondary" href={pdfHref} download>{profile.downloadPdfLabel}</a>
+				</div>
+			</div>
+			<div class="resume-card">
+				<p><strong>Lieu</strong><span>Wendake, Québec</span></p>
+				<p><strong>Courriel</strong><a href="mailto:info@aiionwatha.com">info@aiionwatha.com</a></p>
+				<p><strong>Téléphone</strong><a href="tel:+15815782260">(581) 578-2260</a></p>
+				<p><strong>LinkedIn</strong><a href="https://www.linkedin.com/in/stevengermain/" target="_blank" rel="noreferrer">Profil public</a></p>
+			</div>
+		</div>
+	</section>
+
+	<section class="highlights">
+		<div class="container highlights-grid">
+			{profile.highlights.map((item) => (
+				<div class="highlight-card">
+					<strong>{item.title}</strong>
+					<p>{item.text}</p>
+				</div>
+			))}
+		</div>
+	</section>
+
+	<section class="resume-section">
+		<div class="container">
+			<p class="section-title">{profile.profileTitle}</p>
+			<h2>{profile.coreStrengthsTitle}</h2>
+			<p class="summary">{profile.profileSummary}</p>
+		</div>
+	</section>
+
+	<section class="resume-section alt">
+		<div class="container">
+			<p class="section-title">{profile.currentProjectsTitle}</p>
+			<h2>Mandats actifs</h2>
+			<div class="project-grid">
+				{profile.currentProjects.map((project) => (
+					<article class="project-card">
+						<h3>{project.title}</h3>
+						<p><strong>Rôle</strong> {project.role}</p>
+						<p><strong>Portée</strong> {project.scope}</p>
+						<ul class="detail-list">
+							{project.results.map((item) => (
+								<li>{item}</li>
+							))}
+						</ul>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="resume-section">
+		<div class="container">
+			<p class="section-title">{profile.fundingResearchTitle}</p>
+			<h2>Portée de la veille et de l’analyse</h2>
+			<p class="summary">{profile.fundingResearchSummary}</p>
+			<div class="skills-grid">
+				<article class="skill-card">
+					<h3>{profile.fundingThemesTitle}</h3>
+					<ul class="detail-list">
+						{profile.fundingThemes.map((item) => (
+							<li>{item}</li>
+						))}
+					</ul>
+				</article>
+				<article class="skill-card">
+					<h3>{profile.fundingTypesTitle}</h3>
+					<ul class="detail-list">
+						{profile.fundingTypes.map((item) => (
+							<li>{item}</li>
+						))}
+					</ul>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<section class="resume-section">
+		<div class="container">
+			<p class="section-title">{profile.completedProjectsTitle}</p>
+			<h2>Livraisons et expériences marquantes</h2>
+			<div class="project-grid">
+				{profile.completedProjects.map((project) => (
+					<article class="project-card">
+						<h3>{project.title}</h3>
+						<p><strong>Rôle</strong> {project.role}</p>
+						<p><strong>Portée</strong> {project.scope}</p>
+						<ul class="detail-list">
+							{project.results.map((item) => (
+								<li>{item}</li>
+							))}
+						</ul>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="resume-section alt">
+		<div class="container">
+			<p class="section-title">{profile.skillsTitle}</p>
+			<h2>Compétences</h2>
+			<div class="skills-grid">
+				{profile.skillGroups.map((group) => (
+					<article class="skill-card">
+						<h3>{group.title}</h3>
+						<ul class="detail-list">
+							{group.items.map((item) => (
+								<li>{item}</li>
+							))}
+						</ul>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="resume-section">
+		<div class="container">
+			<p class="section-title">{profile.recognitionTitle}</p>
+			<h2>Résultats et signaux de crédibilité</h2>
+			<ul class="detail-list large-list">
+				{profile.recognition.map((item) => (
+					<li>{item}</li>
+				))}
+			</ul>
+		</div>
+	</section>
+
+	<section class="cta">
+		<div class="container cta-box">
+			<div>
+				<p class="tag">{profile.ctaTag}</p>
+				<h2>{profile.ctaTitle}</h2>
+				<p>{profile.ctaBody}</p>
+			</div>
+			<div class="cta-actions">
+				<a class="button primary" href={pdfHref} target="_blank" rel="noreferrer">{profile.openPdfLabel}</a>
+				<a class="button secondary" href="mailto:info@aiionwatha.com">{profile.contactLabel}</a>
+			</div>
+		</div>
+	</section>
+
+	<SiteFooter footer={footer} navLinks={navLinks} topCtas={topCtas} />
+
+	<style>
+		.resume-hero {
+			background: linear-gradient(120deg, rgba(20, 108, 67, 0.08), rgba(48, 162, 58, 0.15)), var(--color-cream);
+			padding: 3.5rem 1.5rem;
+		}
+		.resume-hero-grid,
+		.highlights-grid,
+		.project-grid,
+		.skills-grid {
+			max-width: var(--max-width);
+			margin: 0 auto;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 1.5rem;
+		}
+		.lead {
+			font-size: 1.1rem;
+			max-width: 46rem;
+		}
+		.summary {
+			max-width: 62rem;
+			color: var(--color-muted);
+			font-size: 1.05rem;
+		}
+		.hero-actions,
+		.cta-actions {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.85rem;
+			margin-top: 1.25rem;
+		}
+		.resume-card,
+		.highlight-card,
+		.project-card,
+		.skill-card,
+		.cta-box {
+			background: #fff;
+			border-radius: 1rem;
+			box-shadow: 0 18px 40px rgba(6, 24, 12, 0.08);
+			border: 1px solid rgba(6, 24, 12, 0.08);
+		}
+		.resume-card,
+		.project-card,
+		.skill-card {
+			padding: 1.35rem 1.5rem;
+		}
+		.resume-card p {
+			margin: 0 0 0.85rem;
+			display: grid;
+			gap: 0.2rem;
+		}
+		.resume-card p:last-child {
+			margin-bottom: 0;
+		}
+		.highlights,
+		.resume-section,
+		.cta {
+			padding: 2.5rem 1.5rem;
+		}
+		.resume-section.alt {
+			background: var(--color-cream);
+		}
+		.highlight-card {
+			padding: 1.5rem;
+		}
+		.highlight-card strong {
+			display: block;
+			font-size: 1.35rem;
+			color: var(--color-deep-green);
+		}
+		.project-card h3,
+		.skill-card h3 {
+			margin-bottom: 0.7rem;
+		}
+		.project-card p {
+			margin: 0 0 0.7rem;
+		}
+		.detail-list {
+			margin: 0;
+			padding-left: 1.1rem;
+			display: grid;
+			gap: 0.55rem;
+		}
+		.large-list {
+			max-width: 54rem;
+		}
+		.cta-box {
+			max-width: var(--max-width);
+			margin: 0 auto;
+			padding: clamp(2rem, 4vw, 3rem);
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 1.5rem;
+			align-items: center;
+		}
+	</style>
+</Layout>

@@ -1,28 +1,42 @@
 ---
 import '../styles/global.css';
+import { normalizePageUrl, toAbsoluteUrl } from '../utils/site';
+const siteRoot = 'https://aiionwatha.com/';
 const {
 	title = 'Aiionwatha - Optimisez vos subventions',
 	description = "Aiionwatha accompagne les organisations autochtones et les PME à décrocher des subventions et à structurer leurs projets grâce à l'IA et à une expertise terrain.",
 	url = 'https://aiionwatha.com/',
-	image = '/images/wp-uploads/2025/01/subventions-autochtones-wendake.webp',
+	image = '/images/hero.webp',
 	locale = 'fr_CA',
 	robots = 'index,follow',
 	alternates = [],
 	ogImageAlt = 'Optimisez vos démarches avec des outils IA performants pour vos projets.',
 	published = '2024-12-31T11:08:43-05:00',
-	modified = '2025-01-20T19:25:52-05:00',
-	faqItems = []
+	modified = '2026-04-12T12:00:00-04:00',
+	faqItems = [],
+	breadcrumbItems = [],
+	serviceItems = [],
+	offerItems = []
 } = Astro.props;
 
 const htmlLang = typeof locale === 'string' ? locale.replace('_', '-') : 'fr-CA';
-const alternateLinks = Array.isArray(alternates) ? alternates : [];
+const canonicalUrl = normalizePageUrl(url);
+const alternateLinks = [...new Map(
+	[
+		{ href: canonicalUrl, hreflang: htmlLang },
+		...(Array.isArray(alternates) ? alternates : []).map((link) => ({
+			...link,
+			href: normalizePageUrl(link.href)
+		}))
+	].map((link) => [`${link.hreflang}:${link.href}`, link])
+).values()];
 
 const siteName = 'Aiionwatha Conseils en gestion';
 const logo = '/images/logo-aiionwatha-conseils.svg';
 const telephone = '+1-581-578-2260';
-const email = 'steven.germain.gl@gmail.com';
-const sameAs = ['https://www.linkedin.com/in/steven-gros-louis-germain/', 'https://www.facebook.com/Aiionwatha'];
-const headline = 'Aiionwatha - Optimisez vos subventions';
+const email = 'info@aiionwatha.com';
+const sameAs = ['https://www.linkedin.com/in/stevengermain/', 'https://www.facebook.com/Aiionwatha'];
+const headline = title;
 const address = {
 	'@type': 'PostalAddress',
 	addressLocality: 'Wendake',
@@ -31,82 +45,151 @@ const address = {
 	addressCountry: 'CA'
 };
 
-const absoluteImage = image?.startsWith('http') ? image : `${url.replace(/\/$/, '')}${image.startsWith('/') ? image : `/${image}`}`;
+const absoluteImage = toAbsoluteUrl(image, canonicalUrl);
+const absoluteLogo = toAbsoluteUrl(logo, siteRoot);
+const founderImage = toAbsoluteUrl('/images/founder.webp', siteRoot);
 
 const graph = [
 	{
 		'@type': ['ProfessionalService', 'Organization'],
-		'@id': `${url}#organization`,
+		'@id': `${siteRoot}#organization`,
 		name: siteName,
-		url,
+		url: siteRoot,
 		email,
 		telephone,
 		address,
 		logo: {
 			'@type': 'ImageObject',
-			'@id': `${url}#logo`,
-			url: `${url.replace(/\/$/, '')}${logo}`,
-			contentUrl: `${url.replace(/\/$/, '')}${logo}`,
+			'@id': `${siteRoot}#logo`,
+			url: absoluteLogo,
+			contentUrl: absoluteLogo,
 			inLanguage: locale
 		},
 		openingHours: ['Monday-Friday 09:00-17:00'],
 		sameAs
 	},
 	{
+		'@type': 'Person',
+		'@id': `${siteRoot}#person-steven-gros-louis-germain`,
+		name: 'Steven Gros-Louis Germain',
+		url: `${siteRoot}a-propos/`,
+		image: founderImage,
+		email,
+		jobTitle: 'Conseiller en gestion, stratégie de financement et transformation numérique',
+		worksFor: { '@id': `${siteRoot}#organization` },
+		alumniOf: {
+			'@type': 'CollegeOrUniversity',
+			name: 'McGill University'
+		},
+		hasCredential: [
+			{
+				'@type': 'EducationalOccupationalCredential',
+				name: 'B.A., McGill University'
+			},
+			{
+				'@type': 'EducationalOccupationalCredential',
+				name: 'CRIA'
+			},
+			{
+				'@type': 'EducationalOccupationalCredential',
+				name: 'EFPC'
+			}
+		],
+		knowsAbout: [
+			'grant strategy',
+			'Indigenous organizations',
+			'project structuring',
+			'digital transformation',
+			'AI adoption',
+			'community consultation',
+			'Quebec funding programs'
+		],
+		sameAs
+	},
+	{
 		'@type': 'WebSite',
-		'@id': `${url}#website`,
-		url,
+		'@id': `${siteRoot}#website`,
+		url: siteRoot,
 		name: siteName,
 		inLanguage: locale,
-		publisher: { '@id': `${url}#organization` },
-		potentialAction: {
-			'@type': 'SearchAction',
-			target: `${url}?s={search_term_string}`,
-			'query-input': 'required name=search_term_string'
-		}
+		publisher: { '@id': `${siteRoot}#organization` }
 	},
 	{
 		'@type': 'WebPage',
-		'@id': `${url}#webpage`,
-		url,
+		'@id': `${canonicalUrl}#webpage`,
+		url: canonicalUrl,
 		name: headline,
-		isPartOf: { '@id': `${url}#website` },
-		about: { '@id': `${url}#organization` },
+		description,
+		isPartOf: { '@id': `${siteRoot}#website` },
+		about: { '@id': `${siteRoot}#organization` },
 		inLanguage: locale,
 		datePublished: published,
 		dateModified: modified,
-		primaryImageOfPage: { '@id': `${url}#primaryImage` }
+		primaryImageOfPage: { '@id': `${canonicalUrl}#primaryImage` }
 	},
 	{
 		'@type': 'ImageObject',
-			'@id': `${url}#primaryImage`,
+			'@id': `${canonicalUrl}#primaryImage`,
 			url: absoluteImage,
 		inLanguage: locale
-	},
-	{
-		'@type': 'Article',
-		'@id': `${url}#article`,
-		headline,
-		author: {
-			'@type': 'Person',
-			name: 'Steven Gros-Louis Germain',
-			worksFor: { '@id': `${url}#organization` }
-		},
-		datePublished: published,
-		dateModified: modified,
-		image: { '@id': `${url}#primaryImage` },
-		isPartOf: { '@id': `${url}#webpage` }
 	}
 ];
 
 if (Array.isArray(faqItems) && faqItems.length > 0) {
 	graph.push({
 		'@type': 'FAQPage',
-		'@id': `${url}#faq`,
+		'@id': `${canonicalUrl}#faq`,
 		mainEntity: faqItems.map((item) => ({
 			'@type': 'Question',
 			name: item.question,
 			acceptedAnswer: { '@type': 'Answer', text: item.answer }
+		}))
+	});
+}
+
+if (Array.isArray(serviceItems) && serviceItems.length > 0) {
+	graph.push(
+		...serviceItems.map((item, index) => ({
+			'@type': 'Service',
+			'@id': `${canonicalUrl}#service-${index + 1}`,
+			serviceType: item.name,
+			name: item.name,
+			description: item.description,
+			provider: { '@id': `${siteRoot}#organization` },
+			areaServed: {
+				'@type': 'Country',
+				name: 'Canada'
+			},
+			inLanguage: locale
+		}))
+	);
+}
+
+if (Array.isArray(offerItems) && offerItems.length > 0) {
+	graph.push(
+		...offerItems.map((item, index) => ({
+			'@type': 'Offer',
+			'@id': `${canonicalUrl}#offer-${index + 1}`,
+			name: item.name,
+			description: item.description,
+			category: item.category ?? 'Consulting package',
+			priceCurrency: item.priceCurrency ?? 'CAD',
+			offeredBy: { '@id': `${siteRoot}#organization` },
+			url: canonicalUrl,
+			inLanguage: locale
+		}))
+	);
+}
+
+if (Array.isArray(breadcrumbItems) && breadcrumbItems.length > 0) {
+	graph.push({
+		'@type': 'BreadcrumbList',
+		'@id': `${canonicalUrl}#breadcrumbs`,
+		itemListElement: breadcrumbItems.map((item, index) => ({
+			'@type': 'ListItem',
+			position: index + 1,
+			name: item.name,
+			item: normalizePageUrl(item.url)
 		}))
 	});
 }
@@ -123,37 +206,38 @@ const jsonLd = {
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="theme-color" content="#0d3b2f" />
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<meta name="robots" content={robots} />
-		<link rel="canonical" href={url} />
-		<link rel="alternate" href={url} hreflang={htmlLang} />
+		<link rel="canonical" href={canonicalUrl} />
 		{alternateLinks.map((link) => (
 			<link rel="alternate" href={link.href} hreflang={link.hreflang} />
 		))}
-		<link rel="icon" href={logo} />
-		<link rel="apple-touch-icon" sizes="180x180" href={logo} />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="apple-touch-icon" href={logo} />
 		<link rel="manifest" href="/manifest.json" />
 		<meta property="og:locale" content={locale} />
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta property="og:url" content={url} />
+		<meta property="og:url" content={canonicalUrl} />
 		<meta property="og:site_name" content={siteName} />
-		<meta property="og:image" content={image} />
+		<meta property="og:image" content={absoluteImage} />
 		<meta property="og:image:alt" content={ogImageAlt} />
 		{alternateLinks
-			.filter((link) => link.hreflang && link.hreflang.toLowerCase() !== 'x-default')
+			.filter((link) => link.hreflang && link.hreflang.toLowerCase() !== 'x-default' && link.hreflang !== htmlLang)
 			.map((link) => (
 				<meta property="og:locale:alternate" content={link.hreflang.replace('-', '_')} />
 			))}
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content={image} />
-		<link rel="preload" as="font" type="font/woff2" href="/fonts/inter-400.woff2" crossorigin />
-		<link rel="preload" as="font" type="font/woff2" href="/fonts/inter-600.woff2" crossorigin />
-		<link rel="preload" as="font" type="font/woff2" href="/fonts/plusjakarta-600.woff2" crossorigin />
+		<meta name="twitter:image" content={absoluteImage} />
+		<meta name="twitter:image:alt" content={ogImageAlt} />
+		<link rel="preload" as="font" type="font/ttf" href="/fonts/inter-400.ttf" crossorigin />
+		<link rel="preload" as="font" type="font/ttf" href="/fonts/inter-600.ttf" crossorigin />
+		<link rel="preload" as="font" type="font/ttf" href="/fonts/plusjakarta-600.ttf" crossorigin />
 		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 		{import.meta.env.PUBLIC_GA_ID && (
 			<>

@@ -1,4 +1,6 @@
 ---
+import { normalizeHref } from '../utils/site';
+
 export interface Props {
 	footer: {
 		brandingSmall: string;
@@ -25,19 +27,19 @@ const { footer, navLinks, topCtas } = Astro.props;
 		<div class="footer-contact">
 			<span set:html={footer.ratingHtml} />
 			<a href={topCtas.phone}>(581) 578-2260</a>
-			<a href={topCtas.mail}>steven.germain.gl@gmail.com</a>
+			<a href={topCtas.mail}>info@aiionwatha.com</a>
 		</div>
 		<div class="footer-nav">
 			{navLinks.map((link) => (
-				<a href={link.href}>{link.label}</a>
+				<a href={normalizeHref(link.href)}>{link.label}</a>
 			))}
 		</div>
 		<div class="footer-links">
 			{footer.policyLink && (
-				<a class="policy-link" href={footer.policyLink.href}>{footer.policyLink.label}</a>
+				<a class="policy-link" href={normalizeHref(footer.policyLink.href)}>{footer.policyLink.label}</a>
 			)}
 			{footer.sitemapLink ? (
-				<a class="policy-link" href={footer.sitemapLink.href}>{footer.sitemapLink.label}</a>
+				<a class="policy-link" href={normalizeHref(footer.sitemapLink.href)}>{footer.sitemapLink.label}</a>
 			) : (
 				<a class="policy-link" href="/sitemap-index.xml">Sitemap</a>
 			)}

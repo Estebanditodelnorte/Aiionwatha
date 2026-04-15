@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { pageContent } from '../content/siteContent';
+import { normalizeHref } from '../utils/site';
 
 const content = pageContent.fr;
 const { navLinks, topCtas, footer } = content;
@@ -15,6 +16,8 @@ const meta = {
 	locale: 'fr_CA'
 };
 
+const modified = '2026-04-12T12:00:00-04:00';
+
 const alternates = [
 	{ href: meta.url, hreflang: 'fr-CA' },
 	{ href: 'https://aiionwatha.com/en/tools', hreflang: 'en-CA' },
@@ -22,41 +25,124 @@ const alternates = [
 	{ href: meta.url, hreflang: 'x-default' }
 ];
 
+const breadcrumbItems = [
+	{ name: 'Accueil', url: 'https://aiionwatha.com/' },
+	{ name: 'Outils', url: meta.url }
+];
+
 const categories = [
 	{
 		title: 'Guides SEO',
 		items: [
-			{ label: 'Guide SEO local (PDF)', href: '#' },
-			{ label: 'Checklist Core Web Vitals', href: '#' }
+			{ label: 'Guide SEO local', href: '/resources/guide-seo-local.md' },
+			{ label: 'Checklist Core Web Vitals', href: '/resources/checklist-core-web-vitals.md' }
 		]
 	},
 	{
 		title: 'Guides web',
 		items: [
-			{ label: 'Checklist de lancement de site', href: '#' },
-			{ label: 'Guide accessibilité et performance', href: '#' }
+			{ label: 'Checklist de lancement de site', href: '/resources/checklist-lancement-site.md' },
+			{ label: 'Guide accessibilité et performance', href: '/resources/guide-accessibilite-performance.md' },
+			{ label: 'Portfolio web', href: '/outils/portfolio' }
 		]
 	},
 	{
 		title: "Plans d'affaires et modèles",
 		items: [
-			{ label: 'Modèle de plan d’affaires (Google Docs)', href: '#' },
-			{ label: 'Budget prévisionnel (Excel)', href: '#' }
+			{ label: 'Modèle de plan d’affaires', href: '/resources/modele-plan-affaires.md' },
+			{ label: 'Budget prévisionnel', href: '/resources/budget-previsionnel.md' }
 		]
 	},
 	{
 		title: 'Autres outils',
 		items: [
-			{ label: 'Template de pitch deck', href: '#' },
-			{ label: 'Checklist conformité Loi 25', href: '#' },
+			{ label: 'Template de pitch deck', href: '/resources/template-pitch-deck.md' },
+			{ label: 'Checklist conformité Loi 25', href: '/resources/checklist-conformite-loi-25.md' },
 			{ label: 'Prompt Builder', href: '/prompt-builder' },
 			{ label: 'IA pour OBNL', href: '/outils/ia-pour-obnl' }
 		]
 	}
 ];
+
+const faqItems = [
+	{
+		question: "Quel subvention pour création d'entreprise ?",
+		answer: "Au Québec, les entrepreneurs peuvent solliciter des programmes de démarrage via les MRC, SADC ou CAE, la mesure STA, le Programme d’aide à l’entrepreneuriat et certains fonds sectoriels ou autochtones. Le bon programme dépend du stade du projet, du secteur et des retombées prévues."
+	},
+	{
+		question: "Une subvention, c’est quoi ?",
+		answer: "Une subvention est une aide financière non remboursable accordée par un gouvernement, une municipalité ou un organisme pour soutenir un projet précis. Elle peut servir à financer du démarrage, de l’équipement, de la formation, de l’innovation ou des activités de croissance."
+	},
+	{
+		question: "C’est quoi une subvention ?",
+		answer: "Une subvention est un financement non remboursable lié à un objectif défini, comme la création d’emplois, l’innovation, l’investissement ou le développement économique. Elle exige généralement un dossier structuré avec budget, calendrier et impacts attendus."
+	},
+	{
+		question: "Quelle subvention pour changer les fenêtres ?",
+		answer: "Pour des travaux d’efficacité énergétique au Québec, les programmes comme Rénoclimat, Chauffez vert ou certains volets fédéraux peuvent financer une partie du remplacement de fenêtres. Le montant varie selon la performance énergétique, les matériaux et l’admissibilité du bâtiment."
+	},
+	{
+		question: "Quelle subvention pour une association ?",
+		answer: "Les associations peuvent viser des aides au fonctionnement, des programmes communautaires, culturels ou régionaux comme le PAOC, des fonds de développement régional, ainsi que des programmes municipaux. Le choix dépend de la mission de l’organisme et du projet à financer."
+	},
+	{
+		question: "Comment obtenir une subvention pour une association ?",
+		answer: "Une association doit définir son projet, chiffrer ses besoins, choisir le programme le plus pertinent, puis déposer un dossier complet avec objectifs, budget, calendrier et preuves de capacité. Le suivi après dépôt et la qualité des pièces justificatives restent déterminants."
+	},
+	{
+		question: "Comment demander une subvention pour une association ?",
+		answer: "La demande doit présenter des objectifs clairs, les résultats attendus, un budget détaillé et la démonstration que l’équipe peut réaliser le projet. Plusieurs programmes exigent aussi des lettres d’appui, un plan stratégique ou des pièces administratives à jour."
+	},
+	{
+		question: "Comment comptabiliser une subvention d’investissement ?",
+		answer: "En pratique comptable, une subvention d’investissement est souvent enregistrée comme revenu différé puis amortie au même rythme que l’actif financé. Le traitement exact dépend des normes applicables et de la nature de l’actif ou du programme reçu."
+	},
+	{
+		question: "Comment obtenir une subvention ?",
+		answer: "La méthode consiste à valider les besoins du projet, repérer les programmes admissibles, préparer un dossier solide avec indicateurs et budget, déposer dans les délais, puis assurer un suivi rigoureux. Les demandes les plus fortes répondent précisément aux critères du bailleur."
+	},
+	{
+		question: "Comment obtenir une subvention pour une entreprise ?",
+		answer: "Une entreprise doit démontrer le besoin financier, l’impact économique ou innovant du projet, la viabilité du budget et sa capacité d’exécution. Les décideurs accordent plus facilement leur soutien quand les retombées et les livrables sont concrets et mesurables."
+	},
+	{
+		question: "Comment demander la subvention pour borne de recharge ?",
+		answer: "Les aides pour bornes de recharge demandent généralement une facture, une preuve d’achat, l’adresse d’installation et le formulaire officiel du programme, par exemple via Transportez vert ou des incitatifs fédéraux. Il faut vérifier les dates de dépôt et les exigences techniques."
+	},
+	{
+		question: "Qui subventionne au Québec ?",
+		answer: "Les subventions au Québec proviennent surtout des ministères provinciaux, du gouvernement fédéral, des municipalités, des MRC, des SADC, des CAE et de certaines fondations privées. Chaque source finance des objectifs différents, d’où l’importance d’un bon tri initial."
+	},
+	{
+		question: "Quel subvention pour une association ?",
+		answer: "Les associations ont souvent accès à des subventions de fonctionnement, de projets communautaires, de culture, de jeunesse, de sport ou de développement territorial. Il faut sélectionner les programmes alignés avec la mission, la clientèle et la portée du projet."
+	},
+	{
+		question: "Subvention : quel compte comptable ?",
+		answer: "Une subvention d’exploitation est généralement comptabilisée en revenus, une subvention d’investissement en revenu différé ou en réduction du coût de l’actif, et une subvention salariale en réduction des charges concernées. La présentation doit suivre les normes comptables applicables."
+	},
+	{
+		question: "C’est quoi une subvention (version simple) ?",
+		answer: "Une subvention est de l’argent accordé pour aider à réaliser un projet sans devoir le rembourser. Elle sert souvent à lancer, améliorer ou financer une initiative économique, communautaire, culturelle ou environnementale."
+	},
+	{
+		question: "Comment comptabiliser une subvention ?",
+		answer: "Le traitement dépend du type de subvention. Une aide d’exploitation est souvent reconnue en revenus, une aide d’investissement est amortie dans le temps, et une aide salariale réduit les charges de personnel. Une validation comptable est recommandée avant clôture."
+	}
+];
 ---
 
-<Layout title={meta.title} description={meta.description} url={meta.url} image={meta.image} locale={meta.locale} alternates={alternates}>
+<Layout
+	title={meta.title}
+	description={meta.description}
+	url={meta.url}
+	image={meta.image}
+	locale={meta.locale}
+	alternates={alternates}
+	modified={modified}
+	breadcrumbItems={breadcrumbItems}
+	faqItems={faqItems}
+>
 	<SiteHeader
 		navLinks={navLinks}
 		brandingSmall={footer.brandingSmall}
@@ -79,7 +165,7 @@ const categories = [
 						<ul>
 							{cat.items.map((item) => (
 								<li>
-									<a href={item.href}>{item.label}</a>
+									<a href={normalizeHref(item.href)}>{item.label}</a>
 								</li>
 							))}
 						</ul>

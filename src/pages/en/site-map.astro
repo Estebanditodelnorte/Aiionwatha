@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import { pageContent } from '../../content/siteContent';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
+import { normalizeHref } from '../../utils/site';
 
 const content = pageContent.en;
 const { meta, alternates, navLinks, topCtas, footer } = content;
@@ -57,7 +58,7 @@ const pageAlternates = [
 			<ul class="sitemap-list">
 				{pages.map((page) => (
 					<li>
-						<a href={page.href}>{page.label}</a>
+						<a href={normalizeHref(page.href)}>{page.label}</a>
 					</li>
 				))}
 			</ul>

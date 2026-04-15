@@ -16,11 +16,18 @@ const meta = {
 	locale: 'fr_CA'
 };
 
+const modified = '2026-04-12T12:00:00-04:00';
+
 const alternates = [
 	{ href: meta.url, hreflang: 'fr-CA' },
 	{ href: 'https://aiionwatha.com/en/services', hreflang: 'en-CA' },
 	{ href: 'https://aiionwatha.com/es/services', hreflang: 'es-ES' },
 	{ href: meta.url, hreflang: 'x-default' }
+];
+
+const breadcrumbItems = [
+	{ name: 'Accueil', url: 'https://aiionwatha.com/' },
+	{ name: 'Services', url: meta.url }
 ];
 
 const services = [
@@ -117,9 +124,33 @@ const packages = [
     badge: "Le plus complet"
   }
 ];
+
+const serviceItems = services.map((service) => ({
+	name: service.name,
+	description: `${service.value} Tarif indicatif : ${service.price}.`
+}));
+
+const offerItems = packages.map((pkg) => ({
+	name: pkg.name,
+	description: `${pkg.tagline} ${pkg.highlight} Tarif indicatif : ${pkg.priceRange}.`,
+	priceCurrency: currency,
+	category: 'Forfait conseil'
+}));
 ---
 
-<Layout title={meta.title} description={meta.description} url={meta.url} image={meta.image} ogImageAlt={meta.imageAlt} locale={meta.locale} alternates={alternates}>
+<Layout
+	title={meta.title}
+	description={meta.description}
+	url={meta.url}
+	image={meta.image}
+	ogImageAlt={meta.imageAlt}
+	locale={meta.locale}
+	alternates={alternates}
+	modified={modified}
+	breadcrumbItems={breadcrumbItems}
+	serviceItems={serviceItems}
+	offerItems={offerItems}
+>
 	<SiteHeader
 		navLinks={navLinks}
 		brandingSmall={footer.brandingSmall}
@@ -137,6 +168,26 @@ const packages = [
 			<p class="intro">
 				Sélectionnez les services à la carte ou choisissez un forfait clé en main. Chaque mandat est ajusté après un appel de découverte.
 			</p>
+		</div>
+	</section>
+
+	<section class="table-section">
+		<div class="container">
+			<h2>Réponses rapides</h2>
+			<div class="insight-grid">
+				<article class="insight-card">
+					<h3>Que fait un consultant en subventions ?</h3>
+					<p>Un consultant en subventions repère les programmes admissibles, structure le dossier, rédige les arguments, assemble les preuves d’impact et sécurise le suivi avec les bailleurs. L’objectif est d’augmenter la qualité du dépôt, de réduire les oublis et d’améliorer les chances d’approbation.</p>
+				</article>
+				<article class="insight-card">
+					<h3>Combien coûte l’accompagnement ?</h3>
+					<p>Le coût varie selon la complexité du projet, le volume de documentation et le niveau d’accompagnement demandé. Chez Aiionwatha, certains mandats sont tarifés au forfait, d’autres à l’heure, et certains dossiers de subvention peuvent aussi être structurés avec une part variable liée au résultat.</p>
+				</article>
+				<article class="insight-card">
+					<h3>Pour qui ces services sont-ils utiles ?</h3>
+					<p>Les services s’adressent surtout aux organisations autochtones, OBNL, institutions culturelles et PME qui doivent financer, organiser ou moderniser un projet. Ils sont particulièrement utiles quand il faut produire rapidement un dossier crédible, un budget solide ou une feuille de route exécutable.</p>
+				</article>
+			</div>
 		</div>
 	</section>
 
@@ -213,6 +264,25 @@ const packages = [
 		}
 		.table-section {
 			padding: 3rem 1.5rem;
+		}
+		.insight-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+			gap: 1rem;
+			margin-top: 1rem;
+		}
+		.insight-card {
+			background: #fff;
+			border-radius: 1.25rem;
+			padding: 1.2rem;
+			box-shadow: 0 18px 40px rgba(6, 24, 12, 0.07);
+		}
+		.insight-card h3 {
+			margin-bottom: 0.55rem;
+		}
+		.insight-card p {
+			margin: 0;
+			color: var(--color-muted);
 		}
 		.table-wrap {
 			overflow-x: auto;

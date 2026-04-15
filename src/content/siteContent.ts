@@ -18,6 +18,7 @@ export const pageContent = {
 		navLinks: [
 			{ label: "Accueil", href: "/#accueil" },
 			{ label: "À propos", href: "/a-propos" },
+			{ label: "CV", href: "/cv" },
 			{ label: "Services", href: "/services" },
 			{ label: "Valeurs", href: "/#valeurs" },
 			{ label: "Contact", href: "/#contact" },
@@ -154,37 +155,43 @@ export const pageContent = {
 					quote:
 						"« Travailler avec Steven Gros-Louis Germain d’Aiionwatha a été une expérience profondément enrichissante et déterminante pour mon projet. Son accompagnement professionnel se distingue par une expertise solide, une vision stratégique claire et une capacité exceptionnelle à apporter des conseils précis, pertinents et adaptés à la réalité du terrain. Steven possède un sens aigu de l’analyse et une compréhension remarquable des enjeux organisationnels et culturels. Grâce à ses recommandations éclairées, j’ai pu avancer avec confiance, structurer mes étapes et prendre des décisions alignées sur mes objectifs à long terme. Son écoute, sa disponibilité et son engagement authentique font de lui un partenaire de confiance. Je recommande chaleureusement les services d’Aiionwatha à toute personne ou organisation en quête d’un accompagnement fondé sur l’expertise, l’intégrité et le succès de ses clients. »",
 					author: "Isa Gros-Louis",
-					role: "Espace Max Oné Onti Gros-Louis"
+					role: "Espace Max Oné Onti Gros-Louis",
+					roleHref: "https://maxgroslouis.com/"
 				},
 				{
 					quote:
 						"« Nous recommandons grandement Steven pour sa flexibilité, son engagement, son intégrité et sa rigueur dans la gestion des délais. Il a joué un rôle significatif dans la planification de notre projet, la rédaction de documents complexes, registres financiers, conseils, recommandations qui ont grandement amélioré la portée de notre événement. »",
 					author: "Diane Andicha Picard",
-					role: "Vice-Présidente, Rendez-vous des artisans et artistes de Wendake"
+					role: "Vice-Présidente, Rendez-vous des artisans et artistes de Wendake",
+					roleHref: "https://rvaawendake.com/"
 				},
 				{
 					quote:
 						"« Cet accomplissement est le résultat de l’engagement extraordinaire et acharné des fonctionnaires comme vous. Grâce à vous et à vos collègues, le Canada joue une fois encore un rôle de chef de file à l’échelle internationale, et nous sommes sur la bonne voie pour contribuer fortement à l’intendance mondiale des océans, un héritage important pour les générations à venir. »",
 					author: "Dominic LeBlanc",
-					role: "Ministre des Pêches, des Océans et de la Garde côtière canadienne"
+					role: "Ministre des Pêches, des Océans et de la Garde côtière canadienne",
+					roleHref: "https://www.dfo-mpo.gc.ca/index-fra.html"
 				},
 				{
 					quote:
 						"« Steven a été dévoué à la communauté des Premiers Peuples dès son passage au Musée McCord. Il s’est engagé dans les collectes de fonds puis au conseil administratif pour suivre les progrès de l’Organisation. Il a donné tout le soutien possible et demeure un atout précieux pour Projets Autochtones du Québec. »",
 					author: "Emmanuel Morin",
-					role: "Directeur, Projets Autochtones du Québec"
+					role: "Directeur, Projets Autochtones du Québec",
+					roleHref: "https://www.paqc.org/fr/"
 				},
 				{
 					quote:
 						"« Nous tenons à te remercier chaleureusement d’avoir contribué à la réussite de la Table de concertation jeunesse. Merci pour ton témoignage et ton implication. »",
 					author: "Camil Picard",
-					role: "Vice-président, Commission des droits de la personne et des droits de la jeunesse"
+					role: "Vice-président, Commission des droits de la personne et des droits de la jeunesse",
+					roleHref: "https://www.cdpdj.qc.ca/fr"
 				},
 				{
 					quote:
 						"« Au nom du Jardin des Premières Nations de Montréal et du Musée McCord, nous te remercions chaleureusement pour l’aide apportée sur l’histoire et la culture huronne-wendat. Nous soulignons particulièrement le travail de Steven Germain comme recherchiste et documentaliste de tradition orale pour sensibiliser la clientèle scolaire aux Premières Nations et à leur rapport avec l’environnement. Son initiative, sa curiosité, sa sensibilité et son entregent auprès des aînés ont permis de bâtir un nouveau programme très apprécié. »",
 					author: "Annabelle Laliberté et Dolorès Contré Migwans",
-					role: "Musée McCord"
+					role: "Musée McCord",
+					roleHref: "https://www.musee-mccord-stewart.ca/fr/"
 				},
 				{
 					quote:
@@ -220,7 +227,7 @@ export const pageContent = {
 		},
 		topCtas: {
 			calendly: "https://calendly.com/steven-germain-gl",
-			mail: "mailto:steven.germain.gl@gmail.com",
+			mail: "mailto:info@aiionwatha.com",
 			phone: "tel:+15815782260"
 		},
 		cta: {
@@ -228,7 +235,7 @@ export const pageContent = {
 			heading: "Transformez vos idées en réussites durables avec Aiionwatha",
 			paragraph: "Du premier diagnostic jusqu’au dépôt final, nous restons à vos côtés pour sécuriser les financements, gérer la gouvernance et partager les enseignements.",
 			primaryLabel: "Planifier une session",
-			secondaryLabel: "steven.germain.gl@gmail.com"
+			secondaryLabel: "info@aiionwatha.com"
 		},
 		footer: {
 			brandingSmall: "Conseils en gestion",
@@ -257,6 +264,7 @@ export const pageContent = {
 		navLinks: [
 			{ label: "Home", href: "/en#home" },
 			{ label: "About", href: "/en/about" },
+			{ label: "Resume", href: "/en/resume" },
 			{ label: "Services", href: "/en/services" },
 			{ label: "Values", href: "/en#values" },
 			{ label: "Contact", href: "/en#contact" },
@@ -393,37 +401,43 @@ export const pageContent = {
 					quote:
 						"“Working with Steven was pivotal: solid expertise, clear strategic vision, and precise on-the-ground advice.”",
 					author: "Isa Gros-Louis",
-					role: "Espace Max Oné Onti Gros-Louis"
+					role: "Espace Max Oné Onti Gros-Louis",
+					roleHref: "https://maxgroslouis.com/"
 				},
 				{
 					quote:
 						"We highly recommend Steven for his flexibility, commitment, integrity, and rigor in managing timelines. He played a significant role in planning our project, drafting complex documents, financial records, advice, and recommendations that greatly improved the reach of our event.",
 					author: "Diane Andicha Picard",
-					role: "Vice-President, Rendez-vous des artisans et artistes de Wendake"
+					role: "Vice-President, Rendez-vous des artisans et artistes de Wendake",
+					roleHref: "https://rvaawendake.com/"
 				},
 				{
 					quote:
 						"“This accomplishment is the result of the extraordinary and tireless dedication of public servants like you. Thanks to you and your colleagues, Canada once again plays a leading role internationally, and we are on track to make a strong contribution to global ocean stewardship—a legacy for future generations.”",
 					author: "Dominic LeBlanc",
-					role: "Minister of Fisheries, Oceans and the Canadian Coast Guard"
+					role: "Minister of Fisheries, Oceans and the Canadian Coast Guard",
+					roleHref: "https://www.dfo-mpo.gc.ca/index-fra.html"
 				},
 				{
 					quote:
 						"“Steven has been devoted to the First Peoples community since his time at the McCord Museum. He volunteered in numerous fundraisers and joined the administrative council to follow the Organization’s progress. He has given all the support he could and remains a precious asset to Projets Autochtones du Québec.”",
 					author: "Emmanuel Morin",
-					role: "Director, Projets Autochtones du Québec"
+					role: "Director, Projets Autochtones du Québec",
+					roleHref: "https://www.paqc.org/fr/"
 				},
 				{
 					quote:
 						"“We thank you warmly for helping make the Table de concertation jeunesse a success. Thank you for your testimony and your commitment.”",
 					author: "Camil Picard",
-					role: "Vice-President, Commission des droits de la personne et des droits de la jeunesse"
+					role: "Vice-President, Commission des droits de la personne et des droits de la jeunesse",
+					roleHref: "https://www.cdpdj.qc.ca/fr"
 				},
 				{
 					quote:
 						"“On behalf of the Jardin des Premières Nations de Montréal and the McCord Museum, we warmly thank you for the help on Huron-Wendat history and culture. We highlight Steven Germain’s work as researcher and oral history documentalist to sensitize school audiences to First Nations and their relationship with the environment. He showed initiative, curiosity, sensitivity, and ease with respected Elders, compiling key information to build a new program. His work and presence were greatly appreciated.”",
 					author: "Annabelle Laliberté & Dolorès Contré Migwans",
-					role: "McCord Museum"
+					role: "McCord Museum",
+					roleHref: "https://www.musee-mccord-stewart.ca/fr/"
 				},
 				{
 					quote:
@@ -459,7 +473,7 @@ export const pageContent = {
 		},
 		topCtas: {
 			calendly: "https://calendly.com/steven-germain-gl",
-			mail: "mailto:steven.germain.gl@gmail.com",
+			mail: "mailto:info@aiionwatha.com",
 			phone: "tel:+15815782260"
 		},
 		cta: {
@@ -467,7 +481,7 @@ export const pageContent = {
 			heading: "Turn your ideas into lasting impact with Aiionwatha",
 			paragraph: "From the first diagnostic to the final submission, we stay by your side to secure funding, guide governance, and share insights.",
 			primaryLabel: "Plan a session",
-			secondaryLabel: "steven.germain.gl@gmail.com"
+			secondaryLabel: "info@aiionwatha.com"
 		},
 		footer: {
 			brandingSmall: "Management advisory",
@@ -496,6 +510,7 @@ export const pageContent = {
 		navLinks: [
 			{ label: "Inicio", href: "/es#home" },
 			{ label: "Acerca de", href: "/es/about" },
+			{ label: "CV", href: "/es/curriculum" },
 			{ label: "Servicios", href: "/es/services" },
 			{ label: "Valores", href: "/es#values" },
 			{ label: "Contacto", href: "/es#contact" },
@@ -632,37 +647,43 @@ export const pageContent = {
 					quote:
 						"«Trabajar con Steven fue decisivo: experiencia sólida, visión estratégica clara y consejos precisos adaptados al terreno.»",
 					author: "Isa Gros-Louis",
-					role: "Espace Max Oné Onti Gros-Louis"
+					role: "Espace Max Oné Onti Gros-Louis",
+					roleHref: "https://maxgroslouis.com/"
 				},
 				{
 					quote:
 						"Recomendamos ampliamente a Steven por su flexibilidad, compromiso, integridad y rigor en la gestión de plazos. Desempeñó un papel significativo en la planificación de nuestro proyecto, la redacción de documentos complejos, registros financieros, asesorías y recomendaciones que mejoraron enormemente el alcance de nuestro evento.",
 					author: "Diane Andicha Picard",
-					role: "Vicepresidenta, Rendez-vous des artisans et artistes de Wendake"
+					role: "Vicepresidenta, Rendez-vous des artisans et artistes de Wendake",
+					roleHref: "https://rvaawendake.com/"
 				},
 				{
 					quote:
 						"«Este logro es el resultado del compromiso extraordinario e incansable de servidores públicos como usted. Gracias a usted y a sus colegas, Canadá vuelve a desempeñar un papel de liderazgo internacional y estamos en camino de contribuir de manera sólida a la gestión mundial de los océanos, un legado importante para las generaciones futuras.»",
 					author: "Dominic LeBlanc",
-					role: "Ministro de Pesca, Océanos y Guardia Costera de Canadá"
+					role: "Ministro de Pesca, Océanos y Guardia Costera de Canadá",
+					roleHref: "https://www.dfo-mpo.gc.ca/index-fra.html"
 				},
 				{
 					quote:
 						"«Steven ha estado dedicado a la comunidad de los Primeros Pueblos desde su trabajo en el Museo McCord. Se ofreció como voluntario en numerosas recaudaciones de fondos y se unió al consejo administrativo para seguir el progreso de la Organización. Ha brindado todo el apoyo posible y sigue siendo un recurso valioso para Projets Autochtones du Québec.»",
 					author: "Emmanuel Morin",
-					role: "Director, Projets Autochtones du Québec"
+					role: "Director, Projets Autochtones du Québec",
+					roleHref: "https://www.paqc.org/fr/"
 				},
 				{
 					quote:
 						"«Te agradecemos calurosamente por haber contribuido al éxito de la Table de concertation jeunesse. Gracias por tu testimonio y tu implicación.»",
 					author: "Camil Picard",
-					role: "Vicepresidente, Commission des droits de la personne et des droits de la jeunesse"
+					role: "Vicepresidente, Commission des droits de la personne et des droits de la jeunesse",
+					roleHref: "https://www.cdpdj.qc.ca/fr"
 				},
 				{
 					quote:
 						"«En nombre del Jardin des Premières Nations de Montreal y del Museo McCord, te agradecemos calurosamente por la ayuda sobre la historia y la cultura hurona-wendat. Destacamos el trabajo de Steven Germain como investigador y documentalista de tradición oral para sensibilizar al público escolar sobre las Primeras Naciones y su relación con el medio ambiente. Demostró iniciativa, curiosidad, sensibilidad y empatía con los ancianos respetados, compilando información clave para construir un nuevo programa muy apreciado.»",
 					author: "Annabelle Laliberté y Dolorès Contré Migwans",
-					role: "Museo McCord"
+					role: "Museo McCord",
+					roleHref: "https://www.musee-mccord-stewart.ca/fr/"
 				},
 				{
 					quote:
@@ -698,7 +719,7 @@ export const pageContent = {
 		},
 		topCtas: {
 			calendly: "https://calendly.com/steven-germain-gl",
-			mail: "mailto:steven.germain.gl@gmail.com",
+			mail: "mailto:info@aiionwatha.com",
 			phone: "tel:+15815782260"
 		},
 		cta: {
@@ -707,7 +728,7 @@ export const pageContent = {
 			paragraph:
 				"Desde el primer diagnóstico hasta el envío final, permanecemos a tu lado para asegurar financiamiento, guiar la gobernanza y compartir aprendizajes.",
 			primaryLabel: "Planear una sesión",
-			secondaryLabel: "steven.germain.gl@gmail.com"
+			secondaryLabel: "info@aiionwatha.com"
 		},
 		footer: {
 			brandingSmall: "Asesoría en gestión",

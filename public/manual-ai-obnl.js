@@ -18,6 +18,131 @@ function setPromptTab(tabId) {
 	}
 }
 
+function revealStickyNav() {
+	var stickyNav = document.getElementById('stickyNav');
+	if (!stickyNav) return;
+
+	stickyNav.style.display = 'flex';
+	stickyNav.style.visibility = 'visible';
+	stickyNav.style.position = 'fixed';
+	stickyNav.style.pointerEvents = 'auto';
+}
+
+function closeNavGroups() {
+	document.querySelectorAll('.nav-group.open').forEach(function(group) {
+		group.classList.remove('open');
+	});
+}
+
+function setActiveSection(sectionId) {
+	if (!sectionId) return;
+
+	document
+		.querySelectorAll('.sticky-nav > button[data-section], .sticky-nav > a[data-section], .nav-dropdown button[data-section], .nav-dropdown a[data-section]')
+		.forEach(function(element) {
+			element.classList.remove('active', 'on');
+		});
+
+	document.querySelectorAll('.nav-group-trigger').forEach(function(element) {
+		element.classList.remove('active', 'on');
+	});
+
+	document
+		.querySelectorAll('.sticky-nav > button[data-section="' + sectionId + '"], .sticky-nav > a[data-section="' + sectionId + '"]')
+		.forEach(function(element) {
+			element.classList.add('active');
+		});
+
+	document
+		.querySelectorAll('.nav-dropdown button[data-section="' + sectionId + '"], .nav-dropdown a[data-section="' + sectionId + '"]')
+		.forEach(function(element) {
+			element.classList.add('active');
+			var navGroup = element.closest('.nav-group');
+			if (!navGroup) return;
+			var trigger = navGroup.querySelector('.nav-group-trigger');
+			if (trigger) {
+				trigger.classList.add('active');
+			}
+		});
+}
+
+function scrollToSection(sectionId) {
+	var target = document.getElementById(sectionId);
+	if (!target) return;
+
+	var parentSection = target.closest('.page[id]');
+	var activeId = parentSection && parentSection.id !== sectionId ? parentSection.id : sectionId;
+	setActiveSection(activeId);
+
+	target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function bindManualNavigation() {
+	var sections = Array.prototype.slice.call(document.querySelectorAll('.page[id]'));
+	if (!sections.length) return;
+
+	revealStickyNav();
+
+	var initialHash = (window.location.hash || '#hero').slice(1) || 'hero';
+	setActiveSection(initialHash);
+
+	if ('IntersectionObserver' in window) {
+		var observer = new IntersectionObserver(
+			function(entries) {
+				var visible = entries.filter(function(entry) {
+					return entry.isIntersecting;
+				});
+				if (!visible.length) return;
+
+				var best = visible.reduce(function(previous, current) {
+					return Math.abs(previous.boundingClientRect.top) < Math.abs(current.boundingClientRect.top) ? previous : current;
+				});
+
+				setActiveSection(best.target.id);
+			},
+			{ threshold: 0, rootMargin: '-40% 0px -55% 0px' }
+		);
+
+		sections.forEach(function(section) {
+			observer.observe(section);
+		});
+	}
+
+	document.addEventListener('click', function(event) {
+		var target = event.target instanceof Element ? event.target : null;
+		if (!target) return;
+
+		var navGroupTrigger = target.closest('.nav-group-trigger');
+		if (navGroupTrigger instanceof HTMLElement) {
+			event.preventDefault();
+			event.stopPropagation();
+
+			var navGroup = navGroupTrigger.closest('.nav-group');
+			if (!navGroup) return;
+
+			var shouldOpen = !navGroup.classList.contains('open');
+			closeNavGroups();
+			navGroup.classList.toggle('open', shouldOpen);
+			return;
+		}
+
+		var navSectionLink = target.closest('.sticky-nav [data-section], .nav-dropdown [data-section]');
+		if (navSectionLink instanceof HTMLElement) {
+			event.preventDefault();
+			var sectionId = navSectionLink.getAttribute('data-section');
+			closeNavGroups();
+			if (sectionId) {
+				scrollToSection(sectionId);
+			}
+			return;
+		}
+
+		if (!target.closest('.nav-group')) {
+			closeNavGroups();
+		}
+	});
+}
+
 function getAuthBoxes() {
 	return Array.prototype.slice.call(document.querySelectorAll('#authBoxes .auth-box'));
 }
@@ -300,6 +425,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		setPromptTab(initialTabId);
 	}
 
+	bindManualNavigation();
 	applyAuthorityState(getActiveAuthorityBox());
 
 	document.querySelectorAll('#heroBtns .hero-btn').forEach(function(button) {
