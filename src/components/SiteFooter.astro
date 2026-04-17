@@ -28,6 +28,32 @@ const { footer, navLinks, topCtas } = Astro.props;
 			<span set:html={footer.ratingHtml} />
 			<a href={topCtas.phone}>(581) 578-2260</a>
 			<a href={topCtas.mail}>info@aiionwatha.com</a>
+			<div class="social-links" aria-label="Social links">
+				<a
+					class="social-link linkedin"
+					href="https://www.linkedin.com/company/110078032/"
+					target="_blank"
+					rel="noreferrer"
+					aria-label="LinkedIn company page"
+					title="LinkedIn"
+				>
+					<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+						<path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5ZM.2 8.25h4.6V23H.2V8.25ZM8.03 8.25h4.4v2.01h.06c.61-1.15 2.11-2.37 4.34-2.37 4.64 0 5.5 3.06 5.5 7.04V23h-4.59v-6.74c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.76-2.59 3.56V23H8.03V8.25Z"/>
+					</svg>
+				</a>
+				<a
+					class="social-link facebook"
+					href="https://www.facebook.com/Aiionwathaconseilsengestion"
+					target="_blank"
+					rel="noreferrer"
+					aria-label="Facebook company page"
+					title="Facebook"
+				>
+					<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+						<path d="M13.5 23v-9h3l.45-3.5h-3.45V8.25c0-1 .28-1.68 1.73-1.68h1.85V3.45A24.5 24.5 0 0 0 14.71 3c-3.1 0-5.22 1.89-5.22 5.35v2.15H6.5V14h3v9h4z"/>
+					</svg>
+				</a>
+			</div>
 		</div>
 		<div class="footer-nav">
 			{navLinks.map((link) => (
@@ -72,6 +98,7 @@ const { footer, navLinks, topCtas } = Astro.props;
 		flex-direction: column;
 		gap: 0.25rem;
 		font-weight: 500;
+		align-items: flex-start;
 	}
 
 	.footer-nav {
@@ -96,11 +123,49 @@ const { footer, navLinks, topCtas } = Astro.props;
 	}
 
 	.legal {
-		margin: 0.25rem 0 0.75rem;
+		margin: 0.6rem 0 0.75rem;
+	}
+
+	.social-links {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		margin-top: 0.2rem;
+	}
+
+	.social-link {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 1.45rem;
+		height: 1.45rem;
+		border-radius: 999px;
+		border: none;
+		background: transparent;
+		transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+	}
+
+	.social-link:hover {
+		transform: translateY(-1px);
+	}
+
+	.social-link svg {
+		width: 0.9rem;
+		height: 0.9rem;
+		fill: currentColor;
+	}
+
+	.social-link.linkedin {
+		color: #0a66c2;
+	}
+
+	.social-link.facebook {
+		color: #1877f2;
 	}
 
 	.credits {
 		font-size: 0.85rem;
 		color: rgba(255, 255, 255, 0.7);
 	}
+
 </style>

@@ -138,6 +138,9 @@ const modified = '2026-04-12T12:00:00-04:00';
 				{founder.paragraphs.map((paragraph) => (
 					<p>{paragraph}</p>
 				))}
+				<p class="founder-meta">
+					Profil rédigé par <a href="/a-propos">Steven Germain Gros-Louis</a>. <a href="/cv">Consulter le CV complet</a>. Mis à jour le 16 avril 2026.
+				</p>
 				<div class="hero-ctas">
 					<a class="button primary" href={topCtas.mail}>{founder.primaryCta}</a>
 					<a class="button secondary" href={topCtas.phone}>{founder.secondaryCta}</a>
@@ -290,6 +293,12 @@ const modified = '2026-04-12T12:00:00-04:00';
 			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 			gap: 2rem;
 			align-items: center;
+		}
+
+		.founder-meta {
+			margin-top: 0.75rem;
+			font-size: 0.95rem;
+			color: var(--color-muted);
 		}
 
 		.founder-media img {

@@ -1,8 +1,45 @@
-# aiionwatha.com llms.txt
+# Aiionwatha
+> Aiionwatha helps Indigenous organizations, nonprofits, and SMBs secure funding with no upfront fees, structure projects, and build websites and digital resources that AI systems can understand and cite.
 
-site: https://aiionwatha.com
-name: Aiionwatha
-summary: Aiionwatha supports Indigenous organizations and SMBs with grant strategy, project structuring, and AI-enabled operational support.
-languages: fr, en, es
-contact: mailto:info@aiionwatha.com
-sitemap: https://aiionwatha.com/sitemap-index.xml
+## Start Here
+- [Home](https://aiionwatha.com/)
+- [About Steven](https://aiionwatha.com/a-propos)
+- [Services](https://aiionwatha.com/services)
+- [FAQ](https://aiionwatha.com/faq)
+- [CV](https://aiionwatha.com/cv)
+- [Resume PDF](https://aiionwatha.com/documents/steven-germain-gros-louis-cv-2024.pdf)
+- [Tools](https://aiionwatha.com/outils)
+- [Site map](https://aiionwatha.com/plan-du-site)
+
+## What Aiionwatha Does
+- Funding strategy for grants, foundations, and philanthropy.
+- Project structuring, budgets, dossiers, and follow-up with funders.
+- Website strategy, content structure, and SEO/GEO-friendly pages.
+- Digital support for AI adoption, documentation, and knowledge bases.
+- Consulting for Indigenous organizations, OBNL, and SMBs.
+
+## No-Risk Funding Support
+- Free to start with an initial diagnostic.
+- No upfront fees for funding support.
+- Client risk is reduced because the work is structured before major spend decisions.
+- The service is positioned to help people move from idea to funded project quickly.
+
+## Website Support
+- Strategic website planning for organizations that need a clear public presence.
+- Website copy that explains who you help, what you solve, and why you are credible.
+- Landing pages, service pages, and resource pages built for search and AI discovery.
+- GEO-friendly structure with clear headings, concise explanations, and internal links.
+
+## Proof and Credibility
+- [Selected recommendations](https://aiionwatha.com/#contact)
+- [Full resume](https://aiionwatha.com/cv)
+- [English resume](https://aiionwatha.com/en/resume)
+- [Privacy policy](https://aiionwatha.com/politique-de-confidentialite)
+- [LinkedIn company page](https://www.linkedin.com/company/110078032/)
+- [GitHub](https://github.com/Estebanditodelnorte)
+- [Facebook page](https://www.facebook.com/Aiionwathaconseilsengestion)
+
+## Contact
+- Email: [info@aiionwatha.com](mailto:info@aiionwatha.com)
+- Phone: [(581) 578-2260](tel:+15815782260)
+- Calendar: [Book a call](https://calendly.com/steven-germain-gl)

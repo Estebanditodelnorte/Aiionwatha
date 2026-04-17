@@ -3,7 +3,7 @@ export const pageContent = {
 		meta: {
 			title: "Aiionwatha - Optimisez vos subventions | Aiionwatha",
 			description:
-				"Aiionwatha aide les organisations autochtones et les PME à décrocher des subventions et à structurer leurs projets grâce à l'IA et à une expertise terrain.",
+				"Aiionwatha aide les organisations autochtones et les PME à obtenir du financement sans frais initiaux, à structurer leurs projets et à bâtir des sites web crédibles grâce à l'IA et à une expertise terrain.",
 			url: "https://aiionwatha.com/",
 			image: "/images/hero.webp",
 			imageAlt: "Optimisation des subventions pour maximiser les financements des projets innovants.",
@@ -31,11 +31,11 @@ export const pageContent = {
 			intro:
 				"Aiionwatha est un partenaire enraciné à Wendake qui unit l'innovation et les traditions pour accélérer des projets communautaires, culturels et économiques.",
 			body:
-				"Nous accompagnons les petites entreprises et organismes dans l'obtention de subventions, sans frais initiaux, grâce à une maîtrise pointue des processus administratifs et des outils IA.",
+				"Nous accompagnons les petites entreprises et organismes dans l'obtention de subventions sans frais initiaux, avec un modèle clair, peu risqué pour le client, et des services utiles aussi pour bâtir des sites web et contenus stratégiques.",
 		bullets: [
-			"Modèle sans risque – commission de 10 % seulement lorsque votre financement est obtenu.",
+			"Modèle sans risque - diagnostic initial sans frais et mandat expliqué avant tout engagement.",
 			"Perspective autochtone qui aligne modernité, culture et retombées locales.",
-			"Réseau de partenaires pour accélérer les étapes clés (finances, juridique, communication)."
+			"Réseau de partenaires pour accélérer les étapes clés (finances, juridique, communication, web)."
 		],
 			ctas: {
 				primaryLabel: "Parler à un expert",
@@ -53,16 +53,16 @@ export const pageContent = {
 		},
 		about: {
 			sectionTitle: "Vision",
-			heading: "Vous avez un projet ambitieux en tête ? Ensemble, faisons-le grandir.",
+			heading: "Vous avez un projet ambitieux en tête ? Ensemble, faisons-le grandir sans frais initiaux.",
 			paragraphs: [
 				"Inspiré par la figure d'Aïonhwá:tha, artisan de paix et d'innovation collective, Aiionwatha rassemble les expertises nécessaires pour donner vie à vos idées. Notre méthodologie s'appuie sur la co-création, l'écoute active et le souci des résultats mesurables.",
-				"En tant qu'entreprise autochtone, nous savons naviguer les programmes gouvernementaux, les critères ESG et les réalités des PME innovantes. Nous vous faisons gagner du temps, éliminons le stress administratif et transformons vos initiatives en réussites durables."
+				"En tant qu'entreprise autochtone, nous savons naviguer les programmes gouvernementaux, les critères ESG, les réalités des PME innovantes et les besoins d'un site web clair. Nous vous faisons gagner du temps, éliminons le stress administratif et transformons vos initiatives en réussites durables."
 			]
 		},
 		reasons: [
 			{
 				title: "Modèle sans risque",
-				text: "Aucuns frais initiaux : la rémunération se fait uniquement lorsque votre financement est accordé."
+				text: "Aucuns frais initiaux : vous pouvez lancer le diagnostic et clarifier le mandat avant tout engagement important."
 			},
 			{
 				title: "Expertise autochtone",
@@ -70,7 +70,7 @@ export const pageContent = {
 			},
 			{
 				title: "Optimisation des processus",
-				text: "Méthodologie IA + expérience terrain pour accélérer les demandes, réduire les délais et sécuriser les livrables."
+				text: "Méthodologie IA + expérience terrain pour accélérer les demandes, réduire les délais, sécuriser les livrables et structurer les sites web."
 			}
 		],
 		founder: {
@@ -110,9 +110,9 @@ export const pageContent = {
 					value: "Améliore l'expérience, le SEO et la confiance des bailleurs/clients."
 				},
 				{
-					title: "Design web & graphisme léger",
-					deliverable: "Landing pages ciblées, UX claire, visuels et microcopies de conversion.",
-					value: "Hausse le taux de conversion et la crédibilité des dossiers et campagnes."
+					title: "Sites web stratégiques",
+					deliverable: "Pages d’accueil, landing pages et structure de site claire.",
+					value: "Hausse le taux de conversion et rend les services plus faciles à recommander."
 				},
 				{
 					title: "Construction de documents clés",
@@ -233,7 +233,7 @@ export const pageContent = {
 		cta: {
 			sectionTitle: "Contact",
 			heading: "Transformez vos idées en réussites durables avec Aiionwatha",
-			paragraph: "Du premier diagnostic jusqu’au dépôt final, nous restons à vos côtés pour sécuriser les financements, gérer la gouvernance et partager les enseignements.",
+			paragraph: "Du premier diagnostic jusqu’au dépôt final, nous restons à vos côtés pour sécuriser les financements, gérer la gouvernance, bâtir des sites web utiles et partager les enseignements.",
 			primaryLabel: "Planifier une session",
 			secondaryLabel: "info@aiionwatha.com"
 		},
@@ -249,7 +249,7 @@ export const pageContent = {
 	en: {
 		meta: {
 			title: "Aiionwatha - Optimize your funding | Aiionwatha",
-			description: "Aiionwatha helps Indigenous organizations and SMBs secure grants and structure projects with AI-enabled expertise.",
+			description: "Aiionwatha helps Indigenous organizations and SMBs secure funding with no upfront fees, structure projects, and build credible websites with AI-enabled expertise.",
 			url: "https://aiionwatha.com/en",
 			image: "/images/hero.webp",
 			imageAlt: "Grant optimization to maximize funding for innovative projects.",
@@ -277,11 +277,11 @@ export const pageContent = {
 			intro:
 				"Aiionwatha is a partner anchored in Wendake that blends innovation and tradition to accelerate community, cultural, and economic projects.",
 			body:
-				"We guide SMBs and organizations through grant acquisition with no upfront fees, combining deep knowledge of administrative processes with intelligent automation.",
+				"We guide SMBs and organizations through grant acquisition with no upfront fees, combining deep knowledge of administrative processes with intelligent automation and website strategy.",
 			bullets: [
-				"Risk-free pricing - 10% commission only when your funding comes through.",
+				"Risk-free start - initial diagnostic with no upfront fees and a clear mandate before major commitment.",
 				"Indigenous perspective aligning modern tools, culture, and local impact.",
-				"Partner network to accelerate key phases (finance, legal, communications)."
+				"Partner network to accelerate key phases (finance, legal, communications, web)."
 			],
 			ctas: {
 				primaryLabel: "Talk to an expert",
@@ -299,16 +299,16 @@ export const pageContent = {
 	},
 		about: {
 			sectionTitle: "Vision",
-			heading: "Have an ambitious project in mind? Let's grow it together.",
+			heading: "Have an ambitious project in mind? Let's grow it together without upfront fees.",
 			paragraphs: [
 				"Aiionwatha is inspired by the peacemaker Aionhwatha and brings the right expertise together to turn your ideas into reality. Our methodology is founded on co-creation, active listening, and measurable outcomes.",
-				"As an Indigenous business, we understand government programs, ESG criteria, and the realities of innovative SMBs. We save you time, remove administrative stress, and turn your initiatives into lasting success."
+				"As an Indigenous business, we understand government programs, ESG criteria, the realities of innovative SMBs, and the need for a clear website. We save you time, remove administrative stress, and turn your initiatives into lasting success."
 			]
 		},
 		reasons: [
 			{
 				title: "Risk-free model",
-				text: "No upfront fees: we are only compensated when your funding is approved."
+				text: "No upfront fees: you can start with the diagnostic and define the mandate before any major commitment."
 			},
 			{
 				title: "Indigenous expertise",
@@ -316,7 +316,7 @@ export const pageContent = {
 			},
 			{
 				title: "Process optimization",
-				text: "AI-informed methodology plus field experience to speed up filings and secure deliverables."
+				text: "AI-informed methodology plus field experience to speed up filings, secure deliverables, and structure websites."
 			}
 		],
 		founder: {
@@ -356,9 +356,9 @@ export const pageContent = {
 					value: "Improves UX/SEO and trust with funders and clients."
 				},
 				{
-					title: "Web design & light graphics",
-					deliverable: "Focused landing pages, clear UX, visuals and microcopy for conversion.",
-					value: "Raises conversion rates and credibility for campaigns and dossiers."
+					title: "Strategic websites",
+					deliverable: "Home pages, landing pages, and a clear site structure.",
+					value: "Raises conversion rates and makes services easier to recommend."
 				},
 				{
 					title: "Key document production",
@@ -479,7 +479,7 @@ export const pageContent = {
 		cta: {
 			sectionTitle: "Contact",
 			heading: "Turn your ideas into lasting impact with Aiionwatha",
-			paragraph: "From the first diagnostic to the final submission, we stay by your side to secure funding, guide governance, and share insights.",
+			paragraph: "From the first diagnostic to the final submission, we stay by your side to secure funding, guide governance, build useful websites, and share insights.",
 			primaryLabel: "Plan a session",
 			secondaryLabel: "info@aiionwatha.com"
 		},
@@ -495,7 +495,7 @@ export const pageContent = {
 	es: {
 		meta: {
 			title: "Aiionwatha - Optimiza tus subvenciones | Aiionwatha",
-			description: "Aiionwatha ayuda a organizaciones indígenas y pymes a conseguir subvenciones y estructurar proyectos con experiencia potenciada por IA.",
+			description: "Aiionwatha ayuda a organizaciones indígenas y pymes a conseguir financiamiento sin honorarios iniciales, estructurar proyectos y crear sitios web creíbles con experiencia potenciada por IA.",
 			url: "https://aiionwatha.com/es",
 			image: "/images/hero.webp",
 			imageAlt: "Optimización de subvenciones para maximizar el financiamiento de proyectos innovadores.",
@@ -523,11 +523,11 @@ export const pageContent = {
 			intro:
 				"Aiionwatha es un socio arraigado en Wendake que une innovación y tradición para acelerar proyectos comunitarios, culturales y económicos.",
 			body:
-				"Acompañamos a pymes y organizaciones en la obtención de subvenciones sin honorarios iniciales, combinando profundo conocimiento administrativo con automatización inteligente.",
+				"Acompañamos a pymes y organizaciones en la obtención de subvenciones sin honorarios iniciales, combinando profundo conocimiento administrativo con automatización inteligente y estrategia web.",
 			bullets: [
-				"Modelo sin riesgo: comisión del 10 % solo cuando se obtiene tu financiamiento.",
+				"Inicio sin riesgo: diagnóstico inicial sin honorarios y mandato claro antes de cualquier compromiso importante.",
 				"Perspectiva indígena que alinea herramientas modernas, cultura e impacto local.",
-				"Red de socios para acelerar fases clave (finanzas, legal, comunicaciones)."
+				"Red de socios para acelerar fases clave (finanzas, legal, comunicaciones, web)."
 			],
 			ctas: {
 				primaryLabel: "Hablar con un experto",
@@ -545,16 +545,16 @@ export const pageContent = {
 		},
 		about: {
 			sectionTitle: "Visión",
-			heading: "¿Tienes un proyecto ambicioso? Hagámoslo crecer juntos.",
+			heading: "¿Tienes un proyecto ambicioso? Hagámoslo crecer juntos sin honorarios iniciales.",
 			paragraphs: [
 				"Aiionwatha se inspira en Aionhwá:tha, pacificador y líder colaborativo, y reúne la experiencia adecuada para llevar tus ideas a la realidad. Nuestra metodología se basa en la cocreación, la escucha activa y los resultados medibles.",
-				"Como empresa indígena, comprendemos los programas gubernamentales, los criterios ESG y las realidades de las pymes innovadoras. Te ahorramos tiempo, eliminamos el estrés administrativo y convertimos tus iniciativas en éxitos duraderos."
+				"Como empresa indígena, comprendemos los programas gubernamentales, los criterios ESG, las realidades de las pymes innovadoras y la necesidad de un sitio web claro. Te ahorramos tiempo, eliminamos el estrés administrativo y convertimos tus iniciativas en éxitos duraderos."
 			]
 		},
 		reasons: [
 			{
 				title: "Modelo sin riesgo",
-				text: "Sin honorarios iniciales: solo cobramos cuando se aprueba tu financiamiento."
+				text: "Sin honorarios iniciales: puedes comenzar con el diagnóstico y definir el mandato antes de comprometerte."
 			},
 			{
 				title: "Experiencia indígena",
@@ -562,7 +562,7 @@ export const pageContent = {
 			},
 			{
 				title: "Optimización de procesos",
-				text: "Metodología informada por IA + experiencia en terreno para acelerar expedientes y asegurar entregables."
+				text: "Metodología informada por IA + experiencia en terreno para acelerar expedientes, asegurar entregables y estructurar sitios web."
 			}
 		],
 		founder: {
@@ -602,9 +602,9 @@ export const pageContent = {
 					value: "Mejora UX/SEO y la confianza de financiadores y clientes."
 				},
 				{
-					title: "Diseño web y gráficos ligeros",
-					deliverable: "Landing pages enfocadas, UX clara, visuales y microcopias de conversión.",
-					value: "Eleva la conversión y la credibilidad de campañas y expedientes."
+					title: "Sitios web estratégicos",
+					deliverable: "Página principal, landing pages y estructura de sitio clara.",
+					value: "Eleva la conversión y hace que tus servicios sean más fáciles de recomendar."
 				},
 				{
 					title: "Producción de documentos clave",
@@ -726,7 +726,7 @@ export const pageContent = {
 			sectionTitle: "Contacto",
 			heading: "Convierte tus ideas en impacto duradero con Aiionwatha",
 			paragraph:
-				"Desde el primer diagnóstico hasta el envío final, permanecemos a tu lado para asegurar financiamiento, guiar la gobernanza y compartir aprendizajes.",
+				"Desde el primer diagnóstico hasta el envío final, permanecemos a tu lado para asegurar financiamiento, guiar la gobernanza, crear sitios web útiles y compartir aprendizajes.",
 			primaryLabel: "Planear una sesión",
 			secondaryLabel: "info@aiionwatha.com"
 		},
