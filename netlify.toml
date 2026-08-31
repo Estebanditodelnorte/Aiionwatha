@@ -12,6 +12,12 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/documents/steven-germain-gros-louis-cv-2024.pdf"
+  to = "/documents/resume-fr.pdf"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
